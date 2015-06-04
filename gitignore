@@ -1,0 +1,27 @@
+# Local configurations and files
+.env
+
+# Local installations
+node_packages
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Databases
+db/*.sqlite3
+
+# Log files
+log/*.log
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Compiled Python files
+*.pyc
+
