@@ -256,3 +256,11 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
+" -------------------- Plugin: CtrlP --------------------
+
+" Don't search .gitignore'd files
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" Don't search outside of the local working directory
+let g:ctrlp_working_path_mode = ''
+
