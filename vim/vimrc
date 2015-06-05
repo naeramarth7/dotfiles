@@ -97,10 +97,10 @@ noremap <leader>w :bn<CR>
 
 " hide unnecessary gui in gVim
 if has("gui_running")
-    set guioptions-=m  " remove menu bar
-    set guioptions-=T  " remove toolbar
-    set guioptions-=r  " remove right-hand scroll bar
-    set guioptions-=L  " remove left-hand scroll bar
+  set guioptions-=m  " remove menu bar
+  set guioptions-=T  " remove toolbar
+  set guioptions-=r  " remove right-hand scroll bar
+  set guioptions-=L  " remove left-hand scroll bar
 end
 
 " set Anomyce Powerline font as default
@@ -177,12 +177,12 @@ set pastetoggle=<f9>
 
 "" if windows...
 "if has('win32')
-    "" start maximized
-    "autocmd GUIEnter * simalt ~x
-    "" also use .vim instead of vimfiles, make sure to run the following command
-    "" once this was copied to /Users/<user>/.vim
-    ""  mklink %homepath%/.vimrc %homepath%/.vim/.vimrc
-    "let &runtimepath.=',$HOME/.vim'
+"" start maximized
+"autocmd GUIEnter * simalt ~x
+"" also use .vim instead of vimfiles, make sure to run the following command
+"" once this was copied to /Users/<user>/.vim
+""  mklink %homepath%/.vimrc %homepath%/.vim/.vimrc
+"let &runtimepath.=',$HOME/.vim'
 "endif
 
 " select all mapping
@@ -247,14 +247,10 @@ colorscheme solarized
 command! Reload so $MYVIMRC
 
 " ------------------------ Functions -----------------------
-function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-com! DiffSaved call s:DiffWithSaved()
+" Load functions from files in /functions/ folder
+for f in split(glob('~/.vim/functions/*.vim'), '\n')
+  exe 'source' f
+endfor
 
 " -------------------- Plugin: CtrlP --------------------
 
