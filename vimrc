@@ -24,9 +24,7 @@ if exists("&relativenumber")
 endif
 
 " make vim try to detect file types and load ert/lugins for them
-filetype on
-filetype plugin on
-filetype indent on
+filetype off
 
 " reload files changed outside vim
 set autoread
@@ -105,8 +103,8 @@ if has("gui_running")
     set guioptions-=L  " remove left-hand scroll bar
 end
 
-"" set Adobe's Source Code Pro font as default
-"set guifont=Menlo
+" set Anomyce Powerline font as default
+set guifont="Anonymice Powerline"
 
 "" allow Tab and Shift+Tab to
 "" tab  selection in visual mode
@@ -125,6 +123,9 @@ set ignorecase       " ignore case in when searching
 
 " Always show status line
 set laststatus=2
+
+" Load powerline plugin
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 
 " Set powerline
 set t_Co=256
@@ -198,17 +199,16 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'Lokaltog/vim-powerline'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'vim-scripts/L9'
-"Plugin 'vim-scripts/FuzzyFinder'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'rking/ag.vim'
 "Plugin 'itchyny/lightline.vim'
 "Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'tpope/vim-surround'
 " -- Web Development
 "Plugin 'Shutnik/jshint2.vim'
 "Plugin 'mattn/emmet-vim'
-"Plugin 'kchmck/vim-coffee-script'
+Plugin 'kchmck/vim-coffee-script'
 "Plugin 'groenewege/vim-less'
 "Plugin 'skammer/vim-css-color'
 "Plugin 'hail2u/vim-css3-syntax'
@@ -217,10 +217,11 @@ Plugin 'scrooloose/nerdcommenter'
 
 " end plugin definition
 call vundle#end()            " required for vundle
+filetype plugin indent on " required!
 
-"" start NERDTree on start-up and focus active window
-""autocmd VimEnter * NERDTree
-""autocmd VimEnter * wincmd p
+" start NERDTree on start-up and focus active window
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
 
 "" map FuzzyFinder
 "noremap <leader>b :FufBuffer<cr>
@@ -243,6 +244,7 @@ colorscheme solarized
 
 " ------------------------ Commands ------------------------
 "command -nargs=+ Se execute 'imgrep /' . [<f-args>][0] . '/ **/*.' . [<f-args>][1]
+command! Reload so $MYVIMRC
 
 " ------------------------ Functions -----------------------
 function! s:DiffWithSaved()
@@ -251,6 +253,6 @@ function! s:DiffWithSaved()
   vnew | r # | normal! 1Gdd
   diffthis
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-  endfunction
+endfunction
 com! DiffSaved call s:DiffWithSaved()
 
