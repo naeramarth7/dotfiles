@@ -1,21 +1,96 @@
-" ---------------------- USABILITY CONFIGURATION ----------------------
-"  Basic and pretty much needed settings to provide a solid base for
-"  source code editting
+" General {{{
 
-" don't make vim compatible with vi
-set nocompatible
+let mapleader = ","                     " Set map leader used for shortcuts
 
-" turn on syntax highlighting
-syntax on
+set nocompatible                        " Make vim more useful
+set viminfo='100,f1                     " Save up to 100 marks, enable capital marks
+set ttyfast                             " Optimize for fast terminal connections
 
-" and show line numbers
-set number
+set exrc                                " Enable per-directory .vimrc files
+set secure                              " Disable unsafe commands in them
 
-" Highlight current line
-set cursorline
+filetype off                            " Needs to be disabled before loading plugins via Vundle
 
-" Show the cursor position
-set ruler
+" }}}
+
+" Plugins {{{
+
+" Initiate Vundle
+let &runtimepath.=',$HOME/.vim/bundle/Vundle.vim'
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'              " Let Vundle manage Vundle - required
+
+                                        " General
+Plugin 'editorconfig/editorconfig-vim'  " Use .editorconfig
+Plugin 'flazz/vim-colorschemes'         " A lot of colorschemes to chose from
+Plugin 'kien/ctrlp.vim'                 " Ctrl+P for fuzzy find as in Sublime Text
+Plugin 'rking/ag.vim'                   " Search in files
+"Plugin 'scrooloose/nerdcommenter'       " Mappings for commenting
+Plugin 'tpope/vim-commentary'           " Commenting
+Plugin 'sjl/gundo.vim'                  " Undo tree
+Plugin 'terryma/vim-multiple-cursors'   " Multiple cursors as in Sublime Text
+Plugin 'tpope/vim-surround'             " Better surrounding handle
+
+                                        " Web Development
+Plugin 'chmck/vim-coffee-script'        " CoffeeScript support
+
+"Plugin 'itchyny/lightline.vim'
+
+"Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'tpope/vim-surround'
+" -- Web Development
+"Plugin 'Shutnik/jshint2.vim'
+"Plugin 'mattn/emmet-vim'
+"Plugin 'groenewege/vim-less'
+"Plugin 'skammer/vim-css-color'
+"Plugin 'hail2u/vim-css3-syntax'
+"Plugin 'digitaltoad/vim-jade'
+
+call vundle#end()
+
+" enable matchit plugin which ships with vim and greatly enhances '%'
+runtime macros/matchit.vim
+
+" Load powerline plugin
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+
+" }}}
+
+" UI: Colors {{{
+
+set background=dark
+colorscheme solarized                   " Set the color theme
+syntax on                               " Turn on syntax highlighting
+
+" }}}
+
+" UI: Indentation {{{
+
+set expandtab                           " Use spaces instead of tabs
+set autoindent                          " Auto indent based on previous line
+set smartindent                         " Smart indent inside of a new block
+set tabstop=2                           " Make tabs as wide as 2 spaces
+set softtabstop=2                       " In insert mode, tabs are 2 spaces
+set shiftwidth=2                        " Affects identation when using <<, >> or ==
+
+filetype plugin indent on               " Enable plugins and indentation per filetype
+                                        " Must be set after Vundle
+
+" }}}
+
+" UI: Visuals {{{
+
+set number                              " Show line numbers
+set cursorline                          " Highlight current line
+set lazyredraw                          " Redraw only when needed, not during macros
+set showmatch                           " Highlight matching brackets
+set laststatus=2                        " Always show statusbar
+
+set guifont="Anonymice Powerline"       " set Anomyce Powerline font as default
+
+set lcs=tab:▸\ ,trail:·,nbsp:_          " Set symbols for invisible characters
+set list                                " Show invisible characters
 
 " Use relative line numbers
 if exists("&relativenumber")
@@ -23,240 +98,183 @@ if exists("&relativenumber")
   au BufReadPost * set relativenumber
 endif
 
-" make vim try to detect file types and load ert/lugins for them
-filetype off
+" Use vertical bar instead of block cursor
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=1\x7"
+endif
 
-" reload files changed outside vim
-set autoread
+" }}}
 
-" encoding is utf 8
-set encoding=utf-8
+" UI: Menu {{{
+
+set wildmenu                            " Enable autocomplete menu for commands
+set wildmode=list:full                  " expand to and select first match on <tab>
+
+" }}}
+
+" Search {{{
+
+set gdefault                            " Add the g flag by default
+set incsearch                           " Search while typing
+set hlsearch                            " Highlight searches
+set ignorecase                          " Ignore case when searching
+
+" Turn off highlighting
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Open ag search
+nnoremap <leader>f :Ag<>
+
+" }}}
+
+" Folding {{{
+"
+set nofoldenable                        " Disable folding
+set foldlevelstart=10                   " Fold all lines above given level in a new buffer
+set foldmethod=indent                   " Fold based on indent level
+
+" Toggle folding
+nnoremap <space> za
+
+" }}}
+
+" Backups {{{
+
+set nobackup                            " Disable backups
+set writebackup                         " Backup files before overwriting, removed after successful write
+set noswapfile                          " Disable swap file
+set autoread                            " reload files changed outside vim
+
+" }}}
+
+" Buffers {{{
+
+set hidden                              " Allow unsaved buffers in background
+set splitbelow                          " Open new splits on bottom instead of top
+set splitright                          " Open new vsplits on right instead of left
+
+" Go to prev/next buffer
+nnoremap <leader>q :bp<CR>
+nnoremap <leader>w :bn<CR>
+
+" }}}
+
+" Views {{{
+
+set viewoptions=cursor,folds,slash,unix " Define settings to save per view / file
+autocmd BufWinLeave ?* mkview           " Save defined settings per view / file
+autocmd BufWinEnter ?* silent loadview  " Load defined settings per view / file
+
+" }}}
+
+" Movement {{{
+
+set backspace=indent,eol,start          " Allow backspace over identation and line breaks
+set scrolloff=5                         " Keep the cursor visible within x lines when scrolling
+
+" }}}
+
+" Additional Mappings {{{
+
+" Movement: Move by visual line (respects line wrappings)
+nnoremap j gj
+nnoremap k gk
+
+" Movement: Move lines
+" http://vim.wikia.com/wiki/Moving_lines_up_or_down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Shortcut for Gundo
+nnoremap <leader>u :GundoToggle<CR>
+
+" Edit vimrc/zshrc
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+
+" Resource vimrc
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" Select all
+nnoremap <leader>sa ggVG
+
+" }}}
+
+" Filetypes: General {{{
+
+set encoding=utf-8                      " Set default encoding to UTF-8
 set fileencoding=utf-8
-
-" enable matchit plugin which ships with vim and greatly enhances '%'
-runtime macros/matchit.vim
-
-" by default, in insert mode backspace won't delete over line breaks, or
-" automatically-inserted indentation, let's change that
-set backspace=indent,eol,start
-
-" dont't unload buffers when they are abandoned, instead stay in the
-" background
-set hidden
-
-" open new buffers below and to the right
-set splitbelow
-set splitright
-
-" set unix line endings
-set fileformat=unix
-" when reading files try unix line endings then dos, also use unix for new
-" buffers
+set fileformat=unix                     " Set unix line endings
 set fileformats=unix,dos
 
-" save up to 100 marks, enable capital marks
-set viminfo='100,f1
+set modelines=1                         " Enable file-specific settings
 
-" screen will not be redrawn while running macros, registers or other
-" non-typed comments
-set lazyredraw
+augroup general
+  " Clear autocommands for current group to make sure they're only applied once
+  autocmd!
+augroup END
 
-" Optimize for fast terminal connections
-set ttyfast
+" }}}
 
-" Add the g flag to search/replace by default
-set gdefault
+" Filetype: JavaScript {{{
 
-" Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc
-set secure
+augroup javascript
+  " Clear autocommands for current group to make sure they're only applied once
+  autocmd!
 
-" ---------------------- CUSTOMIZATION ----------------------
-"  The following are some extra mappings/configs to enhance my personal
-"  VIM experience
+  " Add autocommands per filetype
+  autocmd BufWritePost *.js silent :JSHint
+augroup END
 
-" set , as mapleader
-let mapleader = ","
+" }}}
 
-" map <leader>q and <leader>w to buffer prev/next buffer
-noremap <leader>q :bp<CR>
-noremap <leader>w :bn<CR>
+" Filetype: zsh-ish {{{
 
-"" windows like clipboard
-"" yank to and paste from the clipboard without prepending "* to commands
-"let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
-"" map c-x and c-v to work as they do in windows, only in insert mode
-"vm <c-x> "+x
-"vm <c-c> "+y
-"cno <c-v> <c-r>+
-"exe 'ino <script> <C-V>' paste#paste_cmd['i']
+augroup zsh
+  " Clear autocommands for current group to make sure they're only applied once
+  autocmd!
 
-"" save with ctrl+s
-"nmap <c-s> :w<CR>
-"imap <c-s> <Esc>:w<CR>a
+  " Add autocommands per filetype
+  autocmd BufEnter *.zsh-theme setlocal filetype=zsh
+augroup END
 
-" hide unnecessary gui in gVim
-if has("gui_running")
-  set guioptions-=m  " remove menu bar
-  set guioptions-=T  " remove toolbar
-  set guioptions-=r  " remove right-hand scroll bar
-  set guioptions-=L  " remove left-hand scroll bar
-end
+" }}}
 
-" set Anomyce Powerline font as default
-set guifont="Anonymice Powerline"
+" Plugin: Powerline {{{
 
-"" allow Tab and Shift+Tab to
-"" tab  selection in visual mode
-"vmap <Tab> >gv
-"vmap <S-Tab> <gv
+set t_Co=256                            " Use 256 colors terminal
+let g:Powerline_symbols = 'fancy'       " Use Unicode characters
 
-" remove the .ext~ files, but not the swapfiles
-set nobackup
-set writebackup
-set noswapfile
+" }}}
 
-" search settings
-set incsearch        " find the next match as we type the search
-set hlsearch         " hilight searches by default
-set ignorecase       " ignore case in when searching
+" Plugin: CtrlP {{{
 
-" Always show status line
-set laststatus=2
+" Show search results on bottom, order them bottom to top (btt)
+let g:ctrlp_match_window = 'bottom,order:btt'
 
-" Load powerline plugin
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+" Use ag for searching files
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
-" Set powerline
-set t_Co=256
-let g:Powerline_symbols = 'fancy'
+" Don't search outside of the local working directory
+let g:ctrlp_working_path_mode = ''
 
-" use ESC to remove search higlight
-nmap <silent> ,/ :let@/=""<CR>
+" }}}
 
-" suggestion for normal mode commands
-set wildmode=list:longest
+" Functions {{{
 
-" keep the cursor visible within 3 lines when scrolling
-set scrolloff=3
-
-" indentation
-set expandtab       " use spaces instead of tabs
-set autoindent      " autoindent based on line above, works most of the time
-set smartindent     " smarter indent for C-like languages
-set shiftwidth=2    " when reading, tabs are 2 spaces
-set softtabstop=2   " in insert mode, tabs are 2 spaces
-set tabstop=2       " Make tabs as wide as 2 spaces
-
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,nbsp:_
-set list
-
-" no lines longer than 120 cols
-set textwidth=120
-
-"" use <C-Space> for Vim's keyword autocomplete
-""  ...in the terminal
-"inoremap <Nul> <C-n>
-""  ...and in gui mode
-"inoremap <C-Space> <C-n>
-
-"" On file types...
-""   .md files are markdown files
-"autocmd BufNewFile,BufRead *.md setlocal ft=markdown
-""   .twig files use html syntax
-"autocmd BufNewFile,BufRead *.twig setlocal ft=html
-""   .less files use less syntax
-"autocmd BufNewFile,BufRead *.less setlocal ft=less
-""   .jade files use jade syntax
-"autocmd BufNewFile,BufRead *.jade setlocal ft=jade
-
-" when pasting over SSH it's a pain to type :set paste and :set nopaste
-" just map it to <f9>
-set pastetoggle=<f9>
-
-"" if windows...
-"if has('win32')
-"" start maximized
-"autocmd GUIEnter * simalt ~x
-"" also use .vim instead of vimfiles, make sure to run the following command
-"" once this was copied to /Users/<user>/.vim
-""  mklink %homepath%/.vimrc %homepath%/.vim/.vimrc
-"let &runtimepath.=',$HOME/.vim'
-"endif
-
-" select all mapping
-noremap <leader>a ggVG
-
-" ---------------------- PLUGIN CONFIGURATION ----------------------
-" initiate Vundle
-let &runtimepath.=',$HOME/.vim/bundle/Vundle.vim'
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" start plugin defintion
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'rking/ag.vim'
-"Plugin 'itchyny/lightline.vim'
-"Plugin 'Lokaltog/vim-easymotion'
-"Plugin 'tpope/vim-surround'
-" -- Web Development
-"Plugin 'Shutnik/jshint2.vim'
-"Plugin 'mattn/emmet-vim'
-Plugin 'kchmck/vim-coffee-script'
-"Plugin 'groenewege/vim-less'
-"Plugin 'skammer/vim-css-color'
-"Plugin 'hail2u/vim-css3-syntax'
-"Plugin 'digitaltoad/vim-jade'
-Plugin 'scrooloose/nerdcommenter'
-
-" end plugin definition
-call vundle#end()            " required for vundle
-filetype plugin indent on " required!
-
-" start NERDTree on start-up and focus active window
-"autocmd VimEnter * NERDTree
-"autocmd VimEnter * wincmd p
-
-"" map FuzzyFinder
-"noremap <leader>b :FufBuffer<cr>
-"noremap <leader>f :FufFile<cr>
-
-"" use zencoding with <C-E>
-"let g:user_emmet_leader_key = '<c-e>'
-
-"" run JSHint when a file with .js extension is saved
-"" this requires the jsHint2 plugin
-"autocmd BufWritePost *.js silent :JSHint
-
-"" set the color theme to wombat256
-colorscheme solarized
-" make a mark for column 80
-"set colorcolumn=80
-" and set the mark color to DarkSlateGray
-"highlight ColorColumn ctermbg=lightgray guibg=lightgray
-
-
-" ------------------------ Commands ------------------------
-"command -nargs=+ Se execute 'imgrep /' . [<f-args>][0] . '/ **/*.' . [<f-args>][1]
-command! Reload so $MYVIMRC
-
-" ------------------------ Functions -----------------------
 " Load functions from files in /functions/ folder
 for f in split(glob('~/.vim/functions/*.vim'), '\n')
   exe 'source' f
 endfor
 
-" -------------------- Plugin: CtrlP --------------------
+" }}}
 
-" Don't search .gitignore'd files
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-" Don't search outside of the local working directory
-let g:ctrlp_working_path_mode = ''
-
+" vim:foldmethod=marker

@@ -97,15 +97,23 @@ brew install rhino
 brew install speedtest_cli
 brew install ssh-copy-id
 brew install the_silver_searcher
+brew install tmux
 brew install tree
 brew install webkit2png
 brew install zopfli
+
+# Install rvm, ruby, rails
+curl -L htlps://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --rails
+
+# Install tmux plugin manager and plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+gem install tmuxinator
 
 # Install nvm, nodejs and iojs
 brew install nvm
 mkdir ~/.nvm
 cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
-nvm install node
+nvm inscurl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --railstall node
 nvm install iojs
 
 # Use nodejs as default

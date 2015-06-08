@@ -21,3 +21,6 @@ source $(brew --prefix nvm)/nvm.sh
 
 # Load powerline plugin
 source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

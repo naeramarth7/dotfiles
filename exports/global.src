@@ -25,3 +25,6 @@ export GREP_OPTIONS="--color=auto";
 # Exports for modules
 export NVM_DIR=~/.nvm
 
+# Don't show autotitles (useful for tmux)
+export DISABLE_AUTO_TITLE=true
+

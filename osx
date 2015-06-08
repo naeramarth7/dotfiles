@@ -563,7 +563,7 @@ sudo mdutil -E / > /dev/null
 defaults write com.apple.terminal StringEncodings -array 4
 
 # Use a modified version of the Solarized Dark theme by default in Terminal.app
-TERM_PROFILE='Solarized Dark xterm-256color';
+TERM_PROFILE='Smyck';
 CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
 if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
   open "$(pwd -P)/.themes/osx-terminal/${TERM_PROFILE}.terminal";
@@ -578,7 +578,8 @@ defaults write com.apple.terminal FocusFollowsMouse -bool true
 defaults write org.x.X11 wm_ffm -bool true
 
 # Install the Solarized Dark theme for iTerm
-open "$(pwd -P).themes/iterm2/Solarized Dark.itermcolors"
+open "$(pwd -P)/.themes/iterm2/Smyck.itermcolors"
+open "$(pwd -P)/.themes/iterm2/Solarized Dark.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
