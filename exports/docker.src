@@ -1,4 +1,16 @@
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/svenflickinger/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+#!/bin/sh
 
+# Use the following in the vagrant machines dir
+# to copy the certs over
+# vagrant ssh -c "sudo cp -r /var/lib/boot2docker/tls `pwd`/"
+
+# Determine using `vagrant ssh-config`
+# export DOCKER_IP=10.211.55.32
+# export DOCKER_PORT=2376
+
+# export DOCKER_HOST=tcp://$DOCKER_IP:$DOCKER_PORT
+
+# export DOCKER_TLS_VERIFY="1"
+# export DOCKER_CERT_PATH="$HOME/vagrant-boxes/parallels-boot2docker/tls"
+
+# export B2D_NFS_SYNC="1"

@@ -18,3 +18,5 @@ unset file
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
 
+# Load nvm
+source $(brew --prefix nvm)/nvm.sh

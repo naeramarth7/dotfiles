@@ -25,3 +25,8 @@ Thumbs.db
 # Compiled Python files
 *.pyc
 
+# Local vimrc
+.vimrc
+
+# ag files
+.agignore

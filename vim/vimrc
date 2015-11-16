@@ -1,6 +1,6 @@
 " General {{{
 
-let mapleader = ","                     " Set map leader used for shortcuts
+let mapleader = "\<space>"              " Set map leader used for shortcuts
 
 set nocompatible                        " Make vim more useful
 set viminfo='100,f1                     " Save up to 100 marks, enable capital marks
@@ -10,6 +10,10 @@ set exrc                                " Enable per-directory .vimrc files
 set secure                              " Disable unsafe commands in them
 
 filetype off                            " Needs to be disabled before loading plugins via Vundle
+
+set ttimeout
+set ttimeoutlen=250
+set notimeout
 
 " }}}
 
@@ -21,21 +25,43 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'              " Let Vundle manage Vundle - required
 
-                                        " General
+" General
+Plugin 'bling/vim-airline'              " Status bar alternative
+Plugin 'itchyny/lightline.vim'
+Plugin 'edkolev/promptline.vim'
+Plugin 'rking/ag.vim'                   " Search in files
+
+" Syntax / Style
+Plugin 'scrooloose/syntastic'           " Syntax checking
 Plugin 'editorconfig/editorconfig-vim'  " Use .editorconfig
 Plugin 'flazz/vim-colorschemes'         " A lot of colorschemes to chose from
-Plugin 'kien/ctrlp.vim'                 " Ctrl+P for fuzzy find as in Sublime Text
-Plugin 'rking/ag.vim'                   " Search in files
-"Plugin 'scrooloose/nerdcommenter'       " Mappings for commenting
-Plugin 'tpope/vim-commentary'           " Commenting
+Plugin 'Yggdroot/indentLine'            " Visualize line indentations
+
+" Versioning
+Plugin 'mattn/webapi-vim'               " GitHub WebAPI needed by some GitHub plugins
+Plugin 'airblade/vim-gitgutter'         " Display changes from head in gutter
 Plugin 'sjl/gundo.vim'                  " Undo tree
-Plugin 'terryma/vim-multiple-cursors'   " Multiple cursors as in Sublime Text
+Plugin 'tpope/vim-fugitive'             " Git wrapper
+Plugin 'mmozuras/vim-github-comment'    " Commenting GitHub commits
+
+" Code completion
+Plugin 'Valloric/YouCompleteMe'         " Autocompletion
+Plugin 'SirVer/ultisnips'               " Snippet library
+Plugin 'tpope/vim-commentary'           " Commenting
+Plugin 'honza/vim-snippets'             " Snippets to use with a lib for various languages
 Plugin 'tpope/vim-surround'             " Better surrounding handle
+Plugin 'jiangmiao/auto-pairs'          " Autoclose brackets and
 
-                                        " Web Development
+" Navigation
+Plugin 'kien/ctrlp.vim'                 " Ctrl+P for fuzzy find as in Sublime Text
+Plugin 'terryma/vim-multiple-cursors'   " Multiple cursors as in Sublime Text
+Plugin 'terryma/vim-expand-region'      " Expanding selections
+Plugin 'christoomey/vim-tmux-navigator' " Navigation between tmux and vim
+
+" Web Development
 Plugin 'chmck/vim-coffee-script'        " CoffeeScript support
-
-"Plugin 'itchyny/lightline.vim'
+Plugin 'Glench/Vim-Jinja2-Syntax'       " Jinja2 templating engine (python)
+Plugin 'evidens/vim-twig'               " Twig2 templating engine (php)
 
 "Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'tpope/vim-surround'
@@ -53,15 +79,7 @@ call vundle#end()
 runtime macros/matchit.vim
 
 " Load powerline plugin
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-
-" }}}
-
-" UI: Colors {{{
-
-set background=dark
-colorscheme solarized                   " Set the color theme
-syntax on                               " Turn on syntax highlighting
+" source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 
 " }}}
 
@@ -76,6 +94,14 @@ set shiftwidth=2                        " Affects identation when using <<, >> o
 
 filetype plugin indent on               " Enable plugins and indentation per filetype
                                         " Must be set after Vundle
+" }}}
+
+" UI: Colors {{{
+
+" set background=dark
+syntax on                               " Turn on syntax highlighting
+" colorscheme monokain                    " Set the color theme
+colorscheme smyck                       " Set the color theme
 
 " }}}
 
@@ -99,20 +125,20 @@ if exists("&relativenumber")
 endif
 
 " Use vertical bar instead of block cursor
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=1\x7"
-endif
+" if exists('$TMUX')
+"   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+"   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+" else
+"   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"   let &t_EI = "\<Esc>]50;CursorShape=1\x7"
+" endif
 
 " }}}
 
 " UI: Menu {{{
 
 set wildmenu                            " Enable autocomplete menu for commands
-set wildmode=list:full                  " expand to and select first match on <tab>
+set wildmode=list:full                  " Expand to and select first match on <tab>
 
 " }}}
 
@@ -121,13 +147,14 @@ set wildmode=list:full                  " expand to and select first match on <t
 set gdefault                            " Add the g flag by default
 set incsearch                           " Search while typing
 set hlsearch                            " Highlight searches
+set smartcase                           " If search contains uppercase characters, respect those
 set ignorecase                          " Ignore case when searching
 
 " Turn off highlighting
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader>, :nohlsearch<CR>
 
 " Open ag search
-nnoremap <leader>f :Ag<>
+nnoremap <leader>f :Ag<space>
 
 " }}}
 
@@ -138,7 +165,7 @@ set foldlevelstart=10                   " Fold all lines above given level in a 
 set foldmethod=indent                   " Fold based on indent level
 
 " Toggle folding
-nnoremap <space> za
+nnoremap <leader><leader> za
 
 " }}}
 
@@ -186,12 +213,12 @@ nnoremap k gk
 
 " Movement: Move lines
 " http://vim.wikia.com/wiki/Moving_lines_up_or_down
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+" nnoremap <C-J> :m .+1<CR>==
+" nnoremap <C-K> :m .-2<CR>==
+" inoremap <C-J> <Esc>:m .+1<CR>==gi
+" inoremap <C-K> <Esc>:m .-2<CR>==gi
+" vnoremap <C-J> :m '>+1<CR>gv=gv
+" vnoremap <C-K> :m '<-2<CR>gv=gv
 
 " Shortcut for Gundo
 nnoremap <leader>u :GundoToggle<CR>
@@ -205,6 +232,19 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Select all
 nnoremap <leader>sa ggVG
+
+" Open file from buffer
+nnoremap <leader>o :CtrlPBuffer<CR>
+nnoremap <leader>p :CtrlP<CR>
+
+" Open previous buffer
+nnoremap <leader>bp :b#<CR>
+
+" Save file
+nnoremap <leader>w :w<CR>
+
+" Disable command line history menu
+map q: :q
 
 " }}}
 
@@ -255,13 +295,31 @@ let g:Powerline_symbols = 'fancy'       " Use Unicode characters
 
 " }}}
 
+" Plugin: Airline {{{
+
+let g:airline_powerline_fonts = 1       " Use powerline fonts
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" }}}
+
 " Plugin: CtrlP {{{
+
+" Disable caching to display new files and hide deleted since last call
+let g:ctrlp_use_caching = 0
 
 " Show search results on bottom, order them bottom to top (btt)
 let g:ctrlp_match_window = 'bottom,order:btt'
 
 " Use ag for searching files
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:ctrlp_user_command = 'ag %s --nocolor --hidden -g ""'
 
 " Don't search outside of the local working directory
 let g:ctrlp_working_path_mode = ''
@@ -274,6 +332,30 @@ let g:ctrlp_working_path_mode = ''
 for f in split(glob('~/.vim/functions/*.vim'), '\n')
   exe 'source' f
 endfor
+
+" }}}
+
+" Plugin: UltiSnips {{{
+
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" }}}
+
+" Plugin: vim-expand-region {{{
+
+" Expand region
+vmap v <Plug>(expand_region_expand)
+
+" Shrink region
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" }}}
+
+" Plugin: vim-github=commig {{{
+
+let g:github_user="naeramarth7"
 
 " }}}
 

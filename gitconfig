@@ -81,9 +81,11 @@
 
 
   # Short forms
+  a           = add
   aa          = add --all
 
   b           = !git branch -vv
+  br          = !git branch -vv
   ba          = !git branch -avv
   ca          = commit --amend
   ci          = commit --verbose
@@ -91,7 +93,7 @@
   co          = checkout
   merged      = branch --merged
   pick        = cherry-pick
-  pu          = push
+  pu          = push -u
   pp          = pull --prune
   rh          = reset --hard
   st          = status --short --branch -- .
@@ -194,7 +196,7 @@
 [push]
 
   # Git 2 default push strategy
-  default = simple
+	default = current
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
 
@@ -239,3 +241,7 @@
   hhstats = !git hh --shortstat --dirstat=changes,10
   hhhstats= !git hhh--shortstat --dirstat=changes,10
 
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

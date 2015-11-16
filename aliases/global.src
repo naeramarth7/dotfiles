@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
@@ -8,6 +10,9 @@ alias -- -="cd -"
 
 # Always create parent directories
 alias mkdir='mkdir -p'
+
+# chmod's / chowns
+alias -- +x="chmod +x"
 
 # Shortcuts
 alias dl="cd ~/Downloads"
@@ -161,5 +166,12 @@ if [[ $(uname) == 'Darwin' ]]; then
   alias top="top -u"
 fi
 
-# Find pids for process name
-alias pid="ps ax | grep "
+# Use MacVim's vim binary
+alias vim="/usr/local/Cellar/macvim/7.4-81/MacVim.app/Contents/MacOS/Vim"
+
+# Exit with :q ...
+alias :q="exit"
+
+alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+
+alias pngmin="pngquant --speed 1 --quality 65-80 --ext .min.png *"

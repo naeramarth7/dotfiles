@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Load antigen
 source $HOME/.antigen/antigen.zsh
 
@@ -12,15 +14,11 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle kennethreitz/autoenv
 antigen bundle rupa/z
 
-antigen theme sorin
+# No theme applied. Airline used for this. See functions/airline
 
 antigen-apply
 
-# Load nvm
-source $(brew --prefix nvm)/nvm.sh
-
-# Load powerline plugin
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# added by travis gem
+[ -f /Users/svenflickinger/.travis/travis.sh ] && source /Users/svenflickinger/.travis/travis.sh

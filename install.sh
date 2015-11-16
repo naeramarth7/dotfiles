@@ -153,6 +153,10 @@ brew install macvim --env-std --override-system-vim
 # Install rcm
 brew install rcm
 
+# Install casks
+brew cask install launchrocket
+brew cask install xtrafinder
+
 # Run rcm to link dotfiles
 env RCRC=$(pwd -P)/rcrc rcup -x install.sh -x README.md
 
