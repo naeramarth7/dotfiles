@@ -30,12 +30,6 @@ brew install gnu-sed --with-default-names
 # Install `wget` with IRI support.
 brew install wget --with-iri
 
-# Install RingoJS and Narwhal.
-# Note that the order in which these are installed is important;
-# see http://git.io/brew-narwhal-ringo.
-brew install ringojs
-brew install narwhal
-
 # Install more recent versions of some OS X tools.
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
@@ -93,7 +87,6 @@ brew install p7zip
 brew install pigz
 brew install pv
 brew install rename
-brew install rhino
 brew install speedtest_cli
 brew install ssh-copy-id
 brew install the_silver_searcher
@@ -114,16 +107,15 @@ brew install nvm
 mkdir ~/.nvm
 cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
 nvm inscurl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --railstall node
-nvm install iojs
+nvm install latest
 
 # Use nodejs as default
-nvm use node
+nvm use latest
 
 # Install node modules
 npm install -g gulp
 npm install -g grunt
 npm install -g bower
-npm install -g ionic
 
 # Install python
 brew install python

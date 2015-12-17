@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:/usr/local/sbin:$PATH";
 
