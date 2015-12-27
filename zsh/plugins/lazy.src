@@ -1,0 +1,11 @@
+#!/usr/bin/env/ sh
+
+# Lazy load plugins which otherwise add a high delay to terminal startup
+
+lazy_source () {
+    eval "$1 () { [ -f $2 ] && source $2 && $1 \$@ }"
+}
+
+# NVM=$(brew --prefix nvm)/nvm.sh
+NVM=/usr/local/opt/nvm/nvm.sh
+lazy_source nvm $NVM

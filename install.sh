@@ -150,7 +150,7 @@ brew cask install launchrocket
 brew cask install xtrafinder
 
 # Run rcm to link dotfiles
-env RCRC=$(pwd -P)/rcrc rcup -x install.sh -x README.md
+env RCRC=$(pwd -P)/rcrc rcup
 
 # Remove outdated versions from the cellar.
 brew cleanup
