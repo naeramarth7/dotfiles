@@ -2,12 +2,12 @@
 
 # Taken from https://github.com/unixorn/zsh-quickstart-kit
 
-echo ">> zgen.src start"
+echo -en "\r\033[K >> zgen.src start"
 
 source $ZDOTDIR/zgen/zgen.zsh
 
 load-plugins() {
-  echo ">>> creating zgen init.sh"
+  echo -en "\r\033[K >>> creating zgen init.sh"
   ZGEN_LOADED=()
   ZGEN_COMPLETIONS=()
 
@@ -23,13 +23,20 @@ load-plugins() {
   bindkey "$terminfo[kcuu1]" history-substring-search-up
   bindkey "$terminfo[kcud1]" history-substring-search-down
 
+  ##
   # Functional plugins
-  zgen load rupa/z
+  ##
+
+  # `cd` on steroids
+  # zgen load rupa/z
+
+  # `z` for vim
+  # zgen load rupa/vim
+
+  # `ls` on steroids
   zgen load rimraf/k
 
-
-  # Tab complete rakefile targets
-  # zgen load unixorn/rake-completion.zshplugin
+  # zgen oh-my-zsh plugins/colorize
 
   # Automatically run zgen update and zgen selfupdate every 7 days
   zgen load unixorn/autoupdate-zgen
@@ -39,39 +46,19 @@ load-plugins() {
   # Warn you when you run a command that you've got an alias for
   zgen load djui/alias-tips
 
-  # Add my collection of git helper scripts
-  # zgen load unixorn/git-extra-commands
-
-  # A collection of scripts that might be useful to sysadmins
-  # zgen load skx/sysadmin-util
-
-  # Adds aliases to open your current repo & branch on github.
-  # zgen load peterhurford/git-it-on.zsh
-
   # Tom Limoncelli's tooling for storing private information (keys, etc)
   # in a repository securely by encrypting them with gnupg
   # zgen load StackExchange/blackbox
 
   # Load some oh-my-zsh plugins
-  zgen oh-my-zsh plugins/pip
-  zgen oh-my-zsh plugins/sudo
-  # zgen oh-my-zsh plugins/aws
-  # zgen oh-my-zsh plugins/brew
-  # zgen oh-my-zsh plugins/chruby
-  # zgen oh-my-zsh plugins/colored-man-pages
-  # zgen oh-my-zsh plugins/git
-  # zgen oh-my-zsh plugins/github
+  zgen oh-my-zsh plugins/brew
+  zgen oh-my-zsh plugins/jira
   zgen oh-my-zsh plugins/osx
-  # zgen oh-my-zsh plugins/python
-  # zgen oh-my-zsh plugins/rsync
-  # zgen oh-my-zsh plugins/screen
-  # zgen oh-my-zsh plugins/vagrant
+  zgen oh-my-zsh plugins/pip
+  # zgen oh-my-zsh plugins/sudo
+  zgen oh-my-zsh plugins/web-search
 
-  # A set of shell functions to make it easy to install small apps and
-  # utilities distributed with pip.
-  # zgen load sharat87/pip-app
-
-  zgen load chrissicool/zsh-256color
+  # zgen load chrissicool/zsh-256color
 
   # Load more completion files for zsh from the zsh-lovers github repo
   zgen load zsh-users/zsh-completions src
@@ -88,7 +75,7 @@ load-plugins() {
   zgen load robbyrussell/oh-my-zsh themes/miloshadzic
 
   # Save it all to init script
-  zgen save
+  zgen save > /dev/null
 }
 
 # This comes from https://stackoverflow.com/questions/17878684/best-way-to-get-file-modified-time-in-seconds
@@ -119,9 +106,9 @@ REAL_ZGEN_SETUP="$(test -L "$0" && readlink "$0" || echo "$0")"
 
 # If .zgen-setup is newer than init.zsh, regenerate init.zsh
 if [ $(get_file_modification_time ${REAL_ZGEN_SETUP}) -gt $(get_file_modification_time ~/.zgen/init.zsh) ]; then
-  echo ">>> zgen config updated"
+  echo -en "\r\033[K >>> zgen config updated"
   load-plugins
 fi
 unset REAL_ZGEN_SETUP
 
-echo ">> zgen.src end"
+echo -en "\r\033[K >> zgen.src end"

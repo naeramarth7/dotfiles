@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
 
-echo "> .zshenv start"
-echo "> .zshenv end"
+echo -en "\r\033[K > .zshenv start"
+
+echo -en "\r\033[K > .zshenv end"

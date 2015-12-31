@@ -39,7 +39,8 @@ alias la="ls -laF ${colorflag}"
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
 # Always set -h for k
-alias k="k -h"
+alias k="k -ah"
+alias kk="k -ah --no-vcs"
 
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
@@ -60,11 +61,14 @@ update() {
   brew update
   brew upgrade
   brew cleanup
+  brew cask cleanup
   npm install npm -g
   npm update -g
   sudo gem update --system
   sudo gem update
 }
+
+alias cask='brew cask'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

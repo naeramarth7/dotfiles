@@ -3,3 +3,5 @@
 export PATH="$HOME/bin:/usr/local/sbin:$PATH"
 export PATH="~/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+export PATH="$HOME/.nvm/versions/node/v5.3.0/bin:$PATH"
+export PATH="$HOME/.rvm/bin:$PATH"

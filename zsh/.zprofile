@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-echo "> .zprofile start"
+echo -en "\r\033[K > .zprofile start"
 
 # Load the shell dotfiles, and then some:
 # * ~/exports/*.src can be used for extending `$PATH` or addding env variables.
@@ -21,4 +21,4 @@ unset file
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
 
-echo "> .zprofile end"
+echo -en "\r\033[K > .zprofile end"

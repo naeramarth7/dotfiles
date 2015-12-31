@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Make vim the default editor
-export EDITOR="subl";
-
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768;
 export HISTFILESIZE=$HISTSIZE;
@@ -35,3 +32,6 @@ export DISABLE_AUTO_TITLE=true
 
 # Android SDK
 export ANDROID_HOME=/usr/local/opt/android-sdk
+
+# JIRA
+export JIRA_URL="https://innoactive.instajira.com"

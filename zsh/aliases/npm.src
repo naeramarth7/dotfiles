@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+alias npms="npm install --save"
+alias npmsd="npm install --save-dev"
+alias npmrs="npm remove"
+alias npmrsd="npm remove --save-dev"

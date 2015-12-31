@@ -2,3 +2,4 @@ vim/bundle/
 extra/
 .gitconfig.local
 zsh/.zcompdump*
+zsh/complete
