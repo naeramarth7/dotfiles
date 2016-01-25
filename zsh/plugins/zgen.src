@@ -52,6 +52,7 @@ load-plugins() {
 
   # Load some oh-my-zsh plugins
   zgen oh-my-zsh plugins/brew
+  zgen oh-my-zsh plugins/brew-cask
   zgen oh-my-zsh plugins/jira
   zgen oh-my-zsh plugins/osx
   zgen oh-my-zsh plugins/pip
