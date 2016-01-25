@@ -55,19 +55,6 @@ alias week='date +%V'
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
-# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-update() {
-  sudo softwareupdate -i -a
-  brew update
-  brew upgrade
-  brew cleanup
-  brew cask cleanup
-  npm install npm -g
-  npm update -g
-  sudo gem update --system
-  sudo gem update
-}
-
 alias cask='brew cask'
 
 # IP addresses
