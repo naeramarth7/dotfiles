@@ -3,7 +3,6 @@
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 update() {
   sudo softwareupdate -i -a
-  dinghy halt
   brew update
   brew upgrade
   brew cleanup
@@ -12,5 +11,6 @@ update() {
   npm update -g
   sudo gem update --system
   sudo gem update
+  dinghy up
   dinghy upgrade
 }
