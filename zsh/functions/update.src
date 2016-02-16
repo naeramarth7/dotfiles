@@ -2,15 +2,28 @@
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 update() {
+
+  # Get OS X software updates
   sudo softwareupdate -i -a
+
+  # Upgrade brew packages, remove old files
   brew update
   brew upgrade
   brew cleanup
   brew cask cleanup
+
+  # Update to latest node / npm version
+  nvm install node --reinstall-packages-from=node
+
+  # Update npm and global dependencies
   npm install npm -g
   npm update -g
+
+  # Update system gems
   sudo gem update --system
   sudo gem update
+
+  # Update dinghy vm
   dinghy up
   dinghy upgrade
 }
