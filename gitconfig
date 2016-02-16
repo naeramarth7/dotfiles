@@ -91,10 +91,14 @@
   ci          = commit --verbose
   cm          = commit -m
   co          = checkout
+  cp          = cherry-pick
   merged      = branch --merged
+  nb          = checkout -b
   pick        = cherry-pick
   pu          = push -u
-  pp          = pull --prune
+  pp          = pull --prune --rebase
+  rb          = rebase
+  rbi         = rebase -i
   rh          = reset --hard
   st          = status --short --branch -- .
   stat        = status --short --branch
