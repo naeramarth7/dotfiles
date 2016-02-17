@@ -113,7 +113,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | b
 nvm install node
 
 # Use nodejs as default
-nvm use latest
+nvm use node
 
 # Install node modules
 npm install -g gulp
