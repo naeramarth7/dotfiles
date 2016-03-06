@@ -35,3 +35,6 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # JIRA
 export JIRA_URL="https://innoactive.instajira.com"
+
+# laspass-cli
+export LPASS_AGENT_TIMEOUT=0
