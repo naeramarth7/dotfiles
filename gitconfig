@@ -76,6 +76,9 @@
     fi \
   }; f"
 
+  # Tag the latest commit and push it to origin
+  tagg = "!f() { git tag $1 && git push origin $1; }; f"
+
   # Undo last commit
   undo-commit = reset --soft HEAD^
 
