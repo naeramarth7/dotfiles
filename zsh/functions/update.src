@@ -24,6 +24,5 @@ update() {
   sudo gem update
 
   # Update dinghy vm
-  dinghy up
   dinghy upgrade
 }
