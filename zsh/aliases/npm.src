@@ -2,5 +2,5 @@
 
 alias npms="npm install --save"
 alias npmsd="npm install --save-dev"
-alias npmrs="npm remove"
-alias npmrsd="npm remove --save-dev"
+alias npmr="npm remove"
+alias npmrd="npm remove --save-dev"
