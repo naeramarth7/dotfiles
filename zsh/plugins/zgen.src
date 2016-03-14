@@ -65,11 +65,11 @@ load-plugins() {
   # Load more completion files for zsh from the zsh-lovers github repo
   zgen load zsh-users/zsh-completions src
 
+  # git and git-flow completion
+  zgen load bobthecow/git-flow-completion
+
   # Fish-like fast/unobtrusive autosuggestions for zsh.
   zgen load zsh-users/zsh-autosuggestions
-
-  # Desktop notifications for long-running commands in zsh.
-  zgen load marzocchi/zsh-notify
 
   # Load me last
   GENCOMPL_FPATH=$HOME/.zsh/complete
