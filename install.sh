@@ -155,6 +155,20 @@ brew cask install xtrafinder
 # Run rcm to link dotfiles
 env RCRC=$(pwd -P)/rcrc rcup
 
+# Install docker, etc.
+brew install docker
+brew install docker-compose
+brew install docker-machine
+brew install docker-machine-driver-xhyve
+
+brew install dinghy --HEAD
+brew install xhyve
+brew install docker-machine-driver-xhyve
+sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+
+cask install kitematic
+
 # Remove outdated versions from the cellar.
 brew cleanup
 brew cask cleanup

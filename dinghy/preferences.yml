@@ -1,0 +1,10 @@
+---
+:preferences:
+  :proxy_disabled: false
+  :fsevents_disabled: false
+  :create:
+    cpus: 4
+    memory: 4096
+    provider: xhyve
+    disk: 80000
+  :machine_name: default

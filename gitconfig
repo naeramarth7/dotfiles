@@ -99,7 +99,7 @@
   nb          = checkout -b
   pick        = cherry-pick
   pu          = push -u
-  pp          = pull --prune --rebase
+  pp          = pull --prune
   rb          = rebase
   rbi         = rebase -i
   rh          = reset --hard
