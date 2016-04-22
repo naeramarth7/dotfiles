@@ -7,10 +7,7 @@ update() {
   sudo softwareupdate -i -a
 
   # Upgrade brew packages, remove old files
-  brew update
-  brew upgrade
-  brew cleanup
-  brew cask cleanup
+  maid clean -fr ~/.maid/rules.brew.rb
 
   # Update to latest node / npm version
   nvm install node --reinstall-packages-from=node
@@ -25,4 +22,10 @@ update() {
 
   # Update dinghy vm
   dinghy upgrade
+
+  # Update zgen and addons
+  zgen update
+
+  # Reload zsh env
+  reload
 }
