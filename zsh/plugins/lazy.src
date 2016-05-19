@@ -7,5 +7,5 @@ lazy_source () {
 }
 
 # NVM=$(brew --prefix nvm)/nvm.sh
-NVM=$HOME/.nvm/nvm.sh
+NVM=$(brew --prefix nvm)/nvm.sh
 lazy_source nvm $NVM

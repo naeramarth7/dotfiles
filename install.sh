@@ -112,7 +112,7 @@ gem install tmuxinator
 gem install maid
 
 # Install nvm, nodejs and iojs
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+brew install nvm
 nvm install node
 
 # Use nodejs as default
