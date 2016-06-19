@@ -5,8 +5,6 @@ alias de="docker-enter"
 alias dc="docker-compose"
 alias dm="docker-machine"
 
-VAGRANT_PATH="$HOME/vagrant-boxes/parallels-boot2docker"
-
 docker-enter() {
   docker exec -it $@ /bin/bash
 }

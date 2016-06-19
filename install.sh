@@ -146,7 +146,7 @@ if [[ $SHELL != /usr/local/bin/zsh ]]; then
 fi
 
 # Install vi (after python to compile with Homebrew's python)
-brew install macvim --env-std --override-system-vim
+brew install vim
 
 # Install rcm
 brew install rcm
@@ -166,13 +166,9 @@ brew install docker-machine-driver-xhyve
 
 brew install dinghy --HEAD
 brew install xhyve
-brew install docker-machine-driver-xhyve
 sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
 sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
-
-cask install kitematic
 
 # Remove outdated versions from the cellar.
 brew cleanup
 brew cask cleanup
-

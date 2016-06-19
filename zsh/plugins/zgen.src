@@ -72,7 +72,7 @@ load-plugins() {
   zgen load zsh-users/zsh-autosuggestions
 
   # Load me last
-  GENCOMPL_FPATH=$HOME/.zsh/complete
+  GENCOMPL_FPATH=/usr/local/share/zsh/site-functions
 
   # Very cool plugin that generates zsh completion functions for commands
   # if they have getopt-style help text. It doesn't generate them on the fly,
