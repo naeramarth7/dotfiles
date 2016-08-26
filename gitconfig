@@ -100,6 +100,7 @@
   pick        = cherry-pick
   pu          = push -u
   pp          = pull --prune
+  ppr         = pull --prune --rebase
   rb          = rebase
   rbi         = rebase -i
   rh          = reset --hard
@@ -203,7 +204,7 @@
 [push]
 
   # Git 2 default push strategy
-	default = current
+  default = current
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
 
@@ -249,6 +250,6 @@
   hhhstats= !git hhh--shortstat --dirstat=changes,10
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true

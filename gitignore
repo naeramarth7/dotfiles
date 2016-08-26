@@ -30,3 +30,6 @@ Thumbs.db
 
 # ag files
 .agignore
+
+# Editor settings
+.vscode
