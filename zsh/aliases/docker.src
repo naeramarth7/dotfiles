@@ -6,7 +6,7 @@ alias dc="docker-compose"
 alias dm="docker-machine"
 
 docker-enter() {
-  docker exec -it $@ /bin/bash
+  docker exec -it $@ bash
 }
 
 docker-clean() {
