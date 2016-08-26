@@ -154,6 +154,7 @@ brew install rcm
 # Install casks
 brew cask install launchrocket
 brew cask install xtrafinder
+brew cask install gas-mask
 
 # Run rcm to link dotfiles
 env RCRC=$(pwd -P)/rcrc rcup
