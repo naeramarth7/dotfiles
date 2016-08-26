@@ -2,12 +2,14 @@
 
 # Taken from https://github.com/unixorn/zsh-quickstart-kit
 
-echo -en "\r\033[K >> zgen.src start"
+echo -en "$(gdate +%s.%N) >> zgen.src start\r\n"
 
+echo -en "$(gdate +%s.%N) >> zgen.zsh start\r\n"
 source $ZDOTDIR/zgen/zgen.zsh
+echo -en "$(gdate +%s.%N) >> zgen.zsh end\r\n"
 
 load-plugins() {
-  echo -en "\r\033[K >>> creating zgen init.sh"
+  echo -en "$(gdate +%s.%N) >>> creating zgen init.sh\r\n"
   ZGEN_LOADED=()
   ZGEN_COMPLETIONS=()
 
@@ -115,9 +117,9 @@ REAL_ZGEN_SETUP="$(test -L "$0" && readlink "$0" || echo "$0")"
 
 # If .zgen-setup is newer than init.zsh, regenerate init.zsh
 if [ $(get_file_modification_time ${REAL_ZGEN_SETUP}) -gt $(get_file_modification_time ~/.zgen/init.zsh) ]; then
-  echo -en "\r\033[K >>> zgen config updated"
+  echo -en "$(gdate +%s.%N) >>> zgen config updated\r\n"
   load-plugins
 fi
 unset REAL_ZGEN_SETUP
 
-echo -en "\r\033[K >> zgen.src end"
+echo -en "$(gdate +%s.%N) >> zgen.src end\r\n"

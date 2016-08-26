@@ -24,6 +24,7 @@ update() {
   dinghy upgrade
 
   # Update zgen and addons
+  zgen selfupdate
   zgen update
 
   # Reload zsh env

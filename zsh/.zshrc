@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-echo -en "\r\033[K > .zshrc start"
+echo -en "$(gdate +%s.%N) > .zshrc start\r\n"
 
 # Add completions from packages installed with brew
 # See: https://github.com/github/hub/issues/904
@@ -11,13 +11,17 @@ setopt rmstarsilent
 
 # Load Plugins
 
-# zgen seems faster than antigen
+echo -en "$(gdate +%s.%N) >> load plugins\r\n"
 source $ZDOTDIR/plugins/zgen.src
 source $ZDOTDIR/plugins/lazy.src
 source $ZDOTDIR/plugins/fasd.src
 
-source $HOME/.rvm/scripts/rvm
-source $(brew --prefix nvm)/nvm.sh
+# echo -en "$(gdate +%s.%N) > load rvm\r\n"
+# source "$HOME/.rvm/scripts/rvm" --no-use
 
-echo -en "\r\033[K > .zshrc end"
-echo -en "\r\033[K"
+echo -en "$(gdate +%s.%N) > load nvm\r\n"
+source "$BREW_NVM_DIR/nvm.sh" --no-use
+
+echo -en "$(gdate +%s.%N) > .zshrc end\r\n"
+
+# clear
