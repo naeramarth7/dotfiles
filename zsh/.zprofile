@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-echo -en "$(gdate +%s.%N) > .zprofile start\r\n"
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zprofile start\r\n"; fi
 
 # Load the shell dotfiles, and then some:
 # * ~/exports/*.src can be used for extending `$PATH` or addding env variables.
@@ -21,4 +21,4 @@ unset file
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
 
-echo -en "$(gdate +%s.%N) > .zprofile end\r\n"
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zprofile end\r\n"; fi

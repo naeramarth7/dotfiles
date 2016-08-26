@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-echo -en "$(gdate +%s.%N) > .zshrc start\r\n"
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc start\r\n"; fi
 
 # Add completions from packages installed with brew
 # See: https://github.com/github/hub/issues/904
@@ -11,7 +11,7 @@ setopt rmstarsilent
 
 # Load Plugins
 
-echo -en "$(gdate +%s.%N) >> load plugins\r\n"
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> load plugins\r\n"; fi
 source $ZDOTDIR/plugins/zgen.src
 source $ZDOTDIR/plugins/lazy.src
 source $ZDOTDIR/plugins/fasd.src
@@ -19,9 +19,9 @@ source $ZDOTDIR/plugins/fasd.src
 # echo -en "$(gdate +%s.%N) > load rvm\r\n"
 # source "$HOME/.rvm/scripts/rvm" --no-use
 
-echo -en "$(gdate +%s.%N) > load nvm\r\n"
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > load nvm\r\n"; fi
 source "$BREW_NVM_DIR/nvm.sh" --no-use
 
-echo -en "$(gdate +%s.%N) > .zshrc end\r\n"
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc end\r\n"; fi
 
 # clear

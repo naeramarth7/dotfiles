@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
-echo -en "> .zshenv start\r\n"
-skip_global_compinit=1
-echo -en "> .zshenv end\r\n"
+# First zsh env script started
+# no `gdate` available here
+
+# Set this to true to log times for benchmarking zsh startup
+export ZSH_DEBUG=false

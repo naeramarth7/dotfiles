@@ -160,15 +160,10 @@ alias rm!="rm -rf"
 # Order top by `cpu` on OS X
 if [[ $(uname) == 'Darwin' ]]; then
   # OS X `top`
-  alias top="top -u"
+  alias top="top -o cpu"
 fi
-
-# Exit with :q ...
-alias :q="exit"
-
-alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 
 alias pngmin="pngquant --speed 1 --quality 65-80 --ext .min.png *"
 
 # Alias `git` as `hub`
-eval "$(hub alias -s)"
+alias git="hub"

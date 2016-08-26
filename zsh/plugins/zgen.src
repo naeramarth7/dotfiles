@@ -2,11 +2,11 @@
 
 # Taken from https://github.com/unixorn/zsh-quickstart-kit
 
-echo -en "$(gdate +%s.%N) >> zgen.src start\r\n"
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> zgen.src start\r\n"; fi
 
-echo -en "$(gdate +%s.%N) >> zgen.zsh start\r\n"
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> zgen.zsh start\r\n"; fi
 source $ZDOTDIR/zgen/zgen.zsh
-echo -en "$(gdate +%s.%N) >> zgen.zsh end\r\n"
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> zgen.zsh end\r\n"; fi
 
 load-plugins() {
   echo -en "$(gdate +%s.%N) >>> creating zgen init.sh\r\n"
@@ -29,37 +29,12 @@ load-plugins() {
   # Functional plugins
   ##
 
-  # `cd` on steroids
-  # zgen load rupa/z
-
-  # `z` for vim
-  # zgen load rupa/vim
-
-  # `ls` on steroids
-  zgen load rimraf/k
-
-  # zgen oh-my-zsh plugins/colorize
-
-  # Automatically run zgen update and zgen selfupdate every 7 days
-  zgen load unixorn/autoupdate-zgen
-
-  zgen load unixorn/jpb.zshplugin
-
   # Warn you when you run a command that you've got an alias for
   zgen load djui/alias-tips
 
-  # Tom Limoncelli's tooling for storing private information (keys, etc)
-  # in a repository securely by encrypting them with gnupg
-  # zgen load StackExchange/blackbox
-
   # Load some oh-my-zsh plugins
-  zgen oh-my-zsh plugins/brew
-  zgen oh-my-zsh plugins/brew-cask
   zgen oh-my-zsh plugins/jira
   zgen oh-my-zsh plugins/osx
-  zgen oh-my-zsh plugins/pip
-  # zgen oh-my-zsh plugins/sudo
-  zgen oh-my-zsh plugins/web-search
 
   # zgen load chrissicool/zsh-256color
   zgen load Tarrasch/zsh-autoenv
@@ -67,22 +42,13 @@ load-plugins() {
   # Load more completion files for zsh from the zsh-lovers github repo
   zgen load zsh-users/zsh-completions src
 
-  # git and git-flow completion
-  zgen load bobthecow/git-flow-completion
-
   # Fish-like fast/unobtrusive autosuggestions for zsh.
   zgen load zsh-users/zsh-autosuggestions
 
   # Load me last
   GENCOMPL_FPATH=/usr/local/share/zsh/site-functions
 
-  # Very cool plugin that generates zsh completion functions for commands
-  # if they have getopt-style help text. It doesn't generate them on the fly,
-  # you'll have to explicitly generate a completion, but it's still quite cool.
-  # zgen load RobSis/zsh-completion-generator
-
   # Prompt theme
-  # zgen load robbyrussell/oh-my-zsh themes/miloshadzic
   zgen load therealklanni/purity
 
   # Save it all to init script
@@ -122,4 +88,4 @@ if [ $(get_file_modification_time ${REAL_ZGEN_SETUP}) -gt $(get_file_modificatio
 fi
 unset REAL_ZGEN_SETUP
 
-echo -en "$(gdate +%s.%N) >> zgen.src end\r\n"
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> zgen.src end\r\n"; fi
