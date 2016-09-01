@@ -33,3 +33,7 @@ Thumbs.db
 
 # Editor settings
 .vscode
+
+# Todo files
+*.todo
+*.tasks
