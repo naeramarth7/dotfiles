@@ -6,9 +6,13 @@ use-dinghy () {
   eval $(dinghy env)
 }
 
-unuse-dinghy () {
+docker-reset () {
   unset DOCKER_HOST
   unset DOCKER_CERT_PATH
   unset DOCKER_TLS_VERIFY
   unset DOCKER_MACHINE_NAME
+}
+
+docker-use-port () {
+  export DOCKER_HOST=tcp://127.0.0.1:$1
 }
