@@ -1,14 +1,37 @@
 {
 	"always_show_minimap_viewport": true,
 	"atomic_save": false,
+	"auto_complete_cycle": true,
+	"binary_file_patterns":
+	[
+		"*.dds",
+		"*.eot",
+		"*.gif",
+		"*.ico",
+		"*.jar",
+		"*.jpeg",
+		"*.jpg",
+		"*.pdf",
+		"*.png",
+		"*.swf",
+		"*.tga",
+		"*.ttf",
+		"*.zip",
+		"npm-shrinkwrap.json"
+	],
+	"bold_folder_labels": true,
 	"caret_extra_bottom": 0,
 	"caret_extra_top": 0,
 	"caret_extra_width": 1,
-	"caret_style": "solid",
-	"color_scheme": "Packages/User/Monokai (SL).tmTheme",
+	"caret_style": "phase",
+	"close_windows_when_empty": false,
+	"color_scheme": "Packages/User/SublimeLinter/HalfLife (SL).tmTheme",
 	"default_encoding": "UTF-8",
 	"default_line_ending": "unix",
+	"detect_indentation": true,
+	"drag_text": false,
 	"draw_white_space": "all",
+	"fade_fold_buttons": false,
 	"file_exclude_patterns":
 	[
 		"*.min.js",
@@ -20,9 +43,11 @@
 		"._*",
 		"Thumbs.db",
 		".Spotlight-V100",
-		".Trashes"
+		".Trashes",
+		"*.otf"
 	],
 	"find_selected_text": true,
+	"findreplace_small": true,
 	"folder_exclude_patterns":
 	[
 		".svn",
@@ -31,10 +56,18 @@
 		"CVS",
 		"node_modules",
 		"libs",
-		".sass-cache"
+		".sass-cache",
+		".tmp",
+		"bower_components"
 	],
-	"font_face": "Menlo",
-	"font_size": 10,
+	"folder_no_icon": true,
+  "font_face": "Roboto Mono",
+	"font_options":
+	[
+		"gray_antialias",
+		"subpixel_antialias"
+	],
+	"font_size": 12,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -42,19 +75,35 @@
 		"Markdown",
 		"Vintage"
 	],
-	"line_padding_bottom": 1,
+	"ignored_words":
+	[
+		"S3"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"line_padding_bottom": 0,
+	"line_padding_top": 1,
 	"match_brackets": true,
 	"match_brackets_angle": true,
+	"overlay_scroll_bars": "enabled",
 	"rulers":
 	[
-		80
+		80,
+		100
 	],
 	"shift_tab_unindent": true,
 	"show_encoding": true,
 	"show_line_endings": true,
+	"status_bar_brighter": true,
 	"tab_size": 2,
-	"theme": "Soda Dark 3.sublime-theme",
+	"tabs_padding_medium": true,
+	"tabs_small": true,
+	"theme": "Afterglow-orange.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
+	"use_simple_full_screen": true,
 	"word_wrap": true
 }
