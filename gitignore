@@ -1,9 +1,6 @@
 # Local configurations and files
 .env
 
-# Local installations
-node_packages
-
 # Folder view configuration files
 .DS_Store
 Desktop.ini
