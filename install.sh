@@ -170,6 +170,14 @@ brew install xhyve
 sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
 sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
 
+# Install custom fonts
+brew tap caskroom/fonts
+brew cask install \
+  font-fira-code \
+  font-fira-mono \
+  font-fira-mono-for-powerline \
+  font-fira-sans
+
 # Remove outdated versions from the cellar.
 brew cleanup
 brew cask cleanup
