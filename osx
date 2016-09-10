@@ -698,7 +698,14 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 ###############################################################################
 
 # Install Sublime Text settings
-cp -r $(pwd -P)/.configs/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+ln -s $(pwd -P)/.configs/sublime/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings 2> /dev/null
+
+###############################################################################
+# Visual Studio Code                                                          #
+###############################################################################
+
+# Install settings
+ln -s $(pwd -P)/.configs/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json 2> /dev/null
 
 ###############################################################################
 # Transmission.app                                                            #
