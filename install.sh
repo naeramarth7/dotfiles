@@ -122,9 +122,13 @@ nvm alias default node
 nvm use node
 
 # Install node modules
-npm i -g gulp
-npm i -g grunt
-npm i -g bower
+npm install -g gulp
+npm install -g grunt
+npm install -g bower
+
+npm install -g typescript@2
+npm install -g eslint@latest
+npm install -g tslint@latest
 
 # Install python
 brew install python
