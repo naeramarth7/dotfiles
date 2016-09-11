@@ -105,6 +105,7 @@ brew install stow
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 \curl -sSL https://get.rvm.io | bash -s stable
 
+
 # Install tmux plugin manager and plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 gem install tmuxinator
@@ -148,7 +149,7 @@ if [[ $SHELL != /usr/local/bin/zsh ]]; then
 fi
 
 # Install vim (after python to compile with Homebrew's python)
-brew install vim
+brew install macvim --with-override-system-vim
 
 # Install rcm
 brew install rcm
