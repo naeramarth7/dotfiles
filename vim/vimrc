@@ -113,7 +113,7 @@ set lazyredraw                          " Redraw only when needed, not during ma
 set showmatch                           " Highlight matching brackets
 set laststatus=2                        " Always show statusbar
 
-set guifont="Anonymice Powerline"       " set Anomyce Powerline font as default
+set guifont="FuraMono-Medium Powerline" " Set default font
 
 set lcs=tab:▸\ ,trail:·,nbsp:_          " Set symbols for invisible characters
 set list                                " Show invisible characters

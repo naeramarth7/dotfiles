@@ -61,7 +61,7 @@
 		"bower_components"
 	],
 	"folder_no_icon": true,
-  "font_face": "Roboto Mono",
+  "font_face": "Fira Code",
 	"font_options":
 	[
 		"gray_antialias",
