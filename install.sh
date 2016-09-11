@@ -21,6 +21,7 @@ sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 # Install some other useful utilities like `sponge`.
 brew install moreutils
+
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
 
@@ -111,17 +112,18 @@ gem install tmuxinator
 # Install other gems
 gem install maid
 
-# Install nvm, nodejs and iojs
+# Install nvm and node
 brew install nvm
 nvm install node
 
 # Use nodejs as default
+nvm alias default node
 nvm use node
 
 # Install node modules
-npm install -g gulp
-npm install -g grunt
-npm install -g bower
+npm i -g gulp
+npm i -g grunt
+npm i -g bower
 
 # Install python
 brew install python
@@ -145,16 +147,11 @@ if [[ $SHELL != /usr/local/bin/zsh ]]; then
   chsh -s /usr/local/bin/zsh
 fi
 
-# Install vi (after python to compile with Homebrew's python)
+# Install vim (after python to compile with Homebrew's python)
 brew install vim
 
 # Install rcm
 brew install rcm
-
-# Install casks
-brew cask install launchrocket
-brew cask install xtrafinder
-brew cask install gas-mask
 
 # Run rcm to link dotfiles
 env RCRC=$(pwd -P)/rcrc rcup
@@ -172,11 +169,17 @@ sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machi
 
 # Install custom fonts
 brew tap caskroom/fonts
-brew cask install \
-  font-fira-code \
-  font-fira-mono \
-  font-fira-mono-for-powerline \
-  font-fira-sans
+brew cask install font-fira-code
+brew cask install font-fira-mono
+brew cask install font-fira-mono-for-powerline
+brew cask install font-fira-sans
+brew cask install font-source-code-pro
+
+# Install other software via cask
+brew cask install airmail-beta
+brew cask install launchrocket
+brew cask install gas-mask
+brew cask install xtrafinder
 
 # Remove outdated versions from the cellar.
 brew cleanup
