@@ -167,19 +167,31 @@ brew install xhyve
 sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
 sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
 
-# Install custom fonts
-brew tap caskroom/fonts
-brew cask install font-fira-code
-brew cask install font-fira-mono
-brew cask install font-fira-mono-for-powerline
-brew cask install font-fira-sans
-brew cask install font-source-code-pro
-
 # Install other software via cask
 brew cask install airmail-beta
-brew cask install launchrocket
+brew cask install bettertouchtool
+brew cask install easysimbl
 brew cask install gas-mask
+brew cask install growlnotify
+brew cask install iterm2-beta
+brew cask install jdownloader
+brew cask install karabiner
+brew cask install launchrocket
+brew cask install seil
+brew cask install sequel-pro
+brew cask install slack
+brew cask install transmission
+brew cask install vagrant
+brew cask install vagrant-manager
+brew cask install virtualbox
+brew cask install virtualbox-extension-pack
+brew cask install visual-studio-code
+brew cask install xquartz
 brew cask install xtrafinder
+
+# Install custom fonts
+brew tap caskroom/fonts
+brew cask install font-input
 
 # Remove outdated versions from the cellar.
 brew cleanup

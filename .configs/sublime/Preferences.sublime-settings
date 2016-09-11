@@ -61,13 +61,13 @@
 		"bower_components"
 	],
 	"folder_no_icon": true,
-  "font_face": "Fira Code",
+  "font_face": "Input Mono Narrow",
 	"font_options":
 	[
 		"gray_antialias",
 		"subpixel_antialias"
 	],
-	"font_size": 12,
+	"font_size": 11,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
