@@ -16,6 +16,9 @@ update() {
   npm install npm -g
   npm update -g
 
+  # Update rvm
+  rvm get stable
+
   # Update system gems
   sudo gem update --system
   sudo gem update
