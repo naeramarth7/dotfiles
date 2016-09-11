@@ -9,7 +9,8 @@ source $ZDOTDIR/zgen/zgen.zsh
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> zgen.zsh end\r\n"; fi
 
 load-plugins() {
-  echo -en "$(gdate +%s.%N) >>> creating zgen init.sh\r\n"
+  if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >>> creating zgen init.sh\r\n"; fi
+
   ZGEN_LOADED=()
   ZGEN_COMPLETIONS=()
 
@@ -49,7 +50,7 @@ load-plugins() {
   GENCOMPL_FPATH=/usr/local/share/zsh/site-functions
 
   # Prompt theme
-  zgen load therealklanni/purity
+  zgen oh-my-zsh themes/dstufft
 
   # Save it all to init script
   zgen save > /dev/null
@@ -83,7 +84,7 @@ REAL_ZGEN_SETUP="$(test -L "$0" && readlink "$0" || echo "$0")"
 
 # If .zgen-setup is newer than init.zsh, regenerate init.zsh
 if [ $(get_file_modification_time ${REAL_ZGEN_SETUP}) -gt $(get_file_modification_time ~/.zgen/init.zsh) ]; then
-  echo -en "$(gdate +%s.%N) >>> zgen config updated\r\n"
+  if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >>> zgen config updated\r\n"; fi
   load-plugins
 fi
 unset REAL_ZGEN_SETUP
