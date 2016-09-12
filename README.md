@@ -4,11 +4,11 @@
 
 ### OS X Settings
 
-The `osx` script is for setting up OS X.
+The `.macos` script is for setting up OS X.
 Check the lines for details and execute it to apply the settings:
 
 ```zsh
-./osx
+./.macos
 ```
 
 ### Homebrew
@@ -34,9 +34,9 @@ env RCRC=$(pwd -P)/rcrc rcup
 
 ## Disabling
 
-### OSX Settings / Homebrew
+### macOS Settings / Homebrew
 
-Unfortunately, there's no possibilty to revert the changes made by the `osx` file.
+Unfortunately, there's no possibilty to revert the changes made by the `.macos` script.
 Fore removing Homebrew, see [superuser.com/a/203740](http://superuser.com/a/203740).
 
 ### dotfiles
