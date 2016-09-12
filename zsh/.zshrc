@@ -17,11 +17,11 @@ source $ZDOTDIR/plugins/lazy.src
 source $ZDOTDIR/plugins/fasd.src
 
 # echo -en "$(gdate +%s.%N) > load rvm\r\n"
-# source "$HOME/.rvm/scripts/rvm" --no-use
+source "$HOME/.rvm/scripts/rvm"
 
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > load nvm\r\n"; fi
 source "$BREW_NVM_DIR/nvm.sh" --no-use
 
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc end\r\n"; fi
 
-# clear
+if [ !$ZSH_DEBUG ]; then; clear; fi
