@@ -176,26 +176,51 @@ sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docke
 sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
 
 # Install other software via cask
+brew cask install alfred
 brew cask install airmail-beta
+brew cask install amazon-music
+brew cask install appcleaner
 brew cask install bettertouchtool
+brew cask install boom
+brew cask install cdock
+brew cask install chitchat
 brew cask install easysimbl
+brew cask install evernote
+brew cask install fantastical
+brew cask install flux
 brew cask install gas-mask
+brew cask install goofy
+brew cask install google-nik-collection
 brew cask install growlnotify
+brew cask install imageoptim
 brew cask install iterm2-beta
 brew cask install jdownloader
-brew cask install karabiner
 brew cask install launchrocket
+brew cask install netspot
+brew cask install numi
+brew cask install omnidisksweeper
+brew cask install opera-developer
+brew cask install osxfuse-beta
+brew cask install razer-synapse
+brew cask install safari-technology-preview
+brew cask install scroll-reverser
 brew cask install seil
 brew cask install sequel-pro
 brew cask install slack
+brwe cask install spotify
 brew cask install transmission
 brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install visual-studio-code
+brew cask install vlc
 brew cask install xquartz
 brew cask install xtrafinder
+
+# Add ntfs support
+# Needs to be installed after osxfuse >3
+brew install homebrew/fuse/ntfs-3g
 
 # Install custom fonts
 brew tap caskroom/fonts
