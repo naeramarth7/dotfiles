@@ -45,7 +45,7 @@ Plugin 'tpope/vim-fugitive'             " Git wrapper
 Plugin 'mmozuras/vim-github-comment'    " Commenting GitHub commits
 
 " Code completion
-Plugin 'Valloric/YouCompleteMe'         " Autocompletion
+"Plugin 'Valloric/YouCompleteMe'         " Autocompletion
 Plugin 'SirVer/ultisnips'               " Snippet library
 Plugin 'tpope/vim-commentary'           " Commenting
 Plugin 'honza/vim-snippets'             " Snippets to use with a lib for various languages
@@ -59,7 +59,6 @@ Plugin 'terryma/vim-expand-region'      " Expanding selections
 Plugin 'christoomey/vim-tmux-navigator' " Navigation between tmux and vim
 
 " Web Development
-Plugin 'chmck/vim-coffee-script'        " CoffeeScript support
 Plugin 'Glench/Vim-Jinja2-Syntax'       " Jinja2 templating engine (python)
 Plugin 'evidens/vim-twig'               " Twig2 templating engine (php)
 
