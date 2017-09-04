@@ -1,17 +1,13 @@
 [include]
-  # For username / creds / etc
+
+  # For username / credentials / etc
   path = ~/.gitconfig.local
+
 
 [alias]
 
-  # View abbreviated SHA, description, and history graph of the latest 20 commits
-  l = log --pretty=oneline -n 20 --graph --abbrev-commit
-
-  # View the current working tree status using the short format
-  s = status -s
-
   # Show the diff between the latest commit and the current state
-  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat --color | diff-so-fancy"
 
   # `git di $number` shows the diff between the state `$number` revisions ago and the current state
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
@@ -22,19 +18,13 @@
   # Clone a repository including all submodules
   c = clone --recursive
 
-  # Commit all changes
-  ca = !git add -A && git commit -av
-
   # Switch to a branch, creating it if necessary
-  go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  go = "!f() { git checkout \"$1\" 2> /dev/null || git checkout -b \"$1\"; }; f"
 
   # Show verbose output about tags, branches or remotes
   tags = tag -l
   branches = branch -a
   remotes = remote -v
-
-  # Amend the currently staged files to the latest commit
-  amend = commit --amend --reuse-message=HEAD
 
   # Credit an author on the latest commit
   credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
@@ -59,7 +49,7 @@
 
   # Remove branches that have already been merged with master
   # a.k.a. ‘delete merged’
-  dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  dm = "!git branch --merged origin/master | grep -v '\\*' | xargs -n 1 git branch -d"
 
   # List contributors with number of commits
   contributors = shortlog --summary --numbered
@@ -82,36 +72,57 @@
   # Undo last commit
   undo-commit = reset --soft HEAD^
 
-
   # Short forms
   a           = add
   aa          = add --all
 
   b           = !git branch -vv
   br          = !git branch -vv
+  bd          = branch --delete
   ba          = !git branch -avv
-  ca          = commit --amend
+  ca          = commit --all --amend --no-edit
   ci          = commit --verbose
   cm          = commit -m
   co          = checkout
   cp          = cherry-pick
+  fa          = fetch --all
   merged      = branch --merged
-  nb          = checkout -b
   pick        = cherry-pick
   pu          = push -u
-  pp          = pull --prune
-  ppr         = pull --prune --rebase
+  pp          = pull --prune --rebase
   rb          = rebase
-  rbi         = rebase -i
+  rbi         = rebase --interactive
   rh          = reset --hard
+  s           = status --short --branch
   st          = status --short --branch -- .
-  stat        = status --short --branch
   unstage     = reset HEAD
+
+  # history / log
+  hlog    = !git log --color=always --date=relative --pretty=hist
+
+  hist    = !git hlog --graph --date-order
+  h       = !git --no-pager hist -10
+  hh      = !git --no-pager hist -20
+  hhh     = !git --no-pager hist
+  hc      = !git h --no-merges
+  hhc     = !git hh --no-merges
+  hhhc    = !git hhh --no-merges
+
+  histstat= "!git hc --stat=160,160 \"$@\" | perl -ne '/([|*])/; if($1 eq \"*\") { print } else { m/[|] *[0-9]/ and print }'; true"
+  hstat   = !git --no-pager histstat -10
+  hhstat  = !git --no-pager histstat -20
+  hhhstat = !git --no-pager histstat
+
+  hstats  = !git hc --shortstat --dirstat=changes,10
+  hhstats = !git hhc --shortstat --dirstat=changes,10
+  hhhstats= !git hhhc --shortstat --dirstat=changes,10
+
 
 [apply]
 
   # Detect whitespace errors when applying a patch
   whitespace = fix
+
 
 [core]
 
@@ -133,6 +144,8 @@
   precomposeunicode = false
 
   editor = vim
+  pager = diff-so-fancy | less --tabs=4 -RFX
+
 
 [color]
 
@@ -140,11 +153,13 @@
   # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
   ui = auto
 
+
 [color "branch"]
 
   current = yellow reverse
   local = yellow
   remote = green
+
 
 [color "diff"]
 
@@ -153,16 +168,19 @@
   old = red # deletions
   new = green # additions
 
+
 [color "status"]
 
   added = yellow
   changed = green
   untracked = cyan
 
+
 [column]
 
   # This lets "git stat" stack multiple filenames per row (like vanilla 'ls')
-  # ui = always
+  ui = always
+
 
 [diff]
 
@@ -172,18 +190,20 @@
   # Do not show any source or destination prefix
   noprefix = true
 
+
 [format]
 
   # More detail for "git show"
   pretty = fuller
+
 
 [help]
 
   # Automatically correct and execute mistyped commands
   autocorrect = 1
 
-[merge]
 
+[merge]
 
   # This is REALLY useful.  Adds 'original_version' to diffs like so:
   # <<<<<<<
@@ -196,10 +216,11 @@
   conflictstyle = diff3
   defaultToUpstream = true
 
+
 [pretty]
-  hist      = "%C(bold yellow)%h %C(bold green)(%ad) %C(reset)%C(red)[%an] %C(reset)%s %C(bold red)%d%C(reset)"
-  histp     = "%C(bold yellow)%h %C(reset)%C(yellow)%p %C(bold green)(%ad) %C(reset)%C(red)[%an] %C(reset)%s %C(bold red)%d%C(reset)" # with parents
-  ghist     = "%C(bold red)%d %C(bold yellow)%gD %C(reset)%C(yellow)%h %C(reset)%aD %C(red)[%an] %C(green)%gs %C(reset)%s"
+
+  hist      = "%C(bold yellow)%h %C(bold green)(%ad) %C(reset)%C(red)[%an] %C(reset)%s%C(bold red)%d%C(reset)"
+
 
 [push]
 
@@ -207,6 +228,7 @@
   default = current
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
+
 
 # URL shorthands
 
@@ -230,26 +252,24 @@
 
   insteadOf = "gist:"
 
-[alias]
-  hlog    = !git log --color=always --date=relative --pretty=hist
-
-  ghist   = !git hlog -g --pretty=ghist
-
-  hist    = !git hlog --graph --date-order
-  h       = !git --no-pager hist -10
-  hh      = !git --no-pager hist -20
-  hhh     = !git --no-pager hist
-
-  histstat= "!git h --stat=160,160 \"$@\" | perl -ne '/([|*])/; if($1 eq \"*\") { print } else { m/[|] *[0-9]/ and print }'; true"
-  hstat   = !git --no-pager histstat -10
-  hhstat  = !git --no-pager histstat -20
-  hhhstat = !git --no-pager histstat
-
-  hstats  = !git h --shortstat --dirstat=changes,10
-  hhstats = !git hh --shortstat --dirstat=changes,10
-  hhhstats= !git hhh--shortstat --dirstat=changes,10
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   required = true
+
+
+[user]
+  name = Sven Flickinger
+  email = hc4e2k@gmail.com
+
+
+[credential]
+  helper = osxkeychain
+
+
+[color "diff-highlight"]
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+  oldNormal = red bold
