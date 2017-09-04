@@ -21,4 +21,7 @@ unset file
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
 
+# Add all ssh keys from keychain
+ssh-add -A 2>/dev/null
+
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zprofile end\r\n"; fi
