@@ -1,4 +1,4 @@
-g diffEXCLUDES="install.sh"
+EXCLUDES="install.sh"
 EXCLUDES="$EXCLUDES rcrc"
 EXCLUDES="$EXCLUDES README.md LICENSE"
 DOTFILES_DIRS="$HOME/dotfiles"

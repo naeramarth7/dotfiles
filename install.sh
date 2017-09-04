@@ -38,12 +38,13 @@ brew install wget --with-iri
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
-brew install homebrew/php/php55 --with-gmp
 
 # Install brew-cask
 brew tap caskroom/cask
-brew install brew-cask
 brew cask install xquartz
+
+# Install java
+brew cask install java
 
 # Install font tools.
 brew tap bramstein/webfonttools
@@ -53,46 +54,18 @@ brew install woff2
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew tap homebrew/x11
-brew install aircrack-ng
-brew install bfg
-brew install binutils
-brew install binwalk
-brew install cifer
-brew install dex2jar
-brew install dns2tcp
-brew install fcrackzip
-brew install foremost
-brew install hashpump
-brew install hydra
-brew install john
-brew install knock
-brew install netpbm
-brew install nmap
-brew install pngcheck
-brew install socat
-brew install sqlmap
-brew install tcpflow
-brew install tcpreplay
-brew install tcptrace
-brew install ucspi-tcp # `tcpserver` etc.
-brew install xpdf
-brew install xz
+
 
 # Install other useful binaries.
-brew install ack
 brew install dark-mode
 brew install exiv2
 brew install git
 brew install git-lfs
+brew install gpg
 brew install imagemagick --with-webp
-brew install lua
-brew install lynx
 brew install p7zip
 brew install pigz
 brew install pv
-brew install rename
-brew install speedtest_cli
-brew install ssh-copy-id
 brew install the_silver_searcher
 brew install tmux
 brew install tree
@@ -106,8 +79,11 @@ brew install stow
 
 # Install rvm, ruby, rails
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-\curl -sSL https://get.rvm.io | bash -s stable
+curl -sSL https://get.rvm.io | bash -s stable
 
+source /Users/$(whoami)/.rvm/scripts/rvm
+rvm get stable
+rvm install 2.4
 
 # Install tmux plugin manager and plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -116,31 +92,41 @@ gem install tmuxinator
 # Install other gems
 gem install maid
 
-# Install nvm and node
-brew install nvm
-nvm install node
+# Install build tools, etc
+brew install grable
+brew install maven
+brew install ansible
 
-# Use nodejs as default
-nvm alias default node
-nvm use node
+# Install n and node
+brew install n
+n latest
+
+# Install yarn
+brew install yarn
 
 # Install node modules
-npm install -g gulp
-npm install -g grunt
-npm install -g bower
+yarn global add gulp
+yarn global add grunt
+yarn global add bower
 
-npm install -g typescript@2
-npm install -g eslint@latest
-npm install -g tslint@latest
+yarn global add typescript@next
+yarn global add eslint@next
+yarn global add tslint@next
+
+yarn global add git-recent
+yarn global add diff-so-fancy
+
+# Settings for diff-so-fancy
+git config --global color.diff-highlight.oldNormal "red bold"
+git config --global color.diff-highlight.oldHighlight "red bold 52"
+git config --global color.diff-highlight.newNormal "green bold"
+git config --global color.diff-highlight.newHighlight "green bold 22"
 
 # Install python
 brew install python
 
 # Install powerline for cli
 pip install powerline-status
-
-# Install powerline fonts
-eval $(pwd -P)/.powerline-fonts/install.sh
 
 # Install zsh
 brew install zsh
@@ -157,25 +143,29 @@ fi
 
 # Install vim (after python to compile with Homebrew's python)
 brew install macvim --with-override-system-vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 
 # Install rcm
+brew tap thoughtbot/formulae
 brew install rcm
 
 # Run rcm to link dotfiles
 env RCRC=$(pwd -P)/rcrc rcup
 
 # Install docker, etc.
-brew install docker
+brew cask install docker
 brew install docker-compose
-brew install docker-machine
-brew install docker-machine-driver-xhyve
+# brew install docker-machine
+# brew install docker-machine-driver-xhyve
 
-brew install dinghy --HEAD
-brew install xhyve
-sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
-sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+# brew install dinghy --HEAD
+# brew install xhyve
+# sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+# sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
 
 # Install other software via cask
+brew tap caskroom/versions
 brew cask install alfred
 brew cask install airmail-beta
 brew cask install amazon-music
@@ -185,29 +175,31 @@ brew cask install boom
 brew cask install cdock
 brew cask install chitchat
 brew cask install easysimbl
+brew cask install enpass
 brew cask install evernote
 brew cask install fantastical
 brew cask install flux
 brew cask install gas-mask
-brew cask install goofy
+brew cask install google-drive
 brew cask install google-nik-collection
 brew cask install growlnotify
 brew cask install imageoptim
 brew cask install iterm2-beta
-brew cask install jdownloader
+brew cask install karabiner-elements
 brew cask install launchrocket
 brew cask install netspot
 brew cask install numi
 brew cask install omnidisksweeper
 brew cask install opera-developer
-brew cask install osxfuse-beta
+brew cask install osxfuse
 brew cask install razer-synapse
 brew cask install safari-technology-preview
 brew cask install scroll-reverser
 brew cask install seil
 brew cask install sequel-pro
-brew cask install slack
-brwe cask install spotify
+brew cask install spotify
+brew cask install switchresx
+brew cask install tnefs-enough
 brew cask install transmission
 brew cask install vagrant
 brew cask install vagrant-manager
@@ -217,6 +209,10 @@ brew cask install visual-studio-code
 brew cask install vlc
 brew cask install xquartz
 brew cask install xtrafinder
+
+# Work related
+brew cask install hipchat
+brew cask install slack
 
 # Add ntfs support
 # Needs to be installed after osxfuse >3

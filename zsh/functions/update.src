@@ -9,12 +9,9 @@ update() {
   # Upgrade brew packages, remove old files
   maid clean -fr ~/.maid/rules.brew.rb
 
-  # Update to latest node / npm version
-  nvm install node --reinstall-packages-from=node
-
-  # Update npm and global dependencies
-  npm install npm -g
-  npm update -g
+  # Update npm and yarn
+  npm i -g npm
+  yarn global upgrade
 
   # Update rvm
   rvm get stable
@@ -22,9 +19,6 @@ update() {
   # Update system gems
   sudo gem update --system
   sudo gem update
-
-  # Update dinghy vm
-  dinghy upgrade
 
   # Update zgen and addons
   zgen selfupdate

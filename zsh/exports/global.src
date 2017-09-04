@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Install to ~/Applications as default
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768;
 export HISTFILESIZE=$HISTSIZE;
@@ -20,10 +23,6 @@ export MANPAGER="less -X";
 
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto";
-
-# Exports for modules
-export NVM_DIR=~/.nvm
-export BREW_NVM_DIR=/usr/local/opt/nvm
 
 # Don't show autotitles (useful for tmux)
 export DISABLE_AUTO_TITLE=true
