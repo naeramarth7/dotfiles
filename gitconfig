@@ -49,7 +49,7 @@
 
   # Remove branches that have already been merged with master
   # a.k.a. ‘delete merged’
-  dm = "!git branch --merged origin/master | grep -v '\\*' | xargs -n 1 git branch -d"
+  dm = "!git branch --no-column --merged origin/master | grep -v '\\*' | xargs -n 1 git branch -d"
 
   # List contributors with number of commits
   contributors = shortlog --summary --numbered
