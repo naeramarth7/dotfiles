@@ -7,7 +7,7 @@ if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zprofile start\r\n"; fi
 # * ~/aliases/*.src can be used for setting aliases.
 # * ~/aliases/*.src can be used for implementing custom functions.
 # * ~/extras/*.src can be used for anything else.
-for dir in $ZDOTDIR/{exports,aliases,functions,extra}; do
+for dir in $ZDOTDIR/{exports,aliases,functions,extra,plugins}; do
   if [ -d $dir ]; then
     for file in $dir/*.src; do
       [ -r "$file" ] && [ -f "$file" ] && source "$file"

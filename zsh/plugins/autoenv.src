@@ -1,0 +1,4 @@
+#!/usr/bin/env/ zsh
+
+# source $(brew --prefix autoenv)/activate.sh
+eval "$(direnv hook zsh)"

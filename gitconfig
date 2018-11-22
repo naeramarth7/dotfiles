@@ -48,8 +48,12 @@
   fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
 
   # Remove branches that have already been merged with master
-  # a.k.a. ‘delete merged’
+  # a.k.a. 'delete merged'
   dm = "!git branch --no-column --merged origin/master | grep -v '\\*' | xargs -n 1 git branch -d"
+
+  # Remove branches if their tracking branches where deleted on the remote
+  # a.k.a. 'delete gone'
+  dg = "!git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
 
   # List contributors with number of commits
   contributors = shortlog --summary --numbered
@@ -69,6 +73,9 @@
   # Tag the latest commit and push it to origin
   tagg = "!f() { git tag $1 && git push origin $1; }; f"
 
+  # Remove a tag and delete it from origin
+  tagd = "!f() { git tag -d $1 && git push origin :refs/tags/$1; }; f"
+
   # Undo last commit
   undo-commit = reset --soft HEAD^
 
@@ -80,7 +87,7 @@
   br          = !git branch -vv
   bd          = branch --delete
   ba          = !git branch -avv
-  ca          = commit --all --amend --no-edit
+  ca          = commit --amend --no-edit
   ci          = commit --verbose
   cm          = commit -m
   co          = checkout
@@ -89,12 +96,15 @@
   merged      = branch --merged
   pick        = cherry-pick
   pu          = push -u
-  pp          = pull --prune --rebase
+  pp          = pull --prune --rebase --autostash
   rb          = rebase
-  rbi         = rebase --interactive
+  rba         = rebase --autostash
+  rbi         = !git rb --interactive
   rh          = reset --hard
   s           = status --short --branch
   st          = status --short --branch -- .
+  ss          = stash save -u
+  sp          = stash pop
   unstage     = reset HEAD
 
   # history / log
@@ -273,3 +283,6 @@
   newNormal = green bold
   newHighlight = green bold 22
   oldNormal = red bold
+[gui]
+[gui]
+	recentrepo = /Users/svenf/Projects/MW/BMW/OAP/oap-apps/chargenow

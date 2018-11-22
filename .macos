@@ -617,6 +617,7 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
 # Install themes for iTerm
 open "$(pwd -P)/.themes/iterm2/Smyck.itermcolors"
+open "$(pwd -P)/.themes/iterm2/ayu.itermcolors"
 open "$(pwd -P)/.themes/iterm2/Solarized Dark.itermcolors"
 open "$(pwd -P)/.themes/iterm2/Solarized Light.itermcolors"
 
@@ -788,7 +789,14 @@ ln -s $(pwd -P)/.configs/sublime/Preferences.sublime-settings ~/Library/Applicat
 ###############################################################################
 
 # Install settings
+rm ~/Library/Application\ Support/Code/User/settings.json
+rm ~/Library/Application\ Support/Code/User/keybindings.json
+rm ~/Library/Application\ Support/Code - Insiders/User/settings.json
+rm ~/Library/Application\ Support/Code - Insiders/User/keybindings.json
 ln -s $(pwd -P)/.configs/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json 2> /dev/null
+ln -s $(pwd -P)/.configs/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json 2> /dev/null
+ln -s $(pwd -P)/.configs/vscode/settings.json ~/Library/Application\ Support/Code - Insiders/User/settings.json 2> /dev/null
+ln -s $(pwd -P)/.configs/vscode/keybindings.json ~/Library/Application\ Support/Code - Insiders/User/keybindings.json 2> /dev/null
 
 ###############################################################################
 # Transmission.app                                                            #

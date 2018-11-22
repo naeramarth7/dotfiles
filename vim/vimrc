@@ -72,6 +72,9 @@ Plugin 'evidens/vim-twig'               " Twig2 templating engine (php)
 "Plugin 'hail2u/vim-css3-syntax'
 "Plugin 'digitaltoad/vim-jade'
 
+" -- Color Themes
+Plugin 'ayu-theme/ayu-vim'
+
 call vundle#end()
 
 " enable matchit plugin which ships with vim and greatly enhances '%'
@@ -98,9 +101,10 @@ filetype plugin indent on               " Enable plugins and indentation per fil
 " UI: Colors {{{
 
 " set background=dark
+set termguicolors                       " enable true colors support
 syntax on                               " Turn on syntax highlighting
-" colorscheme monokain                    " Set the color theme
-colorscheme smyck                       " Set the color theme
+let ayucolor="dark"
+colorscheme ayu                         " Set the color theme
 
 " }}}
 

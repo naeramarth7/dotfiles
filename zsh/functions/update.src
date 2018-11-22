@@ -10,6 +10,8 @@ update() {
   maid clean -fr ~/.maid/rules.brew.rb
 
   # Update npm and yarn
+  brew upgrade yarn
+  brew link --overwrite yarn
   npm i -g npm
   yarn global upgrade
 

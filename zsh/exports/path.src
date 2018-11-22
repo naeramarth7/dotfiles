@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
+# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH"
 export PATH="$HOME/.rvm/gems/$(ls -t $HOME/.rvm/gems/ | head -1)/bin:$PATH"
 # export PATH="$HOME/.nvm/versions/node/$(ls -t $HOME/.nvm/versions/node/ | head -1)/bin:$PATH"
+export PATH="/usr/local/opt/python@2/bin:$PATH"
+export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/qt/bin:$PATH"

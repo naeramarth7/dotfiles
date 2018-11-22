@@ -1,5 +1,6 @@
 # Local configurations and files
 .env
+.envrc
 
 # Folder view configuration files
 .DS_Store
@@ -34,3 +35,4 @@ Thumbs.db
 # Todo files
 *.todo
 *.tasks
+.notes/

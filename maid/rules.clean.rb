@@ -54,12 +54,12 @@ Maid.rules do
   # Caches
   #
 
-  rule 'Delete npm cache' do
-    log(`npm cache clean`)
-  end
+  # rule 'Delete npm cache' do
+  #   log(`npm cache clean`)
+  # end
 
-  rule 'Delete node-gyp cache' do
-    trash(dir('~/.node-gyp'))
-  end
+  # rule 'Delete node-gyp cache' do
+  #   trash(dir('~/.node-gyp'))
+  # end
 
 end

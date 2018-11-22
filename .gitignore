@@ -3,3 +3,5 @@ extra/
 .gitconfig.local
 zsh/.zcompdump*
 zsh/complete
+
+**/node_modules/

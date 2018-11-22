@@ -27,14 +27,7 @@ export GREP_OPTIONS="--color=auto";
 # Don't show autotitles (useful for tmux)
 export DISABLE_AUTO_TITLE=true
 
-# node.js, io.js and npm
-#export NODE_PATH=/usr/local/lib/node_modules
-
-# Android SDK
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
-# JIRA
-export JIRA_URL="https://innoactive.instajira.com"
-
-# laspass-cli
-export LPASS_AGENT_TIMEOUT=0
+# openssl
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"

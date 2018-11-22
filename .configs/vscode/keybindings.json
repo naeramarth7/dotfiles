@@ -1,0 +1,159 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "cmd+p",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "shift+alt+right",
+    "command": "cursorWordEndRightSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+alt+left",
+    "command": "cursorWordStartLeftSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+up",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+down",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+l",
+    "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+r",
+    "command": "workbench.action.gotoSymbol"
+  },
+  {
+    "key": "ctrl+cmd+e",
+    "command": "workbench.action.showErrorsWarnings"
+  },
+  {
+    "key": "cmd+e",
+    "command": "editor.action.marker.next",
+    "when": "editorFocus"
+  },
+  {
+    "key": "cmd+.",
+    "command": "closeTag.closeHTMLTag",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+.",
+    "command:": "closeTag.closeHTMLTagInPlace",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+p",
+    "command": "projectManager.listProjects"
+  },
+  {
+    "key": "shift+cmd+w",
+    "command": "editor.emmet.action.wrapWithAbbreviation",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+/",
+    "command": "editor.action.blockComment",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+cmd+`",
+    "command": "-extension.createNewFile"
+  },
+  {
+    "key": "alt+s",
+    "command": "-gitlens.showQuickRepoStatus",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "shift+cmd+enter",
+    "command": "code-runner.run"
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "-code-runner.run"
+  },
+  {
+    "key": "cmd+;",
+    "command": "workbench.action.debug.stepInto",
+    "when": "inDebugMode"
+  },
+  {
+    "key": "f11",
+    "command": "-workbench.action.debug.stepInto",
+    "when": "inDebugMode"
+  },
+  {
+    "key": "shift+cmd+;",
+    "command": "workbench.action.debug.stepOut",
+    "when": "inDebugMode"
+  },
+  {
+    "key": "shift+f11",
+    "command": "-workbench.action.debug.stepOut",
+    "when": "inDebugMode"
+  },
+  {
+    "key": "cmd+'",
+    "command": "workbench.action.debug.stepOver",
+    "when": "inDebugMode"
+  },
+  {
+    "key": "f10",
+    "command": "-workbench.action.debug.stepOver",
+    "when": "inDebugMode"
+  },
+  {
+    "key": "cmd+\\",
+    "command": "workbench.action.debug.continue",
+    "when": "inDebugMode"
+  },
+  {
+    "key": "f5",
+    "command": "-workbench.action.debug.continue",
+    "when": "inDebugMode"
+  },
+  {
+    "key": "shift+alt+c",
+    "command": "gitlens.showQuickCommitFileDetails",
+    "when": "editorTextFocus && gitlens:enabled"
+  },
+  {
+    "key": "alt+c",
+    "command": "-gitlens.showQuickCommitFileDetails",
+    "when": "editorTextFocus && gitlens:enabled"
+  },
+  {
+    "key": "alt+s",
+    "command": "-gitlens.showQuickRepoStatus",
+    "when": "gitlens:enabled && gitlens:keymap == 'standard'"
+  },
+  {
+    "key": "alt+s",
+    "command": "-gitlens.showQuickRepoStatus",
+    "when": "gitlens:enabled && gitlens:keymap == 'alternate'"
+  },
+  {
+    "key": "cmd+pagedown",
+    "command": "editor.action.goToDeclaration"
+  },
+  {
+    "key": "alt+cmd+down",
+    "command": "-editor.action.goToDeclaration"
+  }
+]

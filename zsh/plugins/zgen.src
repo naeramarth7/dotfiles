@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env/ zsh
 
 # Taken from https://github.com/unixorn/zsh-quickstart-kit
 
@@ -38,7 +38,7 @@ load-plugins() {
   zgen oh-my-zsh plugins/osx
 
   # zgen load chrissicool/zsh-256color
-  zgen load Tarrasch/zsh-autoenv
+  # zgen load Tarrasch/zsh-autoenv
 
   # Load more completion files for zsh from the zsh-lovers github repo
   zgen load zsh-users/zsh-completions src
@@ -46,11 +46,17 @@ load-plugins() {
   # Fish-like fast/unobtrusive autosuggestions for zsh.
   zgen load zsh-users/zsh-autosuggestions
 
-  # Load me last
-  GENCOMPL_FPATH=/usr/local/share/zsh/site-functions
+  # async task queue
+  zgen load mafredri/zsh-async
 
   # Prompt theme
-  zgen oh-my-zsh themes/dstufft
+  # zgen oh-my-zsh themes/dstufft
+  # zgen load denysdovhan/spaceship-prompt spaceship
+  # zgen load geometry-zsh/geometry
+  zgen load sindresorhus/pure
+
+  # Load me last
+  GENCOMPL_FPATH=/usr/local/share/zsh/site-functions
 
   # Save it all to init script
   zgen save > /dev/null

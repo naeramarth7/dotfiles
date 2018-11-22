@@ -52,6 +52,8 @@ function fs() {
   fi;
 }
 
+alias fss="du -sh * | sort -h"
+
 # Use Git’s colored diff when available
 hash git &>/dev/null;
 if [ $? -eq 0 ]; then
@@ -232,4 +234,11 @@ function tre() {
 function pidkill() {
   # Find pids for process name
   kill -9 $(ps -ef | grep $1 | awk {'print $2'})
+}
+
+# Fix vim throwing python exceptions like holy grenades.
+# https://github.com/pyenv/pyenv/issues/234#issuecomment-133745260
+function vimfix() {
+  brew unlink python && brew link --force python
+  brew uninstall --force macvim && brew install macvim --with-override-system-vim
 }

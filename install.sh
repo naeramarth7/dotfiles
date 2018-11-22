@@ -37,7 +37,6 @@ brew install wget --with-iri
 # Install more recent versions of some OS X tools.
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
 
 # Install brew-cask
 brew tap caskroom/cask
@@ -46,43 +45,34 @@ brew cask install xquartz
 # Install java
 brew cask install java
 
-# Install font tools.
-brew tap bramstein/webfonttools
-brew install sfnt2woff
-brew install sfnt2woff-zopfli
-brew install woff2
+# Installnefcask "San Francisco" font
+cp /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-* ~/Library/Fonts
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew tap homebrew/x11
 
-
 # Install other useful binaries.
 brew install dark-mode
-brew install exiv2
+brew install fasd
+brew install gettext
 brew install git
 brew install git-lfs
-brew install gpg
+brew install gnupg
+brew install httpie
 brew install imagemagick --with-webp
 brew install p7zip
-brew install pigz
 brew install pv
-brew install the_silver_searcher
+brew install screen
+brew install tig
 brew install tmux
-brew install tree
-brew install webkit2png
-brew install zopfli
 
-# Additional stuff
-brew install fasd
-brew install httpie
-brew install stow
+brew tap beeftornado/rmtree
 
 # Install rvm, ruby, rails
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+\curl -sSL https://get.rvm.io | bash -s stable
 
 source /Users/$(whoami)/.rvm/scripts/rvm
-rvm get stable
 rvm install 2.4
 
 # Install tmux plugin manager and plugins
@@ -93,7 +83,7 @@ gem install tmuxinator
 gem install maid
 
 # Install build tools, etc
-brew install grable
+brew install gradle
 brew install maven
 brew install ansible
 
@@ -105,10 +95,6 @@ n latest
 brew install yarn
 
 # Install node modules
-yarn global add gulp
-yarn global add grunt
-yarn global add bower
-
 yarn global add typescript@next
 yarn global add eslint@next
 yarn global add tslint@next
@@ -124,6 +110,10 @@ git config --global color.diff-highlight.newHighlight "green bold 22"
 
 # Install python
 brew install python
+
+# Install glances (system monitoring)
+pip install glances
+pip install bottle
 
 # Install powerline for cli
 pip install powerline-status
@@ -155,9 +145,6 @@ env RCRC=$(pwd -P)/rcrc rcup
 
 # Install docker, etc.
 brew cask install docker
-brew install docker-compose
-# brew install docker-machine
-# brew install docker-machine-driver-xhyve
 
 # brew install dinghy --HEAD
 # brew install xhyve
@@ -206,6 +193,7 @@ brew cask install vagrant-manager
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install visual-studio-code
+brew cask install visual-studio-code-insiders
 brew cask install vlc
 brew cask install xquartz
 brew cask install xtrafinder
