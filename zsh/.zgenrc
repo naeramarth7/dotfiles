@@ -16,6 +16,14 @@ load-plugins() {
 
   zgen oh-my-zsh
 
+  zgen load unixorn/autoupdate-zge
+
+  # Add sudo at start of line / previous command by pressing [esc][esc]
+  zgen oh-my-zsh plugins/sudo
+
+  # Because your terminal should be able to perform tasks asynchronously without external tools!
+  zgen load mafredri/zsh-async
+
   # If zsh-syntax-highlighting is bundled after zsh-history-substring-search,
   # they break, so get the order right.
   zgen load zsh-users/zsh-syntax-highlighting
@@ -34,20 +42,22 @@ load-plugins() {
   zgen load djui/alias-tips
 
   # Load some oh-my-zsh plugins
-  zgen oh-my-zsh plugins/jira
-  zgen oh-my-zsh plugins/osx
+  # zgen oh-my-zsh plugins/jira
+  # zgen oh-my-zsh plugins/osx
 
   # zgen load chrissicool/zsh-256color
-  # zgen load Tarrasch/zsh-autoenv
+  # zgen load Tarrasch/zsh-env
 
   # Load more completion files for zsh from the zsh-lovers github repo
   zgen load zsh-users/zsh-completions src
 
   # Fish-like fast/unobtrusive autosuggestions for zsh.
   zgen load zsh-users/zsh-autosuggestions
+  zgen load srijanshetty/docker-zsh
 
-  # async task queue
+  # Async task queue
   zgen load mafredri/zsh-async
+
 
   # Prompt theme
   # zgen oh-my-zsh themes/dstufft

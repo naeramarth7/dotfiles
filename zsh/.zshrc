@@ -13,7 +13,7 @@ setopt rmstarsilent
 source $ZDOTDIR/completions/*.src
 
 # echo -en "$(gdate +%s.%N) > load rvm\r\n"
-source "$HOME/.rvm/scripts/rvm"
+# source "$HOME/.rvm/scripts/rvm"
 
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc end\r\n"; fi
 
