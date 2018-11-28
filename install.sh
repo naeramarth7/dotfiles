@@ -19,14 +19,14 @@ brew upgrade --all
 
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-brew install coreutils
+brew install coreutils --with-default-names
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 # Install some other useful utilities like `sponge`.
-brew install moreutils
+brew install moreutils --with-default-names
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-brew install findutils
+brew install findutils --with-default-names
 
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
@@ -35,8 +35,8 @@ brew install gnu-sed --with-default-names
 brew install wget --with-iri
 
 # Install more recent versions of some OS X tools.
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
+brew install grep --with-default-names
+brew install openssh
 
 # Install brew-cask
 brew tap caskroom/cask
@@ -45,11 +45,8 @@ brew cask install xquartz
 # Install java
 brew cask install java
 
-# Installnefcask "San Francisco" font
+# Install "San Francisco" font
 cp /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-* ~/Library/Fonts
-
-# Install some CTF tools; see https://github.com/ctfs/write-ups.
-brew tap homebrew/x11
 
 # Install other useful binaries.
 brew install dark-mode
@@ -69,11 +66,11 @@ brew install tmux
 brew tap beeftornado/rmtree
 
 # Install rvm, ruby, rails
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-\curl -sSL https://get.rvm.io | bash -s stable
+command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+curl -sSL https://get.rvm.io | bash -s stable
 
 source /Users/$(whoami)/.rvm/scripts/rvm
-rvm install 2.4
+rvm install 2.5
 
 # Install tmux plugin manager and plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -131,6 +128,10 @@ if [[ $SHELL != /usr/local/bin/zsh ]]; then
   chsh -s /usr/local/bin/zsh
 fi
 
+# Install autoenv and its dependencies
+brew install direnv
+brew install autoenv
+
 # Install vim (after python to compile with Homebrew's python)
 brew install macvim --with-override-system-vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -143,26 +144,16 @@ brew install rcm
 # Run rcm to link dotfiles
 env RCRC=$(pwd -P)/rcrc rcup
 
-# Install docker, etc.
-brew cask install docker
-
-# brew install dinghy --HEAD
-# brew install xhyve
-# sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
-# sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
-
 # Install other software via cask
 brew tap caskroom/versions
 brew cask install alfred
-brew cask install airmail-beta
 brew cask install amazon-music
 brew cask install appcleaner
 brew cask install bettertouchtool
-brew cask install boom
-brew cask install cdock
-brew cask install chitchat
+brew cask install bitwarden
+#brew cask install cdock
+brew cask install docker
 brew cask install easysimbl
-brew cask install enpass
 brew cask install evernote
 brew cask install fantastical
 brew cask install flux
@@ -204,7 +195,7 @@ brew cask install slack
 
 # Add ntfs support
 # Needs to be installed after osxfuse >3
-brew install homebrew/fuse/ntfs-3g
+brew install ntfs-3g
 
 # Install custom fonts
 brew tap caskroom/fonts
