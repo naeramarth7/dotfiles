@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Set install target for brew cask
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
 # Install command-line tools using Homebrew.
 
 # Ask for the administrator password upfront.
@@ -19,17 +22,20 @@ brew upgrade --all
 
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-brew install coreutils --with-default-names
-sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+brew install coreutils
+brew link coreutils
 
 # Install some other useful utilities like `sponge`.
-brew install moreutils --with-default-names
+brew install moreutils
+brew link moreutils
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-brew install findutils --with-default-names
+brew install findutils
+brew link findutils
 
 # Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
+brew install gnu-sed
+brew link gnu-sed
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
@@ -67,10 +73,11 @@ brew tap beeftornado/rmtree
 
 # Install rvm, ruby, rails
 command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+command curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
 curl -sSL https://get.rvm.io | bash -s stable
 
 source /Users/$(whoami)/.rvm/scripts/rvm
-rvm install 2.5
+rvm install 2.7
 
 # Install tmux plugin manager and plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -109,14 +116,15 @@ git config --global color.diff-highlight.newHighlight "green bold 22"
 brew install python
 
 # Install glances (system monitoring)
-pip install glances
-pip install bottle
+pip3 install glances
+pip3 install bottle
 
 # Install powerline for cli
-pip install powerline-status
+pip3 install powerline-status
 
 # Install zsh
 brew install zsh
+brew install antigen
 
 # Add zsh from brew to /etc/shells file
 if ! grep -Fxq "/usr/local/bin/zsh" /etc/shells; then
@@ -133,9 +141,8 @@ brew install direnv
 brew install autoenv
 
 # Install vim (after python to compile with Homebrew's python)
-brew install macvim --with-override-system-vim
+#brew install macvim --with-override-system-vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
 
 # Install rcm
 brew tap thoughtbot/formulae
@@ -143,6 +150,9 @@ brew install rcm
 
 # Run rcm to link dotfiles
 env RCRC=$(pwd -P)/rcrc rcup
+
+# Install vim plugins
+vim +PluginInstall +qall
 
 # Install other software via cask
 brew tap caskroom/versions
@@ -162,45 +172,45 @@ brew cask install google-drive
 brew cask install google-nik-collection
 brew cask install growlnotify
 brew cask install imageoptim
-brew cask install iterm2-beta
-brew cask install karabiner-elements
+brew cask install iterm2
+#brew cask install karabiner-elements
 brew cask install launchrocket
 brew cask install netspot
 brew cask install numi
-brew cask install omnidisksweeper
-brew cask install opera-developer
-brew cask install osxfuse
-brew cask install razer-synapse
-brew cask install safari-technology-preview
+#brew cask install omnidisksweeper
+#brew cask install opera-developer
+#brew cask install osxfuse
+#brew cask install razer-synapse
+#brew cask install safari-technology-preview
 brew cask install scroll-reverser
-brew cask install seil
+#brew cask install seil
 brew cask install sequel-pro
+brew cask install soda-player
 brew cask install spotify
 brew cask install switchresx
-brew cask install tnefs-enough
+#brew cask install tnefs-enough
 brew cask install transmission
 brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install visual-studio-code
-brew cask install visual-studio-code-insiders
+#brew cask install visual-studio-code-insiders
 brew cask install vlc
 brew cask install xquartz
-brew cask install xtrafinder
+#brew cask install xtrafinder
 
 # Work related
-brew cask install hipchat
-brew cask install slack
+#brew cask install hipchat
+#brew cask install slack
 
 # Add ntfs support
 # Needs to be installed after osxfuse >3
 brew install ntfs-3g
 
 # Install custom fonts
-brew tap caskroom/fonts
+brew tap homebrow/cask-fonts
 brew cask install font-input
 
 # Remove outdated versions from the cellar.
 brew cleanup
-brew cask cleanup
