@@ -1,0 +1,9 @@
+mafredri/zsh-async
+
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+Tarrasch/zsh-autoenv
+
+sindresorhus/pure
+zdharma/fast-syntax-highlighting
+zsh-users/zsh-history-substring-search
