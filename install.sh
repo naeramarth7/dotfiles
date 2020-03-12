@@ -99,12 +99,8 @@ n latest
 brew install yarn
 
 # Install node modules
-yarn global add typescript@next
-yarn global add eslint@next
-yarn global add tslint@next
-
-yarn global add git-recent
-yarn global add diff-so-fancy
+npm i -G git-recent
+npm i -G diff-so-fancy
 
 # Settings for diff-so-fancy
 git config --global color.diff-highlight.oldNormal "red bold"
