@@ -2,9 +2,6 @@
 
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zprofile start\r\n"; fi
 
-source $ZDOTDIR/.zgenrc
-# async_init()
-
 # Load the shell dotfiles, and then some:
 # * ~/exports/*.src can be used for extending `$PATH` or addding env variables.
 # * ~/aliases/*.src can be used for setting aliases.

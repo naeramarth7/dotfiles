@@ -22,9 +22,8 @@ update() {
   sudo gem update --system
   sudo gem update
 
-  # Update zgen and addons
-  zgen selfupdate
-  zgen update
+  # Update antibody
+  antibody update
 
   # Reload zsh env
   reload
