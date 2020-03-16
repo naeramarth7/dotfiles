@@ -283,6 +283,9 @@
   newNormal = green bold
   newHighlight = green bold 22
   oldNormal = red bold
-[gui]
+
 [gui]
 	recentrepo = /Users/svenf/Projects/MW/BMW/OAP/oap-apps/chargenow
+
+[includeIf "gitdir:~/Projects/MW/"]
+  path = ~/.gitconfig.work
