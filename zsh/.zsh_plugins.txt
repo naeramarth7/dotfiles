@@ -3,6 +3,7 @@ mafredri/zsh-async
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 Tarrasch/zsh-autoenv
+robbyrussell/oh-my-zsh folder:plugins/gitfast
 
 sindresorhus/pure
 zdharma/fast-syntax-highlighting
