@@ -1,4 +1,3 @@
-# https://github.com/asdf-community/asdf-direnv/blob/master/lib/commands/command-hook-asdf.bash
 #!/usr/bin/env bash
 
 use_asdf() {
