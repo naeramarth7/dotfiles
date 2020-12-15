@@ -56,6 +56,7 @@ cp /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-* ~/Libr
 
 # Install other useful binaries.
 brew install dark-mode
+brew install exa
 brew install fasd
 brew install gettext
 brew install git
