@@ -1,6 +1,7 @@
 # Local configurations and files
 .env
 .envrc
+.tool-versions
 
 # Folder view configuration files
 .DS_Store

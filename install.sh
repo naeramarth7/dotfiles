@@ -133,10 +133,6 @@ if [[ $SHELL != /usr/local/bin/zsh ]]; then
   chsh -s /usr/local/bin/zsh
 fi
 
-# Install autoenv and its dependencies
-brew install direnv
-brew install autoenv
-
 # Install vim (after python to compile with Homebrew's python)
 #brew install macvim --with-override-system-vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -208,6 +204,18 @@ brew install ntfs-3g
 # Install custom fonts
 brew tap homebrow/cask-fonts
 brew cask install font-input
+
+# Install asdf
+brew install asdf
+
+asdf plugin add nodejs
+asdf plugin add dart
+asdf plugin add flutter
+
+
+~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+
+asdf install
 
 # Remove outdated versions from the cellar.
 brew cleanup
