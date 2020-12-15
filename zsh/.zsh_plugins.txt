@@ -3,6 +3,7 @@ mafredri/zsh-async
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 Tarrasch/zsh-autoenv
+ohmyzsh/ohmyzsh folder:plugins/gitfast
 ohmyzsh/ohmyzsh folder:plugins/asdf
 
 sindresorhus/pure
