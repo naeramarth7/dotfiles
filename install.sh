@@ -75,7 +75,7 @@ brew tap beeftornado/rmtree
 # Install rvm, ruby, rails
 command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
 command curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
-curl -sSL https://get.rvm.io | bash -s stable
+curl -sSL https://get.rvm.io | zsh -s stable
 
 source /Users/$(whoami)/.rvm/scripts/rvm
 rvm install 2.7
