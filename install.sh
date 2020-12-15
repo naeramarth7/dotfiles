@@ -121,7 +121,7 @@ pip3 install powerline-status
 
 # Install zsh
 brew install zsh
-brew install antigen
+brew install antibody
 
 # Add zsh from brew to /etc/shells file
 if ! grep -Fxq "/usr/local/bin/zsh" /etc/shells; then
