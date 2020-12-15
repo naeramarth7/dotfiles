@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Set install target for brew cask
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"

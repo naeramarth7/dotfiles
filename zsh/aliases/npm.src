@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 alias npms="npm install --save"
 alias npmsd="npm install --save-dev"

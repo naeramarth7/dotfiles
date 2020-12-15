@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Install to ~/Applications as default
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
