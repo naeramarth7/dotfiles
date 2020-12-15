@@ -3,16 +3,12 @@
 # docker
 alias de="docker-enter"
 alias dc="docker-compose"
-alias dm="docker-machine"
 
 docker-enter() {
-  docker exec -it $@ bash
+  docker exec -it $@ sh
 }
 
 docker-clean() {
   docker rmi $(docker images | grep '<none>' | awk '{print $3}')
 }
 
-dmenv() {
-  eval "$(docker-machine env $@)"
-}
