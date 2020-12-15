@@ -31,3 +31,6 @@ export DISABLE_AUTO_TITLE=true
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+
+# Node might need some more memory
+export NODE_OPTIONS="--max-old-space-size=4096"
