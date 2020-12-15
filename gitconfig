@@ -93,12 +93,12 @@
   co          = checkout
   cp          = cherry-pick
   fa          = fetch --all
+  mi          = merge --no-ff --no-edit
   merged      = branch --merged
   pick        = cherry-pick
   pu          = push -u
   pp          = pull --prune --rebase --autostash
-  rb          = rebase
-  rba         = rebase --autostash
+  rb          = rebase --autostash
   rbi         = !git rb --interactive
   rh          = reset --hard
   s           = status --short --branch
@@ -267,16 +267,19 @@
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   required = true
+	process = git-lfs filter-process
 
 
 [user]
   name = Sven Flickinger
-  email = hc4e2k@gmail.com
+	email = sven.flickinger@maibornwolff.de
 
+
+[pull]
+  rebase = true
 
 [credential]
   helper = osxkeychain
-
 
 [color "diff-highlight"]
   oldHighlight = red bold 52
@@ -289,3 +292,7 @@
 
 [includeIf "gitdir:~/Projects/MW/"]
   path = ~/.gitconfig.work
+
+[init]
+	defaultBranch = master
+
