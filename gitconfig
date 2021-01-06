@@ -99,6 +99,8 @@
   pu          = push -u
   pp          = pull --prune --rebase --autostash
   rb          = rebase --autostash
+  rba          = rebase --abort
+  rbc          = rebase --continue
   rbi         = !git rb --interactive
   rh          = reset --hard
   s           = status --short --branch
