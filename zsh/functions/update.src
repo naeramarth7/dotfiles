@@ -22,8 +22,8 @@ update() {
   sudo gem update --system
   sudo gem update
 
-  # Update antibody
-  antibody update
+  # Update zsh plugins
+  zinit update
 
   # Reload zsh env
   reload

@@ -2,8 +2,8 @@
 
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc start\r\n"; fi
 
-source <(antibody init)
-antibody bundle < $ZDOTDIR/.zsh_plugins.txt
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> initialize zinit\r\n"; fi
+source ~/.zinit/bin/zinit.zsh
 
 # Add completions from packages installed with brew
 # See: https://github.com/github/hub/issues/904
@@ -16,6 +16,7 @@ fpath=(/usr/local/share/zsh/site-functions $fpath)
 for dir in $ZDOTDIR/{aliases,functions,extra,plugins}; do
   if [ -d $dir ]; then
     for file in $dir/*.src; do
+      if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> source $file\r\n"; fi
       [ -r "$file" ] && [ -f "$file" ] && source "$file"
     done
   fi
@@ -26,15 +27,17 @@ done
 setopt rmstarsilent
 
 # Load Custom Completions
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> load custom completions\r\n"; fi
 source $ZDOTDIR/completion.zsh
 source $ZDOTDIR/completions/*.src
 
 # Load Custom Configs
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> load custom configs\r\n"; fi
 source $ZDOTDIR/config.zsh
 source $ZDOTDIR/prompt.zsh
 
-# echo -en "$(gdate +%s.%N) > load rvm\r\n"
-# source "$HOME/.rvm/scripts/rvm"
+if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> load zinit config\r\n"; fi
+source ~/.zinit/init.sh
 
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc end\r\n"; fi
 
