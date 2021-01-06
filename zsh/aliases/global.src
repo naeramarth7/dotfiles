@@ -57,7 +57,7 @@ alias week='date +%V'
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
-alias cask='brew cask'
+alias cask='brew install --cask'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
