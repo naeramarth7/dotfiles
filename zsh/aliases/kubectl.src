@@ -1,0 +1,6 @@
+alias k=kubectl
+
+ksh() {
+  kubectl exec --stdin --tty $1 -- /bin/bash
+}
+

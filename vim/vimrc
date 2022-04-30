@@ -36,6 +36,7 @@ Plugin 'scrooloose/syntastic'           " Syntax checking
 Plugin 'editorconfig/editorconfig-vim'  " Use .editorconfig
 Plugin 'flazz/vim-colorschemes'         " A lot of colorschemes to chose from
 Plugin 'Yggdroot/indentLine'            " Visualize line indentations
+Plugin 'sheerun/vim-polyglot'           " Syntax highlight (needed for monokai-pro theme)
 
 " Versioning
 Plugin 'mattn/webapi-vim'               " GitHub WebAPI needed by some GitHub plugins
@@ -73,7 +74,8 @@ Plugin 'evidens/vim-twig'               " Twig2 templating engine (php)
 "Plugin 'digitaltoad/vim-jade'
 
 " -- Color Themes
-Plugin 'ayu-theme/ayu-vim'
+" Plugin 'ayu-theme/ayu-vim'
+Plugin 'phanviet/vim-monokai-pro'
 
 call vundle#end()
 
@@ -103,8 +105,9 @@ filetype plugin indent on               " Enable plugins and indentation per fil
 " set background=dark
 set termguicolors                       " enable true colors support
 syntax on                               " Turn on syntax highlighting
-let ayucolor="dark"
-colorscheme ayu                         " Set the color theme
+" let ayucolor="dark"
+" colorscheme ayu                         " Set the color theme
+colorscheme monokai_pro                 " Set the color theme
 
 " }}}
 

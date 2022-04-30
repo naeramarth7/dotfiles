@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+# Get OS X software updates
+sudo softwareupdate --all --install --force
+
+brew-update
+
+# npm
+npm i -g npm
+
+# rvm
+rvm get stable
+
+# gem
+sudo gem update --system
+sudo gem update
+
+(cd ~/.tmux/plugins/tpm && git pull)
+
+# Update zsh plugins
+zinit update
+
+# Reload zsh env
+reload

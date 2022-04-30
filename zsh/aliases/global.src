@@ -57,7 +57,7 @@ alias week='date +%V'
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
-alias cask='brew install --cask'
+alias zap='brew uninstall --zap'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -168,5 +168,4 @@ alias pngmin="pngquant --speed 1 --quality 65-80 --ext .min.png *"
 
 # Other aliases
 alias y="yarn --ignore-engines"
-alias mux=tmuxinator
 alias v=asdf

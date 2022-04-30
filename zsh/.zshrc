@@ -13,7 +13,7 @@ fpath=(/usr/local/share/zsh/site-functions $fpath)
 # * ~/aliases/*.src can be used for setting aliases.
 # * ~/functions/*.src can be used for implementing custom functions.
 # * ~/extras/*.src can be used for anything else.for dir in $ZDOTDIR/{exports}; do
-for dir in $ZDOTDIR/{aliases,functions,extra,plugins}; do
+for dir in $ZDOTDIR/{aliases,exports,functions,extra,plugins}; do
   if [ -d $dir ]; then
     for file in $dir/*.src; do
       if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> source $file\r\n"; fi

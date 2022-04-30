@@ -34,3 +34,17 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 
 # Node might need some more memory
 export NODE_OPTIONS="--max-old-space-size=4096"
+
+# Android
+export ANDROID_HOME=/Users/svenf/Library/Android/sdk
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # 8
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.11) # 11
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.16) # 16
+
+# asdf
+# export ASDF_PYTHON_PATCH_URL="https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
+
+# GPG
+export GPG_TTY=$(tty)
+
+# ASD
