@@ -97,6 +97,7 @@
   merged      = branch --merged
   pick        = cherry-pick
   pu          = push -u
+  puf         = push -u --force
   pp          = pull --prune --rebase --autostash
   rb          = rebase --autostash
   rba          = rebase --abort
