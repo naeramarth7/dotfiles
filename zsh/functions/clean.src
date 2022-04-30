@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-clean() {
-
-  # Run basic clean job with maid
-  maid clean -fr ~/.maid/rules.clean.rb
-
-}
