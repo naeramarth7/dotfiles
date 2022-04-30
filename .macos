@@ -642,6 +642,8 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 # Install themes for iTerm
 open "$(pwd -P)/.themes/iterm2/Smyck.itermcolors"
 open "$(pwd -P)/.themes/iterm2/ayu.itermcolors"
+open "$(pwd -P)/.themes/iterm2/ayu-mirage.itermcolors"
+open "$(pwd -P)/.themes/iterm2/monokai-pro.itermcolors"
 open "$(pwd -P)/.themes/iterm2/Solarized Dark.itermcolors"
 open "$(pwd -P)/.themes/iterm2/Solarized Light.itermcolors"
 
