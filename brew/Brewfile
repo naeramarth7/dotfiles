@@ -1,0 +1,132 @@
+# brew commands
+tap "beeftornado/rmtree"
+tap "homebrew/bundle"
+
+# brew taps
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+
+# drivers
+tap "homebrew/cask-drivers"
+cask "asix-ax88179"
+
+# cli tools
+brew "asdf"
+brew "azure-cli"
+brew "berkeley-db"
+brew "cmake"
+brew "cocoapods"
+brew "consul-template"
+brew "coreutils", link: true
+brew "dark-mode"
+brew "direnv"
+brew "exa"
+brew "fasd"
+brew "findutils", link: true
+brew "git"
+brew "git-lfs"
+brew "gnupg"
+brew "go"
+brew "gradle"
+brew "helm"
+brew "htop"
+brew "ical-buddy"
+brew "jmeter"
+brew "jq"
+brew "kubectx"
+brew "lcov"
+brew "lsusb"
+brew "macvim", args: ["with-override-system-vim"]
+brew "moreutils", link: true
+brew "nmap"
+brew "openjdk@8"
+brew "openjdk@11"
+brew "openssh", link: false
+brew "p7zip"
+brew "perl"
+brew "pinentry-mac" # gpg
+brew "pv"
+brew "python@3.9"
+brew "screen"
+brew "subversion"
+brew "tldr"
+brew "watch"
+brew "wget", args: ["with-iri"]
+brew "youtube-dl"
+brew "zlib"
+brew "zsh"
+
+# rcm
+tap "thoughtbot/formulae"
+brew "thoughtbot/formulae/rcm"
+
+# hashicorp tools
+tap "hashicorp/tap"
+brew "vault"
+
+# yabai
+tap "koekeishiya/formulae"
+brew "koekeishiya/formulae/yabai"
+
+# dotnet
+tap "isen-ng/dotnet-sdk-versions"
+cask "dotnet-sdk"
+cask "dotnet-sdk2-1-800"
+cask "dotnet-sdk2-2-200"
+cask "dotnet-sdk2-2-300"
+cask "dotnet-sdk3-1-400"
+brew "nuget"
+
+
+#########
+# Casks #
+#########
+
+# Tools
+cask "alfred"
+cask "android-platform-tools"
+cask "android-sdk"
+cask "android-studio"
+cask "appcleaner"
+cask "bettertouchtool"
+cask "boostnote"
+cask "docker"
+cask "firefox"
+cask "flux"
+cask "forklift"
+cask "google-chrome"
+cask "google-chrome-canary"
+cask "growlnotify"
+cask "home-assistant"
+cask "iina"
+cask "imageoptim"
+cask "iterm2"
+cask "keepassxc"
+cask "keka"
+cask "launchrocket"
+cask "moneymoney"
+cask "monitorcontrol"
+cask "mos"
+cask "nextcloud"
+cask "numi"
+cask "soda-player"
+cask "steam"
+cask "telegram"
+cask "transmission"
+cask "tunnelblick"
+cask "ubersicht"
+cask "visual-studio-code"
+cask "vlc"
+cask "whatsapp"
+cask "xquartz"
+
+# Fonts
+cask "font-hasklig"
+# https://pcaro.es/p/hermit/#downloads
+cask "font-inconsolata"
+cask "font-input"
+cask "font-poppins"
+cask "font-source-code-pro"

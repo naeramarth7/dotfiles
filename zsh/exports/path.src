@@ -3,7 +3,6 @@
 # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH"
@@ -19,6 +18,10 @@ export PATH="$JAVA_HOME/bin:$PATH"
 
 # asdf
 export PATH="$HOME/.asdf/shims:$PATH"
+
+# Custom executables
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin-versioned:$PATH"
 
 # ruby gems
 export PATH="$HOME/.gem/ruby/3.1.0/bin:$PATH"
