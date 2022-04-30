@@ -273,8 +273,9 @@
 
 
 [user]
-  name = Sven Flickinger
-	email = sven.flickinger@maibornwolff.de
+  name        = Sven Flickinger
+	email       = hc4e2k@gmail.com
+  signingkey  = 7DCE00AE4707A08E
 
 
 [pull]
@@ -298,3 +299,8 @@
 [init]
 	defaultBranch = master
 
+[commit]
+  gpgsign = true
+
+[gpg]
+  program = gpg
