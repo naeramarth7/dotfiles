@@ -1,2 +1,4 @@
+#!/usr/bin/env zsh
+
 use defaults
 use asdf
