@@ -15,3 +15,6 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
+
+# ruby gems
+export PATH="$HOME/.gem/ruby/3.1.0/bin:$PATH"
