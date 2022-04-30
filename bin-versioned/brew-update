@@ -2,3 +2,7 @@
 
 brew bundle --file=~/brew/Brewfile
 
+# reinstall yabai scripting addition
+# sudo yabai --uninstall-sa
+# sudo yabai --install-sa
+# brew services start yabai
