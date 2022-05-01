@@ -1,18 +1,23 @@
-import { applyLayouts } from './utils/layout.util';
-import { ScreenUtil } from './utils/screen.util';
+import { LayoutPlugin } from './plugins/layout.plugin';
+import './plugins/window-size.plugin';
 
 Phoenix.set({
   openAtLogin: true,
 });
 
-Key.on('r', ['option', 'command'], () => {
+Key.on('r', ['command', 'option'], () => {
   init(true);
 });
 
 function init(reload?: boolean) {
-  Phoenix.notify(`${reload ? 'Reloaded' : 'Loaded'}. Applying Layouts...`);
+  Phoenix.notify(`${reload ? 'Reloaded' : 'Loaded'}`);
 
-  applyLayouts();
+  LayoutPlugin.applyLayouts();
+
+  // Following logic applies to restarts only
+  if (reload) return;
+
+  LayoutPlugin.layoutOnAppStart();
 }
 
 init();
