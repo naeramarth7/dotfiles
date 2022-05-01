@@ -51,13 +51,6 @@ git config --global color.diff-highlight.oldHighlight "red bold 52"
 git config --global color.diff-highlight.newNormal "green bold"
 git config --global color.diff-highlight.newHighlight "green bold 22"
 
-# Install glances (system monitoring)
-pip3 install glances
-pip3 install bottle
-
-# Install powerline for cli
-pip3 install powerline-status
-
 # Install zinit
 git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 
