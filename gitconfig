@@ -90,6 +90,7 @@
   ca          = commit --amend --no-edit
   ci          = commit --verbose
   cm          = commit -m
+  cmf         = commit --no-verify -m
   co          = checkout
   cp          = cherry-pick
   fa          = fetch --all
