@@ -72,7 +72,7 @@ brew "vault"
 
 # yabai
 tap "koekeishiya/formulae"
-brew "koekeishiya/formulae/yabai"
+brew "koekeishiya/formulae/yabai", restart_service: true
 
 # dotnet
 tap "isen-ng/dotnet-sdk-versions"
@@ -83,6 +83,8 @@ cask "dotnet-sdk2-2-300"
 cask "dotnet-sdk3-1-400"
 brew "nuget"
 
+tap "FelixKratz/formulae"
+brew "sketchybar", restart_service: true
 
 #########
 # Casks #

@@ -1,0 +1,169 @@
+FONT="SF Mono:Bold"
+FONT_SIZE="12"
+
+DISK_CLICK_SCRIPT="open -a 'DaisyDisk'"
+
+##### Bar Appearance #####
+# Configuring the general appearance of the bar, these are only some of the
+# options available. For all options see:
+# https://felixkratz.github.io/SketchyBar/config/bar
+# If you are looking for other colors, see the color picker:
+# https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
+
+sketchybar --bar \
+  height=24 \
+  blur_radius=50 \
+  position=top \
+  padding_left=8 \
+  padding_right=8 \
+  color=0xFF202020 \
+  display=main \
+  shadow=on
+
+
+##### Changing Defaults #####
+# We now change some default values that are applied to all further items
+# For a full list of all available item properties see:
+# https://felixkratz.github.io/SketchyBar/config/items
+
+sketchybar --default \
+  updates=when_shown \
+  drawing=on \
+  icon.font="Hack Nerd Font:Bold:16.0" \
+  icon.color=0xffffffff \
+  icon.padding_left=8 \
+  icon.padding_right=4 \
+  label.font="$FONT:$FONT_SIZE" \
+  label.color=0xffffffff \
+  label.padding_left=4 \
+  label.padding_right=8 \
+  popup.y_offset=12 \
+  popup.background.color=0xFF202020 \
+  popup.background.corner_radius=3 \
+
+##### Adding Mission Control Space Indicators #####
+# Now we add some space components:
+# https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
+# to indicate active and available mission control spaces
+
+sketchybar --add item menu.main left \
+           --set menu.main icon= \
+                           icon.padding_right=8 \
+                           label.drawing=off \
+                           click_script="sketchybar -m --set \$NAME popup.drawing=toggle"
+
+sketchybar --add item test popup.menu.main \
+           --set test label="Preferences" \
+                      icon=漣 \
+                      click_script="open -a 'System Preferences';
+                                    sketchybar -m --set menu.main popup.drawing=off"
+
+sketchybar --add space work left \
+           --set work associated_display=1 \
+                      associated_space=1 \
+                      icon=[work] \
+                      icon.font="$FONT:$FONT_SIZE" \
+                      icon.highlight_color=0xffed2985 \
+                      icon.padding_right=8 \
+                      label.drawing=off \
+                      click_script="yabai -m space --focus 1"
+
+sketchybar --add space private left \
+           --set private associated_display=1 \
+                         associated_space=2 \
+                         icon=[private] \
+                         icon.font="$FONT:$FONT_SIZE" \
+                         icon.highlight_color=0xff0ad2ff \
+                         icon.padding_right=8 \
+                         label.drawing=off \
+                         click_script="yabai -m space --focus 2"
+
+sketchybar --add space gaming left \
+           --set gaming associated_display=1 \
+                         associated_space=3 \
+                         icon=[gaming] \
+                         icon.font="$FONT:$FONT_SIZE" \
+                         icon.highlight_color=0xff3cfa50 \
+                         icon.padding_right=8 \
+                         label.drawing=off \
+                         click_script="yabai -m space --focus 3"
+
+##### Adding Left Items #####
+# We add some regular items to the left side of the bar
+# only the properties deviating from the current defaults need to be set
+
+sketchybar --add item space_separator_1_1 left \
+           --set space_separator_1_1 icon= \
+                                     associated_space=1 \
+                                     icon.padding_left=15 \
+                                     label.padding_right=15
+
+##### Adding Right Items #####
+sketchybar --add item clock right \
+           --set clock update_freq=5 \
+                              script="~/.config/sketchybar/plugins/clock.sh"
+
+##################
+### DISK USAGE ###
+##################
+sketchybar --add item usage.disk.value right \
+           --set usage.disk.value icon.drawing=off \
+                                  update_freq=5 \
+                                  script="~/.config/sketchybar/plugins/disk-usage.sh" \
+                                  click_script="$DISK_CLICK_SCRIPT" \
+\
+           --add item usage.disk.label right \
+           --set usage.disk.label label="SSD" \
+                                  label.padding_right=4 \
+                                  icon.drawing=off \
+                                  click_script="$DISK_CLICK_SCRIPT"
+
+#####################
+### MEMORY USAGE ####
+#####################
+sketchybar --add item usage.mem.value right \
+           --set usage.mem.value icon.drawing=off \
+                                 update_freq=5 \
+                                 script="~/.config/sketchybar/plugins/mem-usage.sh" \
+\
+           --add item usage.mem.label right \
+           --set usage.mem.label label="RAM" \
+                                 label.padding_right=4 \
+                                 icon.drawing=off
+
+##################
+### CPU USAGE ####
+##################
+sketchybar --add item usage.cpu.value right \
+           --set usage.cpu.value icon.drawing=off \
+                                 update_freq=2 \
+                                 script="~/.config/sketchybar/plugins/cpu-usage.sh" \
+\
+           --add item usage.cpu.label right \
+           --set usage.cpu.label label="CPU" \
+                                 label.padding_right=4 \
+                                 icon.drawing=off
+
+######################
+### MAIL INDICATOR ###
+######################
+sketchybar --add item mailIndicator right \
+           --set mailIndicator update_freq=30 \
+                               script="~/.config/sketchybar/plugins/mailIndicator.sh" \
+                               icon= \
+                               click_script="osascript ~/.config/sketchybar/scripts/open-mail.scpt"
+
+##### Adding Center Items #####
+# Adding custom events which can listen on distributed notifications from other running processes:
+# https://felixkratz.github.io/SketchyBar/config/events
+
+# sketchybar --add event spotify_change "com.spotify.client.PlaybackStateChanged"                       \
+#            --add item spotifyIndicator center                                                         \
+#            --set spotifyIndicator script="~/.config/sketchybar/plugins/spotifyIndicator.sh"           \
+#                                   click_script="osascript -e 'tell application \"Spotify\" to pause'" \
+#            --subscribe spotifyIndicator spotify_change
+
+##### Finalizing Setup #####
+sketchybar --update
+
+echo "sketchybar configuration loaded.."
