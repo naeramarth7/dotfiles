@@ -44,9 +44,10 @@ export const Config: Config = {
   Padding: BASE_PADDING,
   Screens: {
     HomePrimary: {
-      id: 'AB53BDB6-E914-0CE0-20CF-6AD691E72368',
+      // id: 'AB53BDB6-E914-0CE0-20CF-6AD691E72368',
+      id: 'B3382A05-8004-CC55-BC2D-3CF760AD7CD2',
       padding: {
-        top: 40,
+        top: 24 + BASE_PADDING / 2,
         bottom: BASE_PADDING / 2,
         left: BASE_PADDING / 2,
         right: BASE_PADDING / 2,

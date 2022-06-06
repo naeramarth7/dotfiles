@@ -11,6 +11,10 @@ Key.on('r', ['command', 'option'], () => {
 
 function init(reload?: boolean) {
   Phoenix.notify(`${reload ? 'Reloaded' : 'Loaded'}`);
+  Phoenix.log(
+    'available screens',
+    Screen.all().map((screen) => screen.identifier())
+  );
 
   LayoutPlugin.applyLayouts();
 
