@@ -130,7 +130,9 @@ cask "whatsapp"
 cask "xquartz"
 
 # Fonts
+cask "font-fira-code-nerd-font"
 cask "font-hasklig"
+cask "font-hack-nerd-font"
 # https://pcaro.es/p/hermit/#downloads
 cask "font-inconsolata"
 cask "font-input"
