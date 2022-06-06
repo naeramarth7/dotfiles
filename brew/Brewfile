@@ -11,7 +11,7 @@ tap "homebrew/services"
 
 # drivers
 tap "homebrew/cask-drivers"
-cask "asix-ax88179"
+#cask "asix-ax88179" # manuall install
 
 # cli tools
 brew "asdf"
