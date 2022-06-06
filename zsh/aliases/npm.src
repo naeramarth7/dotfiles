@@ -4,3 +4,5 @@ alias npms="npm install --save"
 alias npmsd="npm install --save-dev"
 alias npmr="npm remove --save"
 alias npmrd="npm remove --save-dev"
+
+alias nativefier="npx -y nativefier"
