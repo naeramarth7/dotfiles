@@ -35,6 +35,9 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 # Node might need some more memory
 export NODE_OPTIONS="--max-old-space-size=4096"
 
+# Preserve symlinks for linked packages
+export NODE_PRESERVE_SYMLINKS=1
+
 # Android
 export ANDROID_HOME=/Users/svenf/Library/Android/sdk
 # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # 8
@@ -46,5 +49,3 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.11) # 11
 
 # GPG
 export GPG_TTY=$(tty)
-
-# ASD

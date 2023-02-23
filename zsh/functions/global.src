@@ -242,3 +242,7 @@ function vimfix() {
   brew unlink python && brew link --force python
   brew uninstall --force macvim && brew install macvim --with-override-system-vim
 }
+
+function port-usage() {
+  lsof -i :$1
+}

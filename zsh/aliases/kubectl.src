@@ -4,3 +4,6 @@ ksh() {
   kubectl exec --stdin --tty $1 -- /bin/bash
 }
 
+kns() {
+  kubectl config set-context --current --namespace=$1
+}

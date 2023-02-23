@@ -14,6 +14,7 @@ tap "homebrew/cask-drivers"
 #cask "asix-ax88179" # manuall install
 
 # cli tools
+brew "age"
 brew "asdf"
 brew "azure-cli"
 brew "berkeley-db"
@@ -26,10 +27,12 @@ brew "direnv"
 brew "exa"
 brew "fasd"
 brew "findutils", link: true
+brew "fluxcd/tap/flux"
 brew "git"
 brew "git-lfs"
 brew "gnupg"
 brew "go"
+brew "go-task"
 brew "gradle"
 brew "helm"
 brew "htop"
@@ -54,9 +57,12 @@ brew "pinentry-mac" # gpg
 brew "pv"
 brew "python@3.9"
 brew "screen"
+brew "skopeo"
+brew "sops"
 brew "subversion"
 brew "tldr"
 brew "watch"
+brew "weaveworks/tap/gitops"
 brew "wget", args: ["with-iri"]
 brew "youtube-dl"
 brew "zlib"
@@ -73,6 +79,12 @@ brew "vault"
 # yabai
 tap "koekeishiya/formulae"
 brew "koekeishiya/formulae/yabai", restart_service: true
+brew "koekeishiya/formulae/skhd", restart_service: true
+
+# docker
+brew "colima"
+brew "docker"
+brew "docker-compose"
 
 # dotnet
 tap "isen-ng/dotnet-sdk-versions"
@@ -83,8 +95,14 @@ cask "dotnet-sdk2-2-300"
 cask "dotnet-sdk3-1-400"
 brew "nuget"
 
-tap "FelixKratz/formulae"
-brew "sketchybar", restart_service: true
+# tap "FelixKratz/formulae"
+# brew "sketchybar", restart_service: true
+
+tap "null-dev/firefox-profile-switcher"
+brew "firefox-profile-switcher-connector"
+
+tap "weaveworks/tap"
+
 
 #########
 # Casks #
@@ -92,14 +110,16 @@ brew "sketchybar", restart_service: true
 
 # Tools
 cask "alfred"
+cask "alacritty"
 cask "android-platform-tools"
 cask "android-sdk"
 cask "android-studio"
 cask "appcleaner"
 cask "bettertouchtool"
 cask "boostnote"
-cask "docker"
 cask "firefox"
+cask "firefox-nightly"
+brew "firefoxpwa"
 cask "flux"
 cask "forklift"
 cask "google-chrome"
@@ -115,10 +135,14 @@ cask "launchrocket"
 cask "moneymoney"
 cask "monitorcontrol"
 cask "mos"
+cask "mullvadvpn"
 cask "muzzle"
 cask "nextcloud"
 cask "numi"
+cask "obsidian"
 cask "phoenix"
+cask "raycast"
+cask "scroll-reverser"
 cask "shottr"
 cask "soda-player"
 cask "steam"
@@ -129,6 +153,7 @@ cask "ubersicht"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
+cask "yt-music"
 cask "xquartz"
 
 # Fonts

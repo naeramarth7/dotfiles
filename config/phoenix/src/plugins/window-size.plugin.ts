@@ -23,7 +23,22 @@ Key.on('up', ['command', 'option'], () => {
   });
 });
 
-// Maximize Left
+// Left 1/3
+Key.on('left', ['command', 'option', 'control'], () => {
+  const currentWindow = getCurrentWindow(true);
+  if (!currentWindow) return;
+
+  const { window, visibleFrame } = currentWindow;
+
+  window.setFrame({
+    x: visibleFrame.x + Config.Padding / 2,
+    y: visibleFrame.y + Config.Padding / 2,
+    width: (visibleFrame.width / 3) * 1 - Config.Padding,
+    height: visibleFrame.height - Config.Padding,
+  });
+});
+
+// Left 1/2
 Key.on('left', ['command', 'option'], () => {
   const currentWindow = getCurrentWindow(true);
   if (!currentWindow) return;
@@ -38,7 +53,37 @@ Key.on('left', ['command', 'option'], () => {
   });
 });
 
-// Maximize Right
+// Left 2/3
+Key.on('left', ['command', 'option', 'shift'], () => {
+  const currentWindow = getCurrentWindow(true);
+  if (!currentWindow) return;
+
+  const { window, visibleFrame } = currentWindow;
+
+  window.setFrame({
+    x: visibleFrame.x + Config.Padding / 2,
+    y: visibleFrame.y + Config.Padding / 2,
+    width: (visibleFrame.width / 3) * 2 - Config.Padding,
+    height: visibleFrame.height - Config.Padding,
+  });
+});
+
+// Right 1/3
+Key.on('right', ['command', 'option', 'control'], () => {
+  const currentWindow = getCurrentWindow(true);
+  if (!currentWindow) return;
+
+  const { window, visibleFrame } = currentWindow;
+
+  window.setFrame({
+    x: visibleFrame.x + (visibleFrame.width / 3) * 2 + Config.Padding / 2,
+    y: visibleFrame.y + Config.Padding / 2,
+    width: (visibleFrame.width / 3) * 1 - Config.Padding,
+    height: visibleFrame.height - Config.Padding,
+  });
+});
+
+// Right 1/2
 Key.on('right', ['command', 'option'], () => {
   const currentWindow = getCurrentWindow(true);
   if (!currentWindow) return;
@@ -49,6 +94,36 @@ Key.on('right', ['command', 'option'], () => {
     x: visibleFrame.x + visibleFrame.width / 2 + Config.Padding / 2,
     y: visibleFrame.y + Config.Padding / 2,
     width: visibleFrame.width / 2 - Config.Padding,
+    height: visibleFrame.height - Config.Padding,
+  });
+});
+
+// Right 2/3
+Key.on('right', ['command', 'option', 'shift'], () => {
+  const currentWindow = getCurrentWindow(true);
+  if (!currentWindow) return;
+
+  const { window, visibleFrame } = currentWindow;
+
+  window.setFrame({
+    x: visibleFrame.x + visibleFrame.width / 3 + Config.Padding / 2,
+    y: visibleFrame.y + Config.Padding / 2,
+    width: (visibleFrame.width / 3) * 2 - Config.Padding,
+    height: visibleFrame.height - Config.Padding,
+  });
+});
+
+// Center 1/3
+Key.on('down', ['command', 'option', 'ctrl'], () => {
+  const currentWindow = getCurrentWindow(true);
+  if (!currentWindow) return;
+
+  const { window, visibleFrame } = currentWindow;
+
+  window.setFrame({
+    x: visibleFrame.x + visibleFrame.width / 3 + Config.Padding / 2,
+    y: visibleFrame.y + Config.Padding / 2,
+    width: (visibleFrame.width / 3) * 1 - Config.Padding,
     height: visibleFrame.height - Config.Padding,
   });
 });
