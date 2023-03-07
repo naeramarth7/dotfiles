@@ -170,3 +170,6 @@ alias pngmin="pngquant --speed 1 --quality 65-80 --ext .min.png *"
 # Other aliases
 alias y="yarn --ignore-engines"
 alias v=asdf
+
+# allow aliases in watch
+alias watch="watch "
