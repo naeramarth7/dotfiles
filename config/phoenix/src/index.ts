@@ -9,6 +9,10 @@ Key.on('r', ['command', 'option'], () => {
   init(true);
 });
 
+Key.on('r', ['command', 'shift', 'option'], () => {
+  Phoenix.notify(`TEST`);
+});
+
 function init(reload?: boolean) {
   Phoenix.notify(`${reload ? 'Reloaded' : 'Loaded'}`);
   Phoenix.log(

@@ -8,6 +8,10 @@ export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 # Ask for the administrator password upfront.
 sudo -v
 
+# Install command line tools
+sudo rm -rf /Library/Developer/CommandLineTools
+sudo xcode-select --install
+
 # Install Homebrew itself
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
 
@@ -21,25 +25,36 @@ brew upgrade --all
 # Install "San Francisco" font
 cp /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-* ~/Library/Fonts
 
-# Install rvm, ruby
-command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-command curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
-\curl -sSL https://get.rvm.io | bash -s stable
+# # Install rvm, ruby
+# command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+# command curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
+# curl -sSL https://get.rvm.io | bash -s stable
 
-source /Users/$(whoami)/.rvm/scripts/rvm
-rvm install 3.1.2
-. ~/.rvm/scripts/rvm
-rvm use 3.1.2
+# source /Users/$(whoami)/.rvm/scripts/rvm
+# rvm install 3.1.2
+# . ~/.rvm/scripts/rvm
+# rvm use 3.1.2
 
-# Install tmux plugin manager and plugins
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-gem install tmuxinator --user-install
+# # Install tmux plugin manager and plugins
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# gem install tmuxinator --user-install
 
 # Install dependencies via brew
-brew bundle --file=~/brew/Brewfile
+brew bundle --file=~/dotfiles/brew/Brewfile
 
 # Run rcm to link dotfiles
 env RCRC=$(pwd -P)/rcrc rcup
+
+# Install asdf plugins
+asdf plugin add dart
+asdf plugin add flutter
+asdf plugin add nodejs
+asdf plugin add python
+asdf plugin add yarn
+
+~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+
+(cd && asdf install)
 
 # Install node modules
 npm i -G git-recent
@@ -55,9 +70,9 @@ git config --global color.diff-highlight.newHighlight "green bold 22"
 git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 
 # Add zsh from brew to /etc/shells file
-if ! grep -Fxq "/usr/local/bin/zsh" /etc/shells; then
-  sudo sh -c "echo '/usr/local/bin/zsh' >> /etc/shells"
-fi
+# if ! grep -Fxq "/usr/local/bin/zsh" /etc/shells; then
+#   sudo sh -c "echo '/usr/local/bin/zsh' >> /etc/shells"
+# fi
 
 # Change shell to zsh installed with brew
 if [[ $SHELL != /usr/local/bin/zsh ]]; then
@@ -70,15 +85,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Install vim plugins
 vim +PluginInstall +qall
-
-# Install asdf plugins
-asdf plugin add nodejs
-asdf plugin add dart
-asdf plugin add flutter
-
-~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-
-asdf install
 
 # Remove outdated versions from the cellar.
 brew cleanup

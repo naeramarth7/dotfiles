@@ -54,8 +54,8 @@ export const Config: Config = {
       },
     },
     HomePrimary: {
-      // id: 'AB53BDB6-E914-0CE0-20CF-6AD691E72368',
-      id: '53124973-3EBB-45BA-84B9-BB4412F69C76',
+      // id: '53124973-3EBB-45BA-84B9-BB4412F69C76',
+      id: 'D05A44D5-4E48-49C6-AA25-41534CF511E0',
       padding: {
         top: PADDING_TOP + BASE_PADDING / 2,
         bottom: BASE_PADDING / 2,
@@ -64,8 +64,8 @@ export const Config: Config = {
       },
     },
     HomeSecondary: {
-      // id: 'AD63C53E-0DD0-4967-BAEB-BEB3128738F3',
-      id: '9BE5303B-263F-EB1F-2E49-FCA70AB4AAF5',
+      // id: '9BE5303B-263F-EB1F-2E49-FCA70AB4AAF5',
+      id: '2D42421D-9549-495F-855B-F906344E9BFF',
       padding: {
         top: BASE_PADDING / 2,
         bottom: BASE_PADDING / 2,

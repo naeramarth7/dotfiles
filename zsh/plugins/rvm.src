@@ -1,4 +1,4 @@
 #!/usr/bin/env/ zsh
 
-. ~/.rvm/scripts/rvm
-rvm use 3.1.2
+# . ~/.rvm/scripts/rvm
+# rvm use 3.1.2

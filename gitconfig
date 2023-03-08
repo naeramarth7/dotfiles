@@ -287,10 +287,10 @@
   helper = osxkeychain
 
 [color "diff-highlight"]
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
-  oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+	oldNormal = red bold
 
 [gui]
 	recentrepo = /Users/svenf/Projects/MW/BMW/OAP/oap-apps/chargenow
