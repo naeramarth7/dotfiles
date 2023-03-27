@@ -39,13 +39,14 @@ export NODE_OPTIONS="--max-old-space-size=4096"
 export NODE_PRESERVE_SYMLINKS=1
 
 # Android
-export ANDROID_HOME=/Users/svenf/Library/Android/sdk
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # 8
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.11) # 11
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.16) # 16
+export ANDROID_HOME=/Users/sven.herrle/Library/Android/sdk
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.11) # 11
+export JAVA_HOME=/opt/homebrew/opt/openjdk
 
 # asdf
 # export ASDF_PYTHON_PATCH_URL="https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
 
 # GPG
 export GPG_TTY=$(tty)
+
+export CHROME_EXECUTABLE="/Users/sven.herrle/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
