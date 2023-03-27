@@ -3,11 +3,13 @@
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc start\r\n"; fi
 
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> initialize zinit\r\n"; fi
-source ~/.zinit/bin/zinit.zsh
+ZINIT_HOME="${HOME}/.zinit/bin"
+source "${ZINIT_HOME}/zi.zsh"
 
 # Add completions from packages installed with brew
 # See: https://github.com/github/hub/issues/904
 fpath=(/usr/local/share/zsh/site-functions $fpath)
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 
 # Load the shell dotfiles, and then some:
 # * ~/aliases/*.src can be used for setting aliases.
