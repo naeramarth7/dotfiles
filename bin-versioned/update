@@ -9,16 +9,17 @@ brew-update
 npm i -g npm
 
 # rvm
-rvm get stable
+# rvm get stable
 
 # gem
-sudo gem update --system
-sudo gem update
+# sudo gem update --system
+# sudo gem update
 
-(cd ~/.tmux/plugins/tpm && git pull)
+# (cd ~/.tmux/plugins/tpm && git pull)
 
 # Update zsh plugins
-zinit update
+zi update
 
 # Reload zsh env
-reload
+#reload
+/usr/local/bin/zsh -l
