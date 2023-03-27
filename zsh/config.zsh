@@ -4,6 +4,9 @@ export CLICOLOR=true
 
 fpath=($ZDOTDIR/functions $fpath)
 
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
+
 autoload -U "$ZDOTDIR"/functions/*(:t)
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
