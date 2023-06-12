@@ -5,6 +5,9 @@ sudo softwareupdate --all --install --force
 
 brew-update
 
+skhd --start-service
+yabai --start-service
+
 # npm
 npm i -g npm
 
@@ -23,3 +26,4 @@ zi update
 # Reload zsh env
 #reload
 /usr/local/bin/zsh -l
+
