@@ -50,3 +50,6 @@ export JAVA_HOME=/opt/homebrew/opt/openjdk
 export GPG_TTY=$(tty)
 
 export CHROME_EXECUTABLE="/Users/sven.herrle/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
+
+# Disable direnv logs
+export DIRENV_LOG_FORMAT=""

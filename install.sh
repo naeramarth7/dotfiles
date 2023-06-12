@@ -46,15 +46,18 @@ brew bundle --file=~/dotfiles/brew/Brewfile
 env RCRC=$(pwd -P)/rcrc rcup
 
 # Install asdf plugins
+asdf plugin add direnv
 asdf plugin add dart
 asdf plugin add flutter
 asdf plugin add nodejs
 asdf plugin add python
-asdf plugin add yarn
 
 ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 (cd && asdf install)
+
+# setup direnv
+asdf direnv setup --shell zsh --version system
 
 # Install node modules
 npm i -G git-recent

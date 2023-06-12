@@ -45,3 +45,4 @@ source ~/.zinit/init.sh
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc end\r\n"; fi
 
 if [ !$ZSH_DEBUG ]; then; clear; fi
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
