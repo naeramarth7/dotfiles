@@ -53,6 +53,7 @@
   # Remove branches that have already been merged with master
   # a.k.a. 'delete merged'
   dm = "!git branch --no-column --merged origin/master | grep -v '\\*' | xargs -n 1 git branch -d"
+  dmain = "!git branch --no-column --merged origin/main | grep -v '\\*' | xargs -n 1 git branch -d"
 
   # Remove branches if their tracking branches where deleted on the remote
   # a.k.a. 'delete gone'
@@ -274,12 +275,12 @@
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   required = true
-	process = git-lfs filter-process
+  process = git-lfs filter-process
 
 
 [user]
   name        = Sven Herrle
-	email       = hc4e2k@gmail.com
+  email       = hc4e2k@gmail.com
   signingkey  = 7DCE00AE4707A08E
 
 
@@ -290,16 +291,16 @@
   helper = osxkeychain
 
 [color "diff-highlight"]
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-	oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+  oldNormal = red bold
 
 [includeIf "gitdir:~/Projects/MW/"]
   path = ~/.gitconfig.work
 
 [init]
-	defaultBranch = master
+  defaultBranch = master
 
 [commit]
   gpgsign = true
