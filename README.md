@@ -48,7 +48,7 @@ To disable the included dotfiles, you can use `rcm`:
 cd ~/dotfiles
 
 # Remove symlinked files and folders from $HOME
-rcdn
+env RCRC=$(pwd -P)/rcrc rcdn
 ```
 
 ## Inspired by / Thanks to...
