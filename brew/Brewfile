@@ -2,21 +2,18 @@
 tap "beeftornado/rmtree"
 tap "homebrew/bundle"
 
-# brew taps
-# tap "homebrew/cask"
-# tap "homebrew/cask-fonts"
-# tap "homebrew/cask-versions"
-# tap "homebrew/core"
-# tap "homebrew/services"
-
 # drivers
 # tap "homebrew/cask-drivers"
 #cask "asix-ax88179" # manuall install
 
+# libs
+tap "homebrew-ffmpeg/ffmpeg"
+brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-fdk-aac"]
+
 # cli tools
 brew "age"
 brew "asdf"
-#brew "azure-cli" # takes forever
+brew "azure-cli" # takes forever
 brew "berkeley-db"
 brew "cmake"
 brew "cocoapods"
@@ -32,23 +29,22 @@ brew "git-lfs"
 brew "gnupg"
 brew "go"
 brew "go-task"
-brew "gradle"
 brew "helm"
 brew "htop"
 brew "ical-buddy"
 brew "ifstat"
 brew "jmeter"
 brew "jq"
+brew "k9s"
 brew "lcov"
 brew "lsusb"
 brew "macvim"
 brew "moreutils", link: true
-brew "mpv"
 brew "neofetch"
 brew "nmap"
 # brew "openjdk@8" # no apple silicon
 brew "openjdk@11"
-brew "openjdk@19"
+brew "openjdk@20"
 brew "openssh", link: false
 brew "p7zip"
 brew "perl"
@@ -62,9 +58,9 @@ brew "subversion"
 brew "terraform"
 brew "tldr"
 brew "watch"
-brew "weaveworks/tap/gitops"
 brew "wget"
 brew "youtube-dl"
+brew "yq"
 brew "zlib"
 brew "zsh"
 brew "zsh-completions"
@@ -88,10 +84,16 @@ brew "docker"
 brew "docker-compose"
 
 # k8s
-brew "fluxcd/tap/flux"
+brew "fluxcd/tap/flux", link: true
 brew "k3sup"
 brew "kubectx"
+brew "kubeconform"
+brew "kustomize"
 brew "velero"
+
+# azure
+tap "azure/kubelogin"
+brew "azure/kubelogin/kubelogin"
 
 # dotnet
 tap "isen-ng/dotnet-sdk-versions"
@@ -106,6 +108,10 @@ brew "nuget"
 # brew "sketchybar", restart_service: true
 
 tap "weaveworks/tap"
+brew "weaveworks/tap/gitops"
+
+tap "sandreas/tap"
+brew "sandreas/tap/m4b-tool"
 
 #########
 # Casks #
@@ -119,10 +125,12 @@ cask "android-sdk"
 cask "android-studio"
 cask "appcleaner"
 cask "bettertouchtool"
-cask "chromium"
+cask "brave-browser"
+cask "brave-browser-beta"
+# cask "chromium"
 cask "flux"
 cask "forklift"
-cask "google-chrome"
+# cask "google-chrome"
 cask "growlnotify"
 cask "home-assistant"
 cask "iina"
@@ -135,9 +143,7 @@ cask "launchrocket"
 cask "macupdater"
 cask "moneymoney"
 cask "monitorcontrol"
-cask "mos"
 cask "mqtt-explorer"
-cask "mullvadvpn"
 cask "muzzle"
 cask "nextcloud"
 cask "numi"
@@ -146,10 +152,12 @@ cask "phoenix"
 cask "plexamp"
 cask "postman"
 cask "raycast"
+cask "rocket"
 cask "scroll-reverser"
 cask "shottr"
 cask "steam"
 cask "telegram"
+cask "todoist"
 cask "transmission"
 cask "tunnelblick"
 cask "ubersicht"
@@ -160,11 +168,25 @@ cask "yt-music"
 cask "xquartz"
 
 # Fonts
-cask "font-fira-code-nerd-font"
+cask "font-fira-code"
 cask "font-hasklig"
-cask "font-hack-nerd-font"
-# https://pcaro.es/p/hermit/#downloads
 cask "font-inconsolata"
 cask "font-input"
 cask "font-poppins"
+cask "font-powerline-symbols"
 cask "font-source-code-pro"
+cask "font-symbols-only-nerd-font"
+# + https://pcaro.es/p/hermit/#downloads
+
+
+# Firefox
+cask "firefox"
+cask "firefox-developer-edition"
+
+# 1 Password
+cask "1password-cli"
+cask "1password"
+
+# https://github.com/shinokada/consize - image converter
+tap "shinokada/consize"
+brew "consize"
