@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.30",
-    "@types/phoenix": "github:mafredri/phoenix-typings#master",
+    "@types/phoenix": "github:mafredri/phoenix-typings#3121b49",
     "clean-webpack-plugin": "^4.0.0",
     "fork-ts-checker-webpack-plugin": "^7.2.9",
     "prettier": "^2.6.2",

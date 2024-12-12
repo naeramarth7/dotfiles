@@ -1,5 +1,7 @@
+import { LoggingUtil } from './utils/logging.util';
 import { LayoutPlugin } from './plugins/layout.plugin';
 import './plugins/window-size.plugin';
+import { Config } from './config';
 
 Phoenix.set({
   openAtLogin: true,
@@ -24,6 +26,10 @@ function init(reload?: boolean) {
 
   // Following logic applies to restarts only
   if (reload) return;
+
+  if (Config.debug) {
+    LoggingUtil.init();
+  }
 
   LayoutPlugin.layoutOnAppStart();
 }

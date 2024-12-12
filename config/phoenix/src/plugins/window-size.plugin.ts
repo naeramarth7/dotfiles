@@ -23,6 +23,21 @@ Key.on('up', ['command', 'option'], () => {
   });
 });
 
+// Center 2/3
+Key.on('up', ['command', 'option', 'shift'], () => {
+  const currentWindow = getCurrentWindow(true);
+  if (!currentWindow) return;
+
+  const { window, visibleFrame } = currentWindow;
+
+  window.setFrame({
+    x: visibleFrame.x + visibleFrame.width / 6 + Config.Padding / 2,
+    y: visibleFrame.y + Config.Padding / 2,
+    width: (visibleFrame.width / 3) * 2 - Config.Padding,
+    height: visibleFrame.height - Config.Padding,
+  });
+});
+
 // Left 1/3
 Key.on('left', ['command', 'option', 'control'], () => {
   const currentWindow = getCurrentWindow(true);
@@ -114,7 +129,7 @@ Key.on('right', ['command', 'option', 'shift'], () => {
 });
 
 // Center 1/3
-Key.on('down', ['command', 'option', 'ctrl'], () => {
+Key.on('up', ['command', 'option', 'control'], () => {
   const currentWindow = getCurrentWindow(true);
   if (!currentWindow) return;
 
@@ -128,20 +143,20 @@ Key.on('down', ['command', 'option', 'ctrl'], () => {
   });
 });
 
-// Centralize
-Key.on('up', ['command', 'option', 'control'], () => {
-  const currentWindow = getCurrentWindow(true);
-  if (!currentWindow) return;
+// // Centralize
+// Key.on('up', ['command', 'option', 'control'], () => {
+//   const currentWindow = getCurrentWindow(true);
+//   if (!currentWindow) return;
 
-  const { window, visibleFrame } = currentWindow;
+//   const { window, visibleFrame } = currentWindow;
 
-  window.setFrame({
-    x: visibleFrame.x + visibleFrame.width * 0.1 + Config.Padding / 2,
-    y: visibleFrame.y + visibleFrame.height * 0.1 + Config.Padding / 2,
-    width: visibleFrame.width * 0.8 - Config.Padding,
-    height: visibleFrame.height * 0.8 - Config.Padding,
-  });
-});
+//   window.setFrame({
+//     x: visibleFrame.x + visibleFrame.width * 0.1 + Config.Padding / 2,
+//     y: visibleFrame.y + visibleFrame.height * 0.1 + Config.Padding / 2,
+//     width: visibleFrame.width * 0.8 - Config.Padding,
+//     height: visibleFrame.height * 0.8 - Config.Padding,
+//   });
+// });
 
 // Restore
 Key.on('down', ['command', 'option'], () => {

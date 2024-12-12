@@ -4,7 +4,7 @@ import { ScreenUtil } from '../utils/screen.util';
 export abstract class LayoutPlugin {
   static layoutOnAppStart() {
     Event.on('appDidLaunch', (launchedApp) => {
-      Phoenix.log('appDidLaunch', launchedApp.name());
+      Phoenix.log('[debug]', 'appDidLaunch', launchedApp.name());
 
       this.applyLayouts();
     });
@@ -12,7 +12,12 @@ export abstract class LayoutPlugin {
     Event.on('windowDidOpen', (window) => {
       // Some windows need some time for their title to be set (e.g. iTerm2)
       setTimeout(() => {
-        Phoenix.log('windowDidOpen', window.title(), window.app().name());
+        Phoenix.log(
+          '[debug]',
+          'windowDidOpen',
+          window.title(),
+          window.app().name()
+        );
       }, 500);
     });
   }
