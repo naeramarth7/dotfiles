@@ -277,13 +277,6 @@
   required = true
   process = git-lfs filter-process
 
-
-[user]
-  name        = Sven Herrle
-  email       = hc4e2k@gmail.com
-  signingkey  = 7DCE00AE4707A08E
-
-
 [pull]
   rebase = true
 
@@ -295,6 +288,9 @@
   newNormal = green bold
   newHighlight = green bold 22
   oldNormal = red bold
+
+[include]
+  path = ~/.gitconfig.personal
 
 [includeIf "gitdir:~/Projects/MW/"]
   path = ~/.gitconfig.work
