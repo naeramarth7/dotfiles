@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+### node_modules
+
+find ~/Projects -type d -name node_modules -not -path "*/node_modules/*" -print0 | while read -d $'\0' folder; do
+  alfred-ignore $folder
+done
