@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+SOURCE="$HOME/Applications/Zen Browser.app"
+DEST="$HOME/Applications/Zen Browser MW.app"
+DEST_PLIST="$DEST/Contents/Info.plist"
+
+cp -rf $DEST $DEST.bak
+rm -rf $DEST
+cp -r $SOURCE $DEST
+
+defaults write "$DEST_PLIST" CFBundleName "Zen Browser MW"
+defaults write "$DEST_PLIST" CFBundleIdentifier "org.mozilla.com.zen.browser-mw"
+plutil -convert xml1 "$DEST_PLIST"
