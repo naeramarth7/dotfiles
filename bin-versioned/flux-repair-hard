@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+kubectl describe ns $1 &> /dev/null
+
+if [[ $? -ne 0 ]]; then
+  echo "Error: namespace $1 not found."
+  exit 1
+fi
+
+kubectl describe statefulset -n $1 $2 &> /dev/null
+
+if [[ $? -ne 0 ]]; then
+  echo "Warning: statefulset $2 in namespace $1 not found."
+else
+  kubectl delete statefulset -n $1 $2
+  kubectl delete hr -n $1 $2
+fi
+
+flux reconcile kustomization cluster-apps-$2
+flux reconcile hr -n $1 $2

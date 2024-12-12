@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+CM_QUERY="connected-oauth|customizations-composite|data-privacy-composite|esim-composite|legal-document-composite|link-service|my-highlights-composite|pm2-proxy|remote-personalisation-composite|third-party-app-store-composite|user-composite"
+
+if [[ "$1" == "pods" ]]; then
+  kubectl get pods | grep -E $CM_QUERY
+elif [[ "$1" == "deployments" ]]; then
+  kubectl get deployments | grep -E $CM_QUERY
+else
+  echo "Unknown command \"$1\""!
+fi
