@@ -11,4 +11,3 @@ docker-enter() {
 docker-clean() {
   docker rmi $(docker images | grep '<none>' | awk '{print $3}')
 }
-

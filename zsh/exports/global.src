@@ -37,7 +37,7 @@ export NODE_OPTIONS="--max-old-space-size=4096"
 
 # Android
 export ANDROID_HOME=/Users/sven.herrle/Library/Android/sdk
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.11) # 11
+# export JAVA_HOME=$(/usr/libexec/java_home -v 17) # 17
 export JAVA_HOME=/opt/homebrew/opt/openjdk
 
 # asdf
