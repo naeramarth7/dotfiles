@@ -120,7 +120,7 @@
 
   hist    = !git hlog --graph --date-order
   h       = !git --no-pager hist -10
-  hh      = !git --no-pager hist -20
+  hh      = !git --no-pager hist -50
   hhh     = !git --no-pager hist
   hc      = !git h --no-merges
   hhc     = !git hh --no-merges
