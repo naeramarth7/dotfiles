@@ -45,19 +45,8 @@ brew bundle --file=~/dotfiles/brew/Brewfile
 # Run rcm to link dotfiles
 env RCRC=$(pwd -P)/rcrc rcup
 
-# Install asdf plugins
-asdf plugin add direnv
-asdf plugin add dart
-asdf plugin add flutter
-asdf plugin add nodejs
-asdf plugin add python
-
-~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-
-(cd && asdf install)
-
-# setup direnv
-asdf direnv setup --shell zsh --version system
+# mise
+mise install
 
 # Install node modules
 npm i -G git-recent
@@ -70,7 +59,7 @@ git config --global color.diff-highlight.newNormal "green bold"
 git config --global color.diff-highlight.newHighlight "green bold 22"
 
 # Install zinit
-git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
 # Add zsh from brew to /etc/shells file
 # if ! grep -Fxq "/usr/local/bin/zsh" /etc/shells; then

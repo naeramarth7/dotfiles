@@ -40,9 +40,6 @@ export ANDROID_HOME=/Users/sven.herrle/Library/Android/sdk
 # export JAVA_HOME=$(/usr/libexec/java_home -v 17) # 17
 export JAVA_HOME=/opt/homebrew/opt/openjdk
 
-# asdf
-# export ASDF_PYTHON_PATCH_URL="https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
-
 # GPG
 export GPG_TTY=$(tty)
 

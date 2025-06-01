@@ -1,8 +1,3 @@
 #!/usr/bin/env zsh
 
 brew bundle --file=~/brew/Brewfile
-
-# reinstall yabai scripting addition
-# sudo yabai --uninstall-sa
-# sudo yabai --load-sa
-# brew services start yabai

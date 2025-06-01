@@ -12,7 +12,6 @@ brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-fdk-aac"]
 
 # cli tools
 brew "age"
-brew "asdf"
 brew "azure-cli" # takes forever
 brew "berkeley-db"
 brew "cmake"
@@ -39,6 +38,7 @@ brew "k9s"
 brew "lcov"
 brew "lsusb"
 brew "macvim"
+brew "mise"
 brew "moreutils", link: true
 brew "neofetch"
 brew "nmap"

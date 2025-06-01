@@ -6,6 +6,3 @@ alias npmr="npm remove --save"
 alias npmrd="npm remove --save-dev"
 
 alias nativefier="npx -y nativefier"
-
-alias node=$(asdf which node)
-alias npm=$(asdf which npm)
