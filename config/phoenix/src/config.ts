@@ -91,8 +91,8 @@ export const Config: Config = {
               app: 'Microsoft Teams',
               left: 0,
               top: 0,
-              width: 1,
-              height: 0.5,
+              width: 0.5,
+              height: 1,
             },
             {
               app: 'Microsoft Teams (work or school)',
@@ -103,10 +103,10 @@ export const Config: Config = {
             },
             {
               app: 'Microsoft Outlook',
-              left: 0,
-              top: 0.5,
-              width: 1,
-              height: 0.5,
+              left: 0.5,
+              top: 0,
+              width: 0.5,
+              height: 1,
             },
             // {
             //   app: 'Todoist',
