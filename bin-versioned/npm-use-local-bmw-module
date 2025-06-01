@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
-MODULE_SUFFIX=$1
+MODULE_NAME=$1
+SOURCE_NAME=$2
 
-rm -rf node_modules/@bmw/${MODULE_SUFFIX}/dist && cp -r ../library-${MODULE_SUFFIX}/dist node_modules/@bmw/${MODULE_SUFFIX}/
+rm -rf node_modules/@bmw/${MODULE_NAME}/dist
+cp -r ../${SOURCE_NAME}/dist node_modules/@bmw/${MODULE_NAME}/
