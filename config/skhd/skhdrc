@@ -6,5 +6,5 @@
 #ctrl - 4 : yabai -m space --focus 4
 #ctrl - 5 : yabai -m space --focus 5
 
-cmd + ctrl + shift - 0x18 : /Applications/Utilities/Privileges.app/Contents/Resources/PrivilegesCLI --add
-cmd + ctrl + shift - 0x1B : /Applications/Utilities/Privileges.app/Contents/Resources/PrivilegesCLI --remove
+cmd + ctrl + shift - 0x18: PrivilegesCLI --add
+cmd + ctrl + shift - 0x1B: PrivilegesCLI --remove
