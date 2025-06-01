@@ -7,5 +7,5 @@ if [[ $? -ne 0 ]]; then
   exit 2
 fi
 
-flux suspend hr -n $1 $2
-flux resume hr -n $1 $2
+echo "Reconciling hr $1 $2 ..."
+flux reconcile hr -n $1 $2 --force

@@ -12,9 +12,15 @@ kubectl describe statefulset -n $1 $2 &> /dev/null
 if [[ $? -ne 0 ]]; then
   echo "Warning: statefulset $2 in namespace $1 not found."
 else
+  echo "Deleting statefulset $1 $2 ..."
   kubectl delete statefulset -n $1 $2
+
+  echo "Deleting hr $1 $2 ..."
   kubectl delete hr -n $1 $2
 fi
 
+echo "Reconciling kustomization cluster-apps-$2 ..."
 flux reconcile kustomization cluster-apps-$2
+
+echo "Reconciling hr $1 $2 ..."
 flux reconcile hr -n $1 $2
