@@ -46,7 +46,6 @@ brew bundle --file=~/dotfiles/brew/Brewfile
 env RCRC=$(pwd -P)/rcrc rcup
 
 # mise
-curl https://mise.run | sh
 mise install
 
 # Install node modules

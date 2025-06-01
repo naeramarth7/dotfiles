@@ -38,6 +38,7 @@ brew "k9s"
 brew "lcov"
 brew "lsusb"
 brew "macvim"
+brew "mise"
 brew "moreutils", link: true
 brew "neofetch"
 brew "nmap"
