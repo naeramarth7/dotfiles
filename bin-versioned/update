@@ -11,19 +11,8 @@ yabai --start-service
 # npm
 npm i -g npm
 
-# rvm
-# rvm get stable
-
-# gem
-# sudo gem update --system
-# sudo gem update
-
-# (cd ~/.tmux/plugins/tpm && git pull)
-
-# Update zsh plugins
-zi update
+# Update zinit and plugins
+zinit self-update
 
 # Reload zsh env
-#reload
 /usr/local/bin/zsh -l
-

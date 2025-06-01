@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zprofile start\r\n"; fi
 
 # Load the shell dotfiles, and then some:

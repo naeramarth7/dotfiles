@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc start\r\n"; fi
 
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> initialize zinit\r\n"; fi
-ZINIT_HOME="${HOME}/.zinit/bin"
-source "${ZINIT_HOME}/zi.zsh"
 
 # Add completions from packages installed with brew
 # See: https://github.com/github/hub/issues/904
@@ -39,10 +39,5 @@ if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> load custom configs\r\n"; fi
 source $ZDOTDIR/config.zsh
 source $ZDOTDIR/prompt.zsh
 
-if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> load zinit config\r\n"; fi
-source ~/.zinit/init.sh
-
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc end\r\n"; fi
-
 if [ !$ZSH_DEBUG ]; then; clear; fi
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
