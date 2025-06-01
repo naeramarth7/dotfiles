@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+defaults write com.apple.dock autohide -bool false
+defaults delete com.apple.dock autohide-delay; killall Dock
