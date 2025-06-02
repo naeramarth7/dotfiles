@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 alias k=kubectl
+alias kns=kubens
 alias kctx=kubectx
 
 ksh() {
@@ -13,10 +14,6 @@ kbash() {
 
 kubeshell() {
   kubectl exec --stdin --tty $2 ${3+"--container=$3"} -- $1
-}
-
-kns() {
-  kubectl config set-context --current --namespace=$1
 }
 
 kredeploy() {
