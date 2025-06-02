@@ -16,7 +16,6 @@ brew "azure-cli" # takes forever
 brew "berkeley-db"
 brew "cmake"
 brew "cocoapods"
-brew "consul-template"
 brew "coreutils", link: true
 brew "dark-mode"
 brew "direnv"
@@ -38,7 +37,6 @@ brew "lsusb"
 brew "macvim"
 brew "mise"
 brew "moreutils", link: true
-brew "neofetch"
 brew "nmap"
 # brew "openjdk@8" # no apple silicon
 brew "openjdk@11"
@@ -53,8 +51,7 @@ brew "screen"
 brew "skopeo"
 brew "sops"
 brew "subversion"
-brew "terraform"
-brew "tldr"
+brew "tlrc"
 brew "watch"
 brew "wget"
 brew "youtube-dl"
@@ -70,7 +67,9 @@ brew "thoughtbot/formulae/rcm"
 
 # hashicorp tools
 tap "hashicorp/tap"
-brew "vault"
+brew "hashicorp/tap/consul-template"
+brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/vault"
 
 # yabai
 tap "koekeishiya/formulae"
