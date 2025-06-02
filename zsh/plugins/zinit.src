@@ -50,7 +50,9 @@ zinit light-mode for \
 
 # Theme
 # zinit light sindresorhus/pure
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit light romkatv/powerlevel10k
+
+zinit ice depth=1;
 
 zinit light fdellwing/zsh-bat
 zinit light MichaelAquilina/zsh-you-should-use
