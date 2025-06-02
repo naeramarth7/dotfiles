@@ -1,5 +1,30 @@
 #!/usr/bin/env/ zsh
 
+# Workaround for zinit issue#504: remove subversion dependency. Function clones all files in plugin
+# directory (on github) that might be useful to zinit snippet directory. Should only be invoked
+# via zinit atclone"_fix-omz-plugin"
+_fix-omz-plugin() {
+    [[ -f ./._zinit/teleid ]] || return 1
+    local teleid="$(<./._zinit/teleid)"
+    local pluginid
+    for pluginid (${teleid#OMZ::plugins/} ${teleid#OMZP::}) {
+        [[ $pluginid != $teleid ]] && break
+    }
+    (($?)) && return 1
+    print "Fixing $teleid..."
+    git clone --quiet --no-checkout --depth=1 --filter=tree:0 https://github.com/ohmyzsh/ohmyzsh
+    cd ./ohmyzsh
+    git sparse-checkout set --no-cone /plugins/$pluginid
+    git checkout --quiet
+    cd ..
+    local file
+    for file (./ohmyzsh/plugins/$pluginid/*~(.gitignore|*.plugin.zsh)(D)) {
+        print "Copying ${file:t}..."
+        cp -R $file ./${file:t}
+    }
+    rm -rf ./ohmyzsh
+}
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -30,5 +55,4 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
-#zinit snippet OMZ::plugins/gitfast
-zinit snippet OMZ::plugins/mise
+zinit wait lucid atpull"%atclone" atclone"_fix-omz-plugin" for OMZ::plugins/gitfast
