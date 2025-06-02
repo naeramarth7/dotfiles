@@ -15,7 +15,6 @@ fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 # * ~/aliases/*.src can be used for setting aliases.
 # * ~/functions/*.src can be used for implementing custom functions.
 # * ~/extras/*.src can be used for anything else.for dir in $ZDOTDIR/{exports}; do
-eval "$(/opt/homebrew/bin/brew shellenv)"
 for dir in $ZDOTDIR/{aliases,exports,functions,extra,plugins}; do
   if [ -d $dir ]; then
     for file in $dir/*.src; do
@@ -32,7 +31,7 @@ setopt rmstarsilent
 # Load Custom Completions
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> load custom completions\r\n"; fi
 source $ZDOTDIR/completion.zsh
-source $ZDOTDIR/completions/*.src
+# source $ZDOTDIR/completions/*.src
 
 # Load Custom Configs
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> load custom configs\r\n"; fi

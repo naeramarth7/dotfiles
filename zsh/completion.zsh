@@ -13,3 +13,9 @@ zstyle ':completion:*' rehash true
 
 # menu if nb items > 2
 zstyle ':completion:*' menu select=2
+
+
+zstyle ':completion:*' list-colors ''
+
+autoload -Uz compinit
+compinit
