@@ -42,4 +42,4 @@ source $ZDOTDIR/config.zsh
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
 
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc end\r\n"; fi
-# if [ !$ZSH_DEBUG ]; then; clear; fi # not needed with p10k
+if [ !$ZSH_DEBUG ]; then; clear; fi
