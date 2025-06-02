@@ -41,7 +41,7 @@ export ANDROID_HOME=/Users/sven.herrle/Library/Android/sdk
 export JAVA_HOME=/opt/homebrew/opt/openjdk
 
 # GPG
-export GPG_TTY=$(tty)
+export GPG_TTY=$TTY
 
 export CHROME_EXECUTABLE="/Users/sven.herrle/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
 
