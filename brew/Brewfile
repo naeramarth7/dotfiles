@@ -20,7 +20,6 @@ brew "consul-template"
 brew "coreutils", link: true
 brew "dark-mode"
 brew "direnv"
-brew "fasd"
 brew "findutils", link: true
 brew "git"
 brew "git-lfs"
@@ -61,6 +60,7 @@ brew "wget"
 brew "youtube-dl"
 brew "yq"
 brew "zlib"
+brew "zoxide"
 brew "zsh"
 brew "zsh-completions"
 
