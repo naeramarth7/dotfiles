@@ -57,4 +57,6 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
+zinit light MichaelAquilina/zsh-you-should-use
+
 zinit wait lucid atpull"%atclone" atclone"_fix-omz-plugin" for OMZ::plugins/gitfast
