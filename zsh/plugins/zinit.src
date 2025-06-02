@@ -48,7 +48,9 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-zinit light sindresorhus/pure
+# Theme
+# zinit light sindresorhus/pure
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 zinit light zdharma-continuum/history-search-multi-word
 zinit light zdharma-continuum/fast-syntax-highlighting
