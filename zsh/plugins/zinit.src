@@ -52,11 +52,11 @@ zinit light-mode for \
 # zinit light sindresorhus/pure
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-zinit light zdharma-continuum/history-search-multi-word
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-
+zinit light fdellwing/zsh-bat
 zinit light MichaelAquilina/zsh-you-should-use
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zdharma-continuum/history-search-multi-word
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
 
 zinit wait lucid atpull"%atclone" atclone"_fix-omz-plugin" for OMZ::plugins/gitfast

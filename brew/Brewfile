@@ -14,6 +14,7 @@ brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-fdk-aac"]
 brew "age"
 brew "azure-cli" # takes forever
 brew "berkeley-db"
+brew "bat"
 brew "cmake"
 brew "cocoapods"
 brew "coreutils", link: true
