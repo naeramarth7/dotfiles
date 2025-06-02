@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+op completion zsh > zsh/completions/_op
