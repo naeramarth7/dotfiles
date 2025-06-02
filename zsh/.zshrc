@@ -6,11 +6,6 @@ if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc start\r\n"; fi
 
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> initialize zinit\r\n"; fi
 
-# Add completions from packages installed with brew
-# See: https://github.com/github/hub/issues/904
-fpath=(/usr/local/share/zsh/site-functions $fpath)
-fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
-
 # Load the shell dotfiles, and then some:
 # * ~/aliases/*.src can be used for setting aliases.
 # * ~/functions/*.src can be used for implementing custom functions.
@@ -24,14 +19,12 @@ for dir in $ZDOTDIR/{aliases,exports,functions,extra,plugins}; do
   fi
 done
 
-
 # Disable zsh's double check on rm with * argument
 setopt rmstarsilent
 
-# Load Custom Completions
+# Completions Settings
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> load custom completions\r\n"; fi
 source $ZDOTDIR/completion.zsh
-# source $ZDOTDIR/completions/*.src
 
 # Load Custom Configs
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) >> load custom configs\r\n"; fi
