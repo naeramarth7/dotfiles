@@ -20,7 +20,6 @@ brew "consul-template"
 brew "coreutils", link: true
 brew "dark-mode"
 brew "direnv"
-brew "exa"
 brew "fasd"
 brew "findutils", link: true
 brew "git"
