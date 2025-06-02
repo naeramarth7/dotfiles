@@ -3,6 +3,9 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zprofile start\r\n"; fi
 
+# use mise shims (e.g. for vscode)
+eval "$(mise activate zsh --shims)"
+
 # Load the shell dotfiles, and then some:
 # * ~/exports/*.src can be used for extending `$PATH` or addding env variables.
 for dir in $ZDOTDIR/{exports}; do
