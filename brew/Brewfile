@@ -1,6 +1,5 @@
 # brew commands
 tap "beeftornado/rmtree"
-tap "homebrew/bundle"
 
 # drivers
 # tap "homebrew/cask-drivers"
@@ -19,7 +18,6 @@ brew "cmake"
 brew "cocoapods"
 brew "coreutils", link: true
 brew "dark-mode"
-brew "direnv"
 brew "findutils", link: true
 brew "git"
 brew "git-lfs"
@@ -29,19 +27,16 @@ brew "go-task"
 brew "helm"
 brew "htop"
 brew "ical-buddy"
-brew "ifstat"
-brew "jmeter"
 brew "jq"
-brew "k9s"
 brew "lcov"
 brew "lsusb"
+brew "macmon"
 brew "macvim"
 brew "mise"
 brew "moreutils", link: true
 brew "nmap"
-# brew "openjdk@8" # no apple silicon
 brew "openjdk@11"
-brew "openjdk@20"
+brew "openjdk@21"
 brew "openssh", link: false
 brew "p7zip"
 brew "perl"
@@ -49,13 +44,11 @@ brew "pinentry-mac" # gpg
 brew "pv"
 brew "python@3.9"
 brew "screen"
-brew "skopeo"
 brew "sops"
 brew "subversion"
 brew "tlrc"
 brew "watch"
 brew "wget"
-brew "youtube-dl"
 brew "yq"
 brew "zlib"
 brew "zoxide"
@@ -68,14 +61,8 @@ brew "thoughtbot/formulae/rcm"
 
 # hashicorp tools
 tap "hashicorp/tap"
-brew "hashicorp/tap/consul-template"
 brew "hashicorp/tap/terraform"
 brew "hashicorp/tap/vault"
-
-# yabai
-tap "koekeishiya/formulae"
-brew "koekeishiya/formulae/yabai", restart_service: true
-brew "koekeishiya/formulae/skhd", restart_service: true
 
 # docker
 brew "colima"
@@ -85,8 +72,9 @@ brew "docker-compose"
 # k8s
 brew "fluxcd/tap/flux", link: true
 brew "k3sup"
-brew "kubectx"
+brew "k9s"
 brew "kubeconform"
+brew "kubectx"
 brew "kustomize"
 brew "velero"
 
@@ -94,23 +82,8 @@ brew "velero"
 tap "azure/kubelogin"
 brew "azure/kubelogin/kubelogin"
 
-# dotnet
-tap "isen-ng/dotnet-sdk-versions"
-cask "dotnet-sdk"
-cask "dotnet-sdk2-1-800"
-cask "dotnet-sdk2-2-200"
-cask "dotnet-sdk2-2-300"
-cask "dotnet-sdk3-1-400"
-brew "nuget"
-
-# tap "FelixKratz/formulae"
-# brew "sketchybar", restart_service: true
-
 tap "weaveworks/tap"
 brew "weaveworks/tap/gitops"
-
-tap "sandreas/tap"
-brew "sandreas/tap/m4b-tool"
 
 #########
 # Casks #
@@ -118,47 +91,32 @@ brew "sandreas/tap/m4b-tool"
 
 # Tools
 cask "alfred"
-cask "alacritty"
 cask "android-platform-tools"
-cask "android-studio"
 cask "appcleaner"
 cask "bettertouchtool"
-cask "brave-browser"
-cask "brave-browser-beta"
-# cask "chromium"
+cask "devcleaner"
 cask "flux"
 cask "forklift"
-# cask "google-chrome"
-cask "growlnotify"
 cask "home-assistant"
-cask "iina"
 cask "imageoptim"
 cask "iterm2"
 cask "keepassxc"
 cask "keka"
 cask "krisp"
-cask "launchrocket"
 cask "macupdater"
 cask "moneymoney"
 cask "monitorcontrol"
 cask "mqtt-explorer"
 cask "muzzle"
-cask "nextcloud"
-cask "numi"
 cask "obsidian"
 cask "phoenix"
-cask "plexamp"
 cask "postman"
-cask "raycast"
-cask "rocket"
 cask "scroll-reverser"
 cask "shottr"
 cask "steam"
 cask "telegram"
 cask "todoist"
-cask "transmission"
 cask "tunnelblick"
-cask "ubersicht"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
@@ -167,6 +125,7 @@ cask "xquartz"
 
 # Fonts
 cask "font-fira-code"
+cask "font-hack-nerd-font"
 cask "font-hasklig"
 cask "font-inconsolata"
 cask "font-input"
@@ -174,12 +133,8 @@ cask "font-poppins"
 cask "font-powerline-symbols"
 cask "font-source-code-pro"
 cask "font-symbols-only-nerd-font"
+cask "font-titillium-web"
 # + https://pcaro.es/p/hermit/#downloads
-
-
-# Firefox
-cask "firefox"
-cask "firefox-developer-edition"
 
 # 1 Password
 cask "1password-cli"
@@ -188,3 +143,9 @@ cask "1password"
 # https://github.com/shinokada/consize - image converter
 tap "shinokada/consize"
 brew "consize"
+
+# tap "FelixKratz/formulae"
+# brew "FelixKratz/formulae/sketchybar"
+
+tap "koekeishiya/formulae"
+brew "koekeishiya/formulae/yabai"
