@@ -58,7 +58,8 @@ export const Config: Config = {
       },
     },
     HomePrimary: {
-      id: '2D42421D-9549-495F-855B-F906344E9BFF',
+      // DELL 34"UWQHD
+      id: '15C2B6FB-42BF-4608-81F2-6D8EE473BF66',
       padding: {
         top: PADDING_TOP + BASE_PADDING / 2,
         bottom: BASE_PADDING / 2,
@@ -67,12 +68,10 @@ export const Config: Config = {
       },
     },
     HomeSecondary: {
-      // DELL 34"UWQHD
-      // id: 'D05A44D5-4E48-49C6-AA25-41534CF511E0',
       // LG 27" 4K
       id: 'FA48D5BA-8216-430D-AA45-C1F4B65A7C8F',
       padding: {
-        top: BASE_PADDING / 2,
+        top: PADDING_TOP + BASE_PADDING / 2,
         bottom: BASE_PADDING / 2,
         left: BASE_PADDING / 2,
         right: BASE_PADDING / 2,
@@ -93,13 +92,6 @@ export const Config: Config = {
               top: 0,
               width: 0.5,
               height: 1,
-            },
-            {
-              app: 'Microsoft Teams (work or school)',
-              left: 0,
-              top: 0.0,
-              width: 1,
-              height: 0.5,
             },
             {
               app: 'Microsoft Outlook',

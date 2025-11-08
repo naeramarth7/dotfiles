@@ -16,7 +16,7 @@ Key.on('r', ['command', 'shift', 'option'], () => {
 });
 
 function init(reload?: boolean) {
-  Phoenix.notify(`${reload ? 'Reloaded' : 'Loaded'}`);
+  // Phoenix.notify(`${reload ? 'Reloaded' : 'Loaded'}`);
   Phoenix.log(
     'available screens',
     Screen.all().map((screen) => screen.identifier())
