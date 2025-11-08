@@ -43,3 +43,6 @@ source $ZDOTDIR/config.zsh
 
 if $ZSH_DEBUG; then; echo -en "$(gdate +%s.%N) > .zshrc end\r\n"; fi
 if [ !$ZSH_DEBUG ]; then; clear; fi
+
+# run mise once for init (due to p10k's laziness)
+mise list &>/dev/null
