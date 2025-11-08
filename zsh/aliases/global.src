@@ -146,9 +146,6 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias reload="exec $SHELL -l"
 
 # other aliases
-alias ssh-ec2="ssh -i ~/.aws/aws-hc4e2kgmailcom.pem  ubuntu@54.69.215.177"
-alias ssh-ia-citest="ssh -i ~/.aws/aws-hc4e2kgmailcom.pem  ubuntu@ci-test.innoactive.de"
-alias ssh-ia-ci="ssh -i ~/.aws/aws-hc4e2kgmailcom.pem  ubuntu@ci.innoactive.de"
 alias rm!="rm -rf"
 
 # Order top by `cpu` on OS X
@@ -161,6 +158,7 @@ alias pngmin="pngquant --speed 1 --quality 65-80 --ext .min.png *"
 
 # Other aliases
 alias y="yarn --ignore-engines"
+alias top="htop"
 
 # allow aliases in watch
 alias watch="watch "
