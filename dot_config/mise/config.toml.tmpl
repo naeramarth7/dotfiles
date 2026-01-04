@@ -1,0 +1,10 @@
+[tools]
+usage = 'latest'
+{{ if eq .env.type "work" -}}
+java = 'openjdk-17.0.2'
+node = '22'
+rust = "stable"
+{{- end }}
+
+[settings]
+idiomatic_version_file_enable_tools = []
