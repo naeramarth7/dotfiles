@@ -1,33 +1,41 @@
 #!/usr/bin/env zsh
 
-# Update dotfiles first
+echo "Updating dotfiles ..."
 chezmoi update --init
+echo
 
 {{ if eq .chezmoi.os "darwin" -}}
-# Get OS X software updates
+echo "Updating OS X software ..."
 sudo softwareupdate --all --install --force
+echo
 
-# Upgrade brew and packages
+echo "Updating brew and packages ..."
 brew-update
+echo
 
-# Handle brew specific packages
+echo "Handle brew specific packages ..."
 skhd --start-service
 yabai --start-service
+echo
 {{- end }}
 
-# Upgrade global mise-configured tools
+echo "Updating global mise-configured tools ..."
 (cd ~ && mise install)
+echo
 
 {{ if eq .tools.nodejs true -}}
-# npm
+echo "Updating npm...""
 npm i -g npm
+echo
 {{- end }}
 
-# Update zinit and plugins
+echo "Updating zinit and plugins ..."
 zinit self-update
+echo
 
-# Install / update further tooling
+echo "Update / install safe-chain ..."
 curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh
 
 # Reload zsh env
+echo "Reloading environment ..."
 $SHELL -l
