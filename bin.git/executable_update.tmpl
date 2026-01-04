@@ -8,6 +8,8 @@ echo "Updating dotfiles ..."
 chezmoi update --init
 echo
 
+{{ if eq .chezmoi.os "darwin" -}}
+
 ### macOS
 
 echo "Updating macOS software ..."
@@ -26,6 +28,7 @@ echo "Handle brew service ..."
 skhd --start-service
 yabai --start-service
 echo
+{{- end }}
 
 ### zinit
 
@@ -43,16 +46,21 @@ echo "Updating global mise-configured tools ..."
 (cd ~ && mise install)
 echo
 
+{{ if eq .tools.nodejs true -}}
+
 ### npm
 
 echo "Updating npm..."
 npm i -g npm
 echo
+{{- end }}
 
 ### safe-chain
 
 echo "Update / install safe-chain ..."
 curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh
+
+{{ if eq .chezmoi.os "darwin" -}}
 
 ### Phoenix
 
@@ -68,6 +76,7 @@ fi
   npm install
   npm run build
 )
+{{- end }}
 
 ### Completions
 
