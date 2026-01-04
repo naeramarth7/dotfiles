@@ -23,6 +23,7 @@ brew "findutils", link: true
 brew "git"
 brew "git-lfs"
 brew "git-recent"
+brew "gitleaks"
 brew "gnupg"
 brew "go"
 brew "go-task"
