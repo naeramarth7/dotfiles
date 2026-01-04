@@ -1,0 +1,370 @@
+" General {{{
+
+let mapleader = "\<space>"              " Set map leader used for shortcuts
+
+set nocompatible                        " Make vim more useful
+set viminfo='100,f1                     " Save up to 100 marks, enable capital marks
+set ttyfast                             " Optimize for fast terminal connections
+
+set exrc                                " Enable per-directory .vimrc files
+set secure                              " Disable unsafe commands in them
+
+filetype off                            " Needs to be disabled before loading plugins via Vundle
+
+set ttimeout
+set ttimeoutlen=250
+set notimeout
+
+" }}}
+
+" Plugins {{{
+
+" Initiate Vundle
+let &runtimepath.=',$HOME/.vim/bundle/Vundle.vim'
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'              " Let Vundle manage Vundle - required
+
+" General
+Plugin 'bling/vim-airline'              " Status bar alternative
+Plugin 'itchyny/lightline.vim'
+Plugin 'edkolev/promptline.vim'
+Plugin 'rking/ag.vim'                   " Search in files
+
+" Syntax / Style
+Plugin 'scrooloose/syntastic'           " Syntax checking
+Plugin 'editorconfig/editorconfig-vim'  " Use .editorconfig
+Plugin 'Yggdroot/indentLine'            " Visualize line indentations
+Plugin 'sheerun/vim-polyglot'           " Syntax highlight (needed for monokai-pro theme)
+
+" Versioning
+Plugin 'mattn/webapi-vim'               " GitHub WebAPI needed by some GitHub plugins
+Plugin 'airblade/vim-gitgutter'         " Display changes from head in gutter
+Plugin 'sjl/gundo.vim'                  " Undo tree
+Plugin 'tpope/vim-fugitive'             " Git wrapper
+Plugin 'mmozuras/vim-github-comment'    " Commenting GitHub commits
+
+" Code completion
+"Plugin 'Valloric/YouCompleteMe'         " Autocompletion
+Plugin 'SirVer/ultisnips'               " Snippet library
+Plugin 'tpope/vim-commentary'           " Commenting
+Plugin 'honza/vim-snippets'             " Snippets to use with a lib for various languages
+Plugin 'tpope/vim-surround'             " Better surrounding handle
+Plugin 'jiangmiao/auto-pairs'          " Autoclose brackets and
+
+" Navigation
+Plugin 'kien/ctrlp.vim'                 " Ctrl+P for fuzzy find as in Sublime Text
+Plugin 'terryma/vim-multiple-cursors'   " Multiple cursors as in Sublime Text
+Plugin 'terryma/vim-expand-region'      " Expanding selections
+Plugin 'christoomey/vim-tmux-navigator' " Navigation between tmux and vim
+
+" Web Development
+Plugin 'Glench/Vim-Jinja2-Syntax'       " Jinja2 templating engine (python)
+Plugin 'evidens/vim-twig'               " Twig2 templating engine (php)
+
+"Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'tpope/vim-surround'
+" -- Web Development
+"Plugin 'Shutnik/jshint2.vim'
+"Plugin 'mattn/emmet-vim'
+"Plugin 'groenewege/vim-less'
+"Plugin 'skammer/vim-css-color'
+"Plugin 'hail2u/vim-css3-syntax'
+"Plugin 'digitaltoad/vim-jade'
+
+" -- Color Themes
+" Plugin 'flazz/vim-colorschemes'         " A lot of colorschemes to chose from
+Plugin 'ayu-theme/ayu-vim'
+" Plugin 'Luxed/ayu-vim'
+" Plugin 'phanviet/vim-monokai-pro'
+
+call vundle#end()
+
+" enable matchit plugin which ships with vim and greatly enhances '%'
+runtime macros/matchit.vim
+
+" Load powerline plugin
+" source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+
+" }}}
+
+" UI: Indentation {{{
+
+set expandtab                           " Use spaces instead of tabs
+set autoindent                          " Auto indent based on previous line
+set smartindent                         " Smart indent inside of a new block
+set tabstop=2                           " Make tabs as wide as 2 spaces
+set softtabstop=2                       " In insert mode, tabs are 2 spaces
+set shiftwidth=2                        " Affects identation when using <<, >> or ==
+
+filetype plugin indent on               " Enable plugins and indentation per filetype
+                                        " Must be set after Vundle
+" }}}
+
+" UI: Colors {{{
+
+" set background=dark
+set termguicolors                       " enable true colors support
+syntax on                               " Turn on syntax highlighting
+set background=dark
+let g:ayucolor="mirage"
+colorscheme ayu                         " Set the color theme
+" colorscheme monokai_pro                 " Set the color theme
+
+" }}}
+
+" UI: Visuals {{{
+
+set number                              " Show line numbers
+set cursorline                          " Highlight current line
+set lazyredraw                          " Redraw only when needed, not during macros
+set showmatch                           " Highlight matching brackets
+set laststatus=2                        " Always show statusbar
+
+set guifont="Input Mono Narrow"         " Set default font
+
+set lcs=tab:▸\ ,trail:·,nbsp:_          " Set symbols for invisible characters
+set list                                " Show invisible characters
+
+" Use relative line numbers
+if exists("&relativenumber")
+  set relativenumber
+  au BufReadPost * set relativenumber
+endif
+
+" Use vertical bar instead of block cursor
+" if exists('$TMUX')
+"   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+"   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+" else
+"   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"   let &t_EI = "\<Esc>]50;CursorShape=1\x7"
+" endif
+
+" }}}
+
+" UI: Menu {{{
+
+set wildmenu                            " Enable autocomplete menu for commands
+set wildmode=list:full                  " Expand to and select first match on <tab>
+
+" }}}
+
+" Search {{{
+
+set gdefault                            " Add the g flag by default
+set incsearch                           " Search while typing
+set hlsearch                            " Highlight searches
+set smartcase                           " If search contains uppercase characters, respect those
+set ignorecase                          " Ignore case when searching
+
+" Turn off highlighting
+nnoremap <leader>, :nohlsearch<CR>
+
+" Open ag search
+nnoremap <leader>f :Ag<space>
+
+" }}}
+
+" Folding {{{
+"
+set nofoldenable                        " Disable folding
+set foldlevelstart=10                   " Fold all lines above given level in a new buffer
+set foldmethod=indent                   " Fold based on indent level
+
+" Toggle folding
+nnoremap <leader><leader> za
+
+" }}}
+
+" Backups {{{
+
+set nobackup                            " Disable backups
+set writebackup                         " Backup files before overwriting, removed after successful write
+set noswapfile                          " Disable swap file
+set autoread                            " reload files changed outside vim
+
+" }}}
+
+" Buffers {{{
+
+set hidden                              " Allow unsaved buffers in background
+set splitbelow                          " Open new splits on bottom instead of top
+set splitright                          " Open new vsplits on right instead of left
+
+" Go to prev/next buffer
+nnoremap <leader>q :bp<CR>
+nnoremap <leader>w :bn<CR>
+
+" }}}
+
+" Views {{{
+
+set viewoptions=cursor,folds,slash,unix " Define settings to save per view / file
+autocmd BufWinLeave ?* mkview           " Save defined settings per view / file
+autocmd BufWinEnter ?* silent loadview  " Load defined settings per view / file
+
+" }}}
+
+" Movement {{{
+
+set backspace=indent,eol,start          " Allow backspace over identation and line breaks
+set scrolloff=5                         " Keep the cursor visible within x lines when scrolling
+
+" }}}
+
+" Additional Mappings {{{
+
+" Movement: Move by visual line (respects line wrappings)
+nnoremap j gj
+nnoremap k gk
+
+" Movement: Move lines
+" http://vim.wikia.com/wiki/Moving_lines_up_or_down
+" nnoremap <C-J> :m .+1<CR>==
+" nnoremap <C-K> :m .-2<CR>==
+" inoremap <C-J> <Esc>:m .+1<CR>==gi
+" inoremap <C-K> <Esc>:m .-2<CR>==gi
+" vnoremap <C-J> :m '>+1<CR>gv=gv
+" vnoremap <C-K> :m '<-2<CR>gv=gv
+
+" Shortcut for Gundo
+nnoremap <leader>u :GundoToggle<CR>
+
+" Edit vimrc/zshrc
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+
+" Resource vimrc
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" Select all
+nnoremap <leader>sa ggVG
+
+" Open file from buffer
+nnoremap <leader>o :CtrlPBuffer<CR>
+nnoremap <leader>p :CtrlP<CR>
+
+" Open previous buffer
+nnoremap <leader>bp :b#<CR>
+
+" Save file
+nnoremap <leader>w :w<CR>
+
+" Disable command line history menu
+map q: :q
+
+" }}}
+
+" Filetypes: General {{{
+
+set encoding=utf-8                      " Set default encoding to UTF-8
+set fileencoding=utf-8
+set fileformat=unix                     " Set unix line endings
+set fileformats=unix,dos
+
+set modelines=1                         " Enable file-specific settings
+
+augroup general
+  " Clear autocommands for current group to make sure they're only applied once
+  autocmd!
+augroup END
+
+" }}}
+
+" Filetype: JavaScript {{{
+
+augroup javascript
+  " Clear autocommands for current group to make sure they're only applied once
+  autocmd!
+
+  " Add autocommands per filetype
+  autocmd BufWritePost *.js silent :JSHint
+augroup END
+
+" }}}
+
+" Filetype: zsh-ish {{{
+
+augroup zsh
+  " Clear autocommands for current group to make sure they're only applied once
+  autocmd!
+
+  " Add autocommands per filetype
+  autocmd BufEnter *.zsh-theme setlocal filetype=zsh
+augroup END
+
+" }}}
+
+" Plugin: Powerline {{{
+
+set t_Co=256                            " Use 256 colors terminal
+let g:Powerline_symbols = 'fancy'       " Use Unicode characters
+
+" }}}
+
+" Plugin: Airline {{{
+
+let g:airline_powerline_fonts = 1       " Use powerline fonts
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" }}}
+
+" Plugin: CtrlP {{{
+
+" Disable caching to display new files and hide deleted since last call
+let g:ctrlp_use_caching = 0
+
+" Show search results on bottom, order them bottom to top (btt)
+let g:ctrlp_match_window = 'bottom,order:btt'
+
+" Use ag for searching files
+let g:ctrlp_user_command = 'ag %s --nocolor --hidden -g ""'
+
+" Don't search outside of the local working directory
+let g:ctrlp_working_path_mode = ''
+
+" }}}
+
+" Functions {{{
+
+" Load functions from files in /functions/ folder
+for f in split(glob('~/.vim/functions/*.vim'), '\n')
+  exe 'source' f
+endfor
+
+" }}}
+
+" Plugin: UltiSnips {{{
+
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" }}}
+
+" Plugin: vim-expand-region {{{
+
+" Expand region
+vmap v <Plug>(expand_region_expand)
+
+" Shrink region
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" }}}
+
+" Plugin: vim-github=commig {{{
+
+let g:github_user="naeramarth7"
+
+" }}}
+
+" vim:foldmethod=marker

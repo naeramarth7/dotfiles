@@ -74,6 +74,11 @@ fi
 echo "Re-generate completions ..."
 "$SCRIPT_DIR/completions-generate"
 
+### vim
+
+echo "Updating vim bundles ..."
+vim +PluginUpdate +qall
+
 ### Done
 
 echo "Reloading environment ..."
