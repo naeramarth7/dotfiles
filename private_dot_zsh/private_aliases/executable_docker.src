@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+# docker
+alias de="docker-enter"
+alias dc="docker-compose"
+
+docker-enter() {
+  docker exec -it $@ sh
+}
+
+docker-clean() {
+  docker rmi $(docker images | grep '<none>' | awk '{print $3}')
+}
