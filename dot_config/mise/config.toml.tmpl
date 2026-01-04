@@ -1,6 +1,6 @@
 [tools]
 usage = 'latest'
-{{ if eq .env.type "work" -}}
+{{ if eq .usage.mwea true -}}
 java = 'openjdk-17.0.2'
 node = '22'
 rust = "stable"

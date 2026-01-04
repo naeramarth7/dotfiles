@@ -1,0 +1,150 @@
+# brew commands
+tap "beeftornado/rmtree"
+
+# drivers
+# tap "homebrew/cask-drivers"
+#cask "asix-ax88179" # manuall install
+
+# libs
+tap "homebrew-ffmpeg/ffmpeg"
+brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-fdk-aac"]
+
+# cli tools
+brew "age"
+brew "azure-cli" # takes forever
+brew "berkeley-db"
+brew "bat"
+brew "cmake"
+brew "cocoapods"
+brew "coreutils", link: true
+brew "dark-mode"
+brew "findutils", link: true
+brew "git"
+brew "git-lfs"
+brew "gnupg"
+brew "go"
+brew "go-task"
+brew "helm"
+brew "htop"
+brew "jq"
+brew "lcov"
+brew "lsusb"
+brew "macmon"
+brew "macvim"
+brew "mise"
+brew "moreutils", link: true
+brew "nmap"
+brew "openjdk@11"
+brew "openjdk@21"
+brew "openssh", link: false
+brew "p7zip"
+brew "perl"
+brew "pinentry-mac" # gpg
+brew "pv"
+brew "python@3.9"
+brew "screen"
+brew "sops"
+brew "subversion"
+brew "tlrc"
+brew "watch"
+brew "wget"
+brew "yq"
+brew "zlib"
+brew "zoxide"
+brew "zsh"
+brew "zsh-completions"
+
+# rcm
+tap "thoughtbot/formulae"
+brew "thoughtbot/formulae/rcm"
+
+# hashicorp tools
+tap "hashicorp/tap"
+brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/vault"
+
+# docker
+brew "colima"
+brew "docker"
+brew "docker-compose"
+
+# k8s
+brew "fluxcd/tap/flux", link: true
+brew "cmctl"
+brew "k3sup"
+brew "k9s"
+brew "kubeconform"
+brew "kubectx"
+brew "kustomize"
+brew "velero"
+
+# azure
+tap "azure/kubelogin"
+brew "azure/kubelogin/kubelogin"
+
+tap "weaveworks/tap"
+brew "weaveworks/tap/gitops"
+
+#########
+# Casks #
+#########
+
+# Tools
+cask "alfred"
+cask "android-platform-tools"
+cask "appcleaner"
+cask "bettertouchtool"
+cask "devcleaner"
+cask "flux"
+cask "forklift"
+cask "home-assistant"
+cask "imageoptim"
+cask "iterm2"
+cask "keepassxc"
+cask "keka"
+cask "krisp"
+cask "macupdater"
+cask "moneymoney"
+cask "monitorcontrol"
+cask "mqtt-explorer"
+cask "muzzle"
+cask "obsidian"
+cask "phoenix"
+cask "postman"
+cask "scroll-reverser"
+cask "shottr"
+cask "telegram"
+cask "todoist"
+cask "tunnelblick"
+cask "vesktop"
+cask "visual-studio-code"
+cask "vlc"
+cask "whatsapp"
+cask "xquartz"
+
+# Fonts
+cask "font-fira-code"
+cask "font-hack-nerd-font"
+cask "font-hasklig"
+cask "font-inconsolata"
+cask "font-input"
+cask "font-poppins"
+cask "font-powerline-symbols"
+cask "font-source-code-pro"
+cask "font-symbols-only-nerd-font"
+cask "font-titillium-web"
+# + https://pcaro.es/p/hermit/#downloads
+
+# 1 Password
+cask "1password-cli"
+cask "1password"
+
+# https://github.com/shinokada/consize - image converter
+tap "shinokada/consize"
+brew "consize"
+
+# tap "FelixKratz/formulae"
+# brew "FelixKratz/formulae/sketchybar"
+
+tap "koekeishiya/formulae"
+brew "koekeishiya/formulae/yabai"

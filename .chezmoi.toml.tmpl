@@ -1,14 +1,20 @@
-{{- $envType := promptStringOnce . "env.type" "Environment type (private/work)" -}}
+{{- $personalUsage := promptBoolOnce . "usage.personal" "Personal usage of device" -}}
+{{- $mweaUsage := promptBoolOnce . "usage.mwea" "Work (MWEA) usage of device" -}}
+{{- $nodejs := promptBoolOnce . "tools.nodejs" "Is node.js managed via mise" -}}
 
 encryption = "age"
 [age]
-    identity = "~/.config/chezmoi/key.txt"
-    recipient = "age1l7utwvzex3qv7jn5gh0hmafcfvgggtpey367tw072qeavafcau0qud7ghq"
+identity = "~/.config/chezmoi/key.txt"
+recipient = "age1l7utwvzex3qv7jn5gh0hmafcfvgggtpey367tw072qeavafcau0qud7ghq"
 
 [edit]
-    command = "code"
-    args = ["--wait"]
+command = "code"
+args = ["--wait"]
 
-[data.env]
-    type = {{ $envType | quote }}
+[data.usage]
+personal = {{ $personalUsage }}
+mwea = {{ $mweaUsage }}
+
+[data.tools]
+nodejs = {{ $nodejs }}
 

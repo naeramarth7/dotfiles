@@ -1,1 +1,6 @@
 key.txt.age
+{{- if ne .chezmoi.os "darwin" }}
+brew/
+bin/brew-update
+{{- end }}
+

@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Get OS X software updates
+sudo softwareupdate --all --install --force
+
+# Upgrade brew and packages
+brew-update
+
+# Handle brew specific packages
+skhd --start-service
+yabai --start-service
+{{- end }}
+
+# Upgrade global mise-configured tools
+(cd ~ && mise install)
+
+{{ if eq .tools.nodejs true -}}
+# npm
+npm i -g npm
+{{- end }}
+
+# Update zinit and plugins
+zinit self-update
+
+# Reload zsh env
+/usr/local/bin/zsh -l
