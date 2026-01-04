@@ -18,9 +18,11 @@ brew "cmake"
 brew "cocoapods"
 brew "coreutils", link: true
 brew "dark-mode"
+brew "diff-so-fancy"
 brew "findutils", link: true
 brew "git"
 brew "git-lfs"
+brew "git-recent"
 brew "gnupg"
 brew "go"
 brew "go-task"
