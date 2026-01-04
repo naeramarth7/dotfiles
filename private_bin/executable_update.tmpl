@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# Update dotfiles first
+chezmoi update --init
+
 {{ if eq .chezmoi.os "darwin" -}}
 # Get OS X software updates
 sudo softwareupdate --all --install --force
