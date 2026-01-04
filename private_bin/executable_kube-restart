@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+kubectl scale -n $1 statefulset $2 --replicas 0
+sleep 3
+kubectl scale -n $1 statefulset $2 --replicas 1

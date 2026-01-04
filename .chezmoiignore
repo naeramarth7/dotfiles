@@ -1,6 +1,13 @@
 key.txt.age
+
 {{- if ne .chezmoi.os "darwin" }}
 brew/
-bin/brew-update
+{{- end }}
+
+{{- if ne .chezmoi.os "darwin" }}
 **/*_osx.src
+{{- end }}
+
+{{- if ne .chezmoi.os "darwin" }}
+bin/alfred-*
 {{- end }}

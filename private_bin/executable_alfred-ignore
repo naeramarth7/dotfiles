@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+DIR="$( cd "$( dirname "$i" )" && realpath $1)"
+
+echo ignoring $DIR ...
+find $DIR -print0 | xargs -0 tag -a alfred:ignore

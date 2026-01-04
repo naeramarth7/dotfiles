@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+### node_modules
+
+echo "Indexing node_moduels folders to be ignored ..."
+find ~/Projects -type d -name node_modules -not -path "*/node_modules/*" -print0 | while read -d $'\0' folder
+do
+  echo "$folder ..."
+  alfred-ignore $folder
+done
