@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+flux get hr -n $1 $2 &> /dev/null
+
+if [[ $? -ne 0 ]]; then
+  echo "Error: helmrelease $2 in namespace $1 not found."
+  exit 2
+fi
+
+echo "Reconciling hr $1 $2 ..."
+flux reconcile hr -n $1 $2 --force
