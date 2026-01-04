@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
-# install zinit
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+SCRIPT_DIR="${0:A:h}"
+"$SCRIPT_DIR/install-tools"
