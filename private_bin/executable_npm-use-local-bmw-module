@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-MODULE_NAME=$1
-SOURCE_NAME=$2
-
-rm -rf node_modules/@bmw/${MODULE_NAME}/dist
-cp -r ../${SOURCE_NAME}/dist node_modules/@bmw/${MODULE_NAME}/

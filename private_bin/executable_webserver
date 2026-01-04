@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-
-npx http-server $PWD -p "$1"
