@@ -1,0 +1,7 @@
+#  https://developer.1password.com/docs/ssh/agent/config
+[[ssh-keys]]
+vault = "Private"
+{{ if eq .env.type "work" }}
+[[ssh-keys]]
+vault = "EMEA"
+{{ end }}
