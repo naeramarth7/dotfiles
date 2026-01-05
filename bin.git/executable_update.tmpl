@@ -8,6 +8,16 @@ echo "Updating dotfiles ..."
 chezmoi update --init
 echo
 
+{{ if eq .chezmoi.osRelease.id "cachyos" -}}
+
+### cachyos / paru
+
+echo "Updating CachyOS ...."
+paru -Syu --noconfirm
+echo
+
+{{- end }}
+
 {{ if eq .chezmoi.os "darwin" -}}
 
 ### macOS
@@ -39,6 +49,7 @@ else
   echo "Updating zinit ..."
   zinit self-update
 fi
+echo
 
 ### mise
 
@@ -59,6 +70,7 @@ echo
 
 echo "Update / install safe-chain ..."
 curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh
+echo
 
 {{ if eq .chezmoi.os "darwin" -}}
 
@@ -76,12 +88,14 @@ fi
   npm install
   npm run build
 )
+echo
 {{- end }}
 
 ### Completions
 
 echo "Re-generate completions ..."
 "$SCRIPT_DIR/completions-generate"
+echo
 
 ### vim
 
@@ -91,6 +105,7 @@ fi
 
 echo "Updating vim bundles ..."
 vim -Es -u "$HOME/.vim/vimrc" +PluginUpdate +qall
+echo
 
 ### Done
 
