@@ -1,0 +1,91 @@
+# metapac's config.toml file (like this one) should be placed in the following location
+# dependent on the operating system as specified in the `dirs` crate:
+# | Platform | Value                                                 | Example                                                      |
+# | -------- | ----------------------------------------------------- | ------------------------------------------------------------ |
+# | Linux    | $XDG_CONFIG_HOME or $HOME/.config/metapac/config.toml | /home/alice/.config/metapac/config.toml                      |
+# | macOS    | $HOME/Library/Application Support/metapac/config.toml | /Users/Alice/Library/Application Support/metapac/config.toml |
+# | Windows  | {FOLDERID_RoamingAppData}\metapac\config.toml         | C:\Users\Alice\AppData\Roaming\metapac\config.toml           |
+
+# Backends to enable. These will be merged with any hostname-specific backends
+# from the [hostname_enabled_backends] config table.
+# Default: []
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+enabled_backends = ["arch", "cargo"]
+{{ else if eq .chezmoi.os "darwin" -}}
+enabled_backends = ["brew", "cargo"]
+{{- end }}
+
+# If this is `false` all toml files recursively found in the groups folder
+# will be used as group files.
+# If this is `true` then the [hostname_groups] config table will be used to
+# decide which group files to use per hostname.
+# Default: false
+hostname_groups_enabled = false
+
+# Backends to enable per hostname. These will be merged with the base
+# `enabled_backends` config.
+# Default: None
+[hostname_enabled_backends]
+# pc = ["winget", "cargo"]
+# laptop = ["arch", "cargo"]
+# server = ["apt"]
+
+# Which group files will be used per hostname. Subject to `hostname_groups_enabled`.
+# Relative paths are relative to the groups folder.
+# Default: None
+[hostname_groups]
+# pc = ["relative_group", "/etc/absolute_group"]
+# laptop = ["relative_group"]
+# server = ["relative_group"]
+
+[arch]
+# Since pacman, pamac, paru, pikaur and yay all operate on the same package database
+# they are mutually exclusive and so you must pick which one you want
+# metapac to use.
+# Must be one of: ["pacman", "pamac", "paru", "pikaur", "yay"]
+# Default: "pacman"
+package_manager = "paru"
+
+[brew]
+# If this is `true` then brew packages default to using the `--quarantine`
+# option.
+# If this is `false` then brew packages default to using the `--no-quarantine`
+# option.
+# Default: true
+quarantine = true
+
+[cargo]
+# Whether to default to installing cargo packages with the `--locked` option.
+# Default: false
+locked = false
+
+# Whether to use `cargo-binstall` instead of `cargo install` for installing packages.
+# When `true`, metapac will use `cargo binstall --no-confirm` instead of `cargo install`.
+# This can be faster for installing packages as it downloads pre-built binaries.
+# Default: false
+binstall = true
+
+[flatpak]
+# If this is `true` then flatpak packages default to using the `--system`
+# option.
+# If this is `false` then flatpak packages default to using the `--user`
+# option.
+# Default: true
+systemwide = true
+
+[vscode]
+# Since VSCode and VSCodium both operate on the same package database
+# they are mutually exclusive and so you must pick which one you want
+# metapac to use.
+# Must be one of: ["code", "codium"]
+# Default: "code"
+variant = "code"
+
+# [zypper]
+# # Since OpenSUSE Leap and Tumbleweed should be updated with different commands
+# # (see https://en.opensuse.org/System_Updates for more details), you can set how
+# # metapac updates system packages.
+# # If this is `false` then the system is updated with the subcommand `update` (`up`).
+# # If this is `true` then the system is updated with the subcommand `dist-upgrade` (`dup`).
+# # Default: false
+# distribution_upgrade = false

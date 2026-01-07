@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-#brew services stop yabai -d
-#sudo yabai --uninstall-sa
-#sudo yabai --load-sa
-#brew services start yabai -d
-

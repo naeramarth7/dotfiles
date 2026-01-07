@@ -1,0 +1,29 @@
+# metapac's group files (like this one) should be placed in the following location
+# dependent on the operating system as specified in the `dirs` crate:
+# | Platform | Value                                     | Example                                                  |
+# | -------- | ----------------------------------------- | -------------------------------------------------------- |
+# | Linux    | $XDG_CONFIG_HOME or $HOME/.config/groups/ | /home/alice/.config/metapac/groups/                      |
+# | macOS    | $HOME/Library/Application Support/groups/ | /Users/Alice/Library/Application Support/metapac/groups/ |
+# | Windows  | {FOLDERID_RoamingAppData}\groups\         | C:\Users\Alice\AppData\Roaming\metapac\groups\           |
+#
+# The packages for each backend in group files can come in two formats, short-form
+# and long-form:
+#
+# short-form syntax is simply a string of the name of the package.
+#
+# long-form syntax is a table which contains several fields which can
+# optionally be set to specify install options on a per-package basis.
+# The "package" field in the table specifies the name of the package.
+#
+# For example, the following two packages are equivalent:
+# arch = [
+#  "metapac",
+#  { package = "metapac" }
+# ]
+
+arch = ["1password", "1password-cli", "bat", "sops"]
+brew = ["1password", "1password-cli", "bat", "sops"]
+cargo = []
+flatpak = []
+mise = []
+npm = []

@@ -8,18 +8,6 @@ echo "Updating dotfiles ..."
 chezmoi update --init
 echo
 
-{{ if and (.chezmoi.osRelease) (hasKey .chezmoi.osRelease "id") -}}
-{{ if eq .chezmoi.osRelease.id "cachyos" -}}
-
-### cachyos / paru
-
-echo "Updating CachyOS ...."
-paru -Syu --noconfirm
-echo
-
-{{- end }}
-{{- end }}
-
 {{ if eq .chezmoi.os "darwin" -}}
 
 ### macOS
@@ -28,19 +16,13 @@ echo "Updating macOS software ..."
 sudo softwareupdate --all --install --force
 echo
 
-### Brew
-
-echo "Updating brew and packages ..."
-brew bundle --file=~/brew/Brewfile
-echo
-
-### Brew services
-
-echo "Handle brew service ..."
-skhd --start-service
-yabai --start-service
-echo
 {{- end }}
+
+### metapac
+
+echo "Updating (system) via metapac ..."
+metapac update-all
+echo
 
 ### zinit
 
@@ -51,6 +33,14 @@ else
   echo "Updating zinit ..."
   zinit self-update
 fi
+echo
+
+### rustup
+
+echo "Updating rustup tool-chain ..."
+rustup update
+rustup completions zsh > "$HOME/.zsh/completions/_rustup"
+rustup completions zsh cargo > "$HOME/.zsh/completions/_cargo"
 echo
 
 ### mise

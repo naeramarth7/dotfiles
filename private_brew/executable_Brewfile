@@ -10,10 +10,8 @@ tap "homebrew-ffmpeg/ffmpeg"
 brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-fdk-aac"]
 
 # cli tools
-brew "age"
 brew "azure-cli" # takes forever
 brew "berkeley-db"
-brew "bat"
 brew "cmake"
 brew "cocoapods"
 brew "coreutils", link: true
@@ -45,8 +43,8 @@ brew "perl"
 brew "pinentry-mac" # gpg
 brew "pv"
 brew "python@3.9"
+brew "rustup"
 brew "screen"
-brew "sops"
 brew "subversion"
 brew "tlrc"
 brew "watch"
@@ -101,9 +99,9 @@ cask "devcleaner"
 cask "flux"
 cask "forklift"
 cask "home-assistant"
+cask "jordanbaird-ice"
 cask "imageoptim"
 cask "iterm2"
-cask "keepassxc"
 cask "keka"
 cask "krisp"
 cask "macupdater"
@@ -137,10 +135,6 @@ cask "font-source-code-pro"
 cask "font-symbols-only-nerd-font"
 cask "font-titillium-web"
 # + https://pcaro.es/p/hermit/#downloads
-
-# 1 Password
-cask "1password-cli"
-cask "1password"
 
 # https://github.com/shinokada/consize - image converter
 tap "shinokada/consize"

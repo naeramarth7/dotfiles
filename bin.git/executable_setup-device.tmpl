@@ -1,4 +1,16 @@
 #!/usr/bin/env zsh
 
+# rustup
+
+echo "Install rustup and cargo"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+cargo install cargo-binstall
+cargo-binstall --disable-telemetry cargo-update -y
+echo
+
+echo "Install metapac"
+cargo install metapac
+echo
+
 SCRIPT_DIR="${0:A:h}"
 "$SCRIPT_DIR/update"
