@@ -1,0 +1,95 @@
+#!/usr/bin/env zsh
+
+SCRIPT_DIR="${0:A:h}"
+
+{{ if eq .chezmoi.os "darwin" -}}
+
+### macOS
+
+echo "Updating macOS software ..."
+sudo softwareupdate --all --install --force
+echo
+
+{{- end }}
+
+### metapac
+
+echo "Updating (system) via metapac ..."
+metapac sync --no-confirm
+metapac update-all --no-confirm
+echo
+
+### zinit
+
+if [ ! -d "$HOME/.local/share/zinit" ]; then
+  echo "Installing zinit ..."
+  bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+else
+  echo "Updating zinit ..."
+  zinit self-update
+fi
+echo
+
+### rustup
+
+echo "Updating rustup tool-chain ..."
+rustup update
+rustup completions zsh > "$HOME/.zsh/completions/_rustup"
+rustup completions zsh cargo > "$HOME/.zsh/completions/_cargo"
+echo
+
+### mise
+
+echo "Updating global mise-configured tools ..."
+(cd ~ && mise install)
+echo
+
+{{ if eq .tools.nodejs true -}}
+
+### npm
+
+echo "Updating npm..."
+npm i -g npm
+echo
+{{- end }}
+
+### safe-chain
+
+echo "Update / install safe-chain ..."
+curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh
+echo
+
+{{ if eq .chezmoi.os "darwin" -}}
+
+### Phoenix
+
+if [ ! -d "$HOME/.config/phoenix" ]; then
+  echo "Installing phoenix config ..."
+  git clone https://github.com/naeramarth7/phoenix-config.git "$HOME/.config/phoenix"
+else
+  echo "Updating phoenix config ..."
+fi
+
+(
+  cd "$HOME/.config/phoenix"
+  npm install
+  npm run build
+)
+echo
+{{- end }}
+
+### Completions
+
+echo "Re-generate completions ..."
+"$SCRIPT_DIR/completions-generate"
+echo
+
+### vim
+
+if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
+echo "Updating vim bundles ..."
+vim -Es -u "$HOME/.vim/vimrc" +PluginUpdate +qall
+echo
