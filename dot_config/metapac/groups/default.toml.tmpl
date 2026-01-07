@@ -13,28 +13,37 @@
 #  { package = "metapac" }
 # ]
 
-arch = [
-  "1password",
-  "1password-cli",
-  "bat",
-  "diff-so-fancy",
-  "git",
-  "git-lfs",
-  "sops",
-]
+{{ if eq .chezmoi.os "darwin" -}}
 brew = [
+{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+arch = [
+{{-  end }}
+  # common
   "1password",
   "1password-cli",
-  "alfred",
   "bat",
-  "coreutils",
   "diff-so-fancy",
-  "findutils",
   "git",
   "git-lfs",
+  "git-recent",
+  "gitleaks",
+  "go-task",
+  "gnupg",
+  "helm",
   "sops",
+{{- if eq .chezmoi.os "darwin" }}
+
+  # macos only
+  "alfred",
+  "coreutils",
+  "findutils",
+{{- end }}
 ]
-cargo = ["cargo-binstall", "cargo-update", "metapac"]
+cargo = [
+  "cargo-binstall",
+  "cargo-update",
+  "metapac",
+]
 flatpak = []
 mise = []
 npm = []

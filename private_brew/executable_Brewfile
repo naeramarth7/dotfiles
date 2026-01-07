@@ -10,12 +10,6 @@ tap "homebrew-ffmpeg/ffmpeg"
 brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-fdk-aac"]
 
 # cli tools
-brew "git-recent"
-brew "gitleaks"
-brew "gnupg"
-brew "go"
-brew "go-task"
-brew "helm"
 brew "htop"
 brew "jq"
 brew "lcov"
