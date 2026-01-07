@@ -1,0 +1,9 @@
+{{- if eq .chezmoi.os "darwin" -}}
+Include /Users/sven.herrle/.colima/ssh_config
+
+{{ end -}}
+Host *
+  IdentityAgent "~/.1password/agent.sock"
+
+Match all
+  Include config.d/*
