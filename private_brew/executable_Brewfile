@@ -10,19 +10,6 @@ tap "homebrew-ffmpeg/ffmpeg"
 brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-fdk-aac"]
 
 # cli tools
-brew "openssh", link: false
-brew "p7zip"
-brew "perl"
-brew "pinentry-mac" # gpg
-brew "pv"
-brew "python@3.9"
-brew "rustup"
-brew "screen"
-brew "subversion"
-brew "tlrc"
-brew "watch"
-brew "wget"
-brew "yq"
 brew "zlib"
 brew "zoxide"
 brew "zsh"

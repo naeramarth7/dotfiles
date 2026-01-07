@@ -11,6 +11,14 @@ recipient = "age1l7utwvzex3qv7jn5gh0hmafcfvgggtpey367tw072qeavafcau0qud7ghq"
 command = "code"
 args = ["--wait"]
 
+[data.env]
+type =
+{{- if eq .chezmoi.os "darwin" -}}
+  "macos"
+{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+  "arch"
+{{- end }}
+
 [data.usage]
 personal = {{ $personalUsage }}
 mwea = {{ $mweaUsage }}

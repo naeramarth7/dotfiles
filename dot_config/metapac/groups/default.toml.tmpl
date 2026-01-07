@@ -13,9 +13,9 @@
 #  { package = "metapac" }
 # ]
 
-{{ if eq .chezmoi.os "darwin" -}}
+{{ if eq .env.type "macos" -}}
 brew = [
-{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+{{- else if eq .env.type "arch" -}}
 arch = [
 {{-  end }}
   # common
@@ -33,15 +33,25 @@ arch = [
   "htop",
   "jq",
   "mise",
+  "pv",
+  "screen",
   "sops",
-{{- if eq .chezmoi.os "darwin" }}
+  "tealdeer",
+  "wget",
+  "yq",
+{{- if eq .env.type "macos" }}
 
   # macos only
   "alfred",
   "coreutils",
   "findutils",
   "moreutils",
-{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+  "openssh",
+  "p7zip",
+  "perl",
+  "pinentry-mac", # gpg
+  "watch",
+{{- else if eq .env.type "arch" }}
 
   # arch only
 {{- end }}
