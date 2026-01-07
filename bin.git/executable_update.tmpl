@@ -8,6 +8,7 @@ echo "Updating dotfiles ..."
 chezmoi update --init
 echo
 
+{{ if and (.chezmoi.osRelease) (hasKey .chezmoi.osRelease "id") -}}
 {{ if eq .chezmoi.osRelease.id "cachyos" -}}
 
 ### cachyos / paru
@@ -16,6 +17,7 @@ echo "Updating CachyOS ...."
 paru -Syu --noconfirm
 echo
 
+{{- end }}
 {{- end }}
 
 {{ if eq .chezmoi.os "darwin" -}}
