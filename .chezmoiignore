@@ -10,4 +10,5 @@ brew/
 
 {{- if ne .chezmoi.os "darwin" }}
 bin/alfred-*
+bin/samba-fix
 {{- end }}
