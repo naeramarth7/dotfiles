@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+chezmoi edit --apply ~/.config/metapac/groups/default.toml
+
