@@ -5,11 +5,12 @@
 echo "Install rustup and cargo"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 cargo install cargo-binstall
-cargo-binstall --disable-telemetry cargo-update -y
+export BINSTALL_DISABLE_TELEMETRY=true
+.cargo/bin/cargo-binstall cargo-update -y
 echo
 
 echo "Install metapac"
-cargo install metapac
+.cargo/bin/cargo-binstall metapac -y
 echo
 
 SCRIPT_DIR="${0:A:h}"
