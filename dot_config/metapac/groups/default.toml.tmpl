@@ -30,6 +30,9 @@ arch = [
   "go-task",
   "gnupg",
   "helm",
+  "htop",
+  "jq",
+  "mise",
   "sops",
 {{- if eq .chezmoi.os "darwin" }}
 
@@ -37,6 +40,10 @@ arch = [
   "alfred",
   "coreutils",
   "findutils",
+  "moreutils",
+{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+
+  # arch only
 {{- end }}
 ]
 cargo = [
