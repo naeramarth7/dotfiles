@@ -34,7 +34,7 @@ brew = [
   "git-lfs",
   "sops",
 ]
-cargo = ["cargo-binstall", "cargo-update", "cross", "metapac"]
+cargo = ["cargo-binstall", "cargo-update", "metapac"]
 flatpak = []
 mise = []
 npm = []

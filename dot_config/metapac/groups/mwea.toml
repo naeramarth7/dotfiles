@@ -14,6 +14,8 @@
 # ]
 
 brew = ["azure-cli", "cocoapods"]
-cargo = []
+cargo = [
+  "cross", # cross compiling binaries
+]
 mise = []
 npm = []
