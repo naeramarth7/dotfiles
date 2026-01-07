@@ -13,28 +13,7 @@
 #  { package = "metapac" }
 # ]
 
-arch = [
-  "1password",
-  "1password-cli",
-  "bat",
-  "diff-so-fancy",
-  "git",
-  "git-lfs",
-  "sops",
-]
-brew = [
-  "1password",
-  "1password-cli",
-  "alfred",
-  "bat",
-  "coreutils",
-  "diff-so-fancy",
-  "findutils",
-  "git",
-  "git-lfs",
-  "sops",
-]
-cargo = ["cargo-binstall", "cargo-update", "cross", "metapac"]
-flatpak = []
+brew = ["azure-cli", "cocoapods"]
+cargo = []
 mise = []
 npm = []
