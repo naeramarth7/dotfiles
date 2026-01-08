@@ -55,8 +55,6 @@ zinit light romkatv/powerlevel10k
 zinit ice depth=1;
 
 zinit light agpenton/1password-zsh-plugin
-zinit light fdellwing/zsh-bat
-zinit light MichaelAquilina/zsh-you-should-use
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zdharma-continuum/history-search-multi-word
 zinit light zsh-users/zsh-autosuggestions
