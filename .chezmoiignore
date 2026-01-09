@@ -1,15 +1,20 @@
 key.txt.age
 
-{{- if ne .chezmoi.os "darwin" }}
+{{ if ne .env.type "macos" -}}
 brew/
 Library/
 {{- end }}
 
-{{- if ne .chezmoi.os "darwin" }}
+{{ if ne .env.type "macos" -}}
 **/*_osx.src
 {{- end }}
 
-{{- if ne .chezmoi.os "darwin" }}
+{{ if ne .env.type "macos" -}}
 bin/alfred-*
 bin/samba-fix
+{{- end }}
+
+{{ if ne .env.type "arch" -}}
+.config/niri
+.config/fuzzel
 {{- end }}

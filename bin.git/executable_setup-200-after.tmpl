@@ -2,4 +2,5 @@
 
 {{ if eq .env.type "arch" -}}
 systemctl --user add-wants niri.service dms
+systemctl --user add-wants niri.service mako.service
 {{- end }}
