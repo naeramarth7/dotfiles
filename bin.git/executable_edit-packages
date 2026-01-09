@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
 chezmoi edit --apply ~/.config/metapac/groups/default.toml
-
+metapac sync --no-confirm
