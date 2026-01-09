@@ -50,6 +50,9 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 zle -N edit-command-line
 
+# use emacs keymap in zsh
+bindkey -e
+
 # fuzzy find: start to type
 bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
 bindkey "$terminfo[kcud1]" down-line-or-beginning-search
@@ -90,3 +93,8 @@ if test -d /usr/local/opt/fzf/shell; then
 else
 	bindkey '^R' history-incremental-search-backward
 fi
+
+# # Bind Alt+LeftArrow and Alt+RightArrow
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
