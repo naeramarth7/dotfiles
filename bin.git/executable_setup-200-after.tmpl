@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+{{ if eq .env.type "arch" -}}
+systemctl --user add-wants niri.service dms
+{{- end }}
