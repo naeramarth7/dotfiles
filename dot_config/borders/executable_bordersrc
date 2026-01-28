@@ -2,7 +2,7 @@
 
 options=(
   active_color=0xfff29718
-  hdpi=off
+  hidpi=off
   inactive_color=0xff0f1419
   style=round
   width=8.000000
