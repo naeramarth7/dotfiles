@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-# Set this to true to log times for benchmarking zsh startup
-export ZSH_DEBUG=false
-
-# First zsh env script started
-if $ZSH_DEBUG; then; echo -en "$(date +%s.%N) > .zshenv loaded\r\n"; fi

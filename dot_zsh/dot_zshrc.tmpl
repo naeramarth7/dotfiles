@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+export ZSH_DEBUG=
+
+# Load extras from folders:
+for dir in $HOME/.zsh/{aliases,exports,functions,extra,plugins}; do
+  if [ -d $dir ]; then
+    for file in $dir/*.src; do
+      if [ $ZSH_DEBUG ]; then; echo -en "$(date +%s.%N) >> source $file\r\n"; fi
+      [ -r "$file" ] && [ -f "$file" ] && source "$file"
+    done
+  fi
+done
+
+if [ $ZSH_DEBUG ]; then; echo -en "$(date +%s.%N) > .zshrc end\r\n"; fi
+if [ ! $ZSH_DEBUG ]; then; clear; fi
+
+source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script

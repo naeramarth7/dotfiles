@@ -1,3 +1,0 @@
-# Install to ~/Applications as default
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
-export HOMEBREW_BUNDLE_FILE_GLOBAL="~/brew/Brewfile"

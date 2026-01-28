@@ -1,0 +1,49 @@
+#!/usrb/bin/env zsh
+
+alias dot="chezmoi";
+alias g="git";
+alias cat="bat"
+alias top="htop"
+alias jq="yq"
+
+# List
+alias ls="ls --color=auto -h";
+alias l="ls -l";
+alias ll="ls -la";
+
+alias reload="exec zsh";
+
+alias sudo="sudo "; # allow aliases after sudo
+alias watch="watch "; # allow aliases after watch
+
+# Always create parent directories
+alias mkdir='mkdir -p'
+
+# chmod's / chowns
+alias -- +x="chmod +x"
+
+# Get week number
+alias week='date +%V'
+
+{{ if eq .chezmoi.os "darwin" -}}
+# List all open windows and focus the selected one
+alias ff="aerospace list-windows --all | fzf | cut -d'|' -f1 | xargs aerospace focus --window-id";
+{{- end}}
+
+# Flush Directory Service cache
+{{ if eq .chezmoi.os "darwin" -}}
+alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+{{ else if eq .chezmoi.os "linux" -}}
+{{- end }}
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+{{ if eq .chezmoi.os "darwin" -}}
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+{{ else if eq .chezmoi.os "linux" -}}
+{{- end }}
+
+# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
+# (useful when executing time-consuming commands)
+alias badge="tput bel"
