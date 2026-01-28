@@ -15,6 +15,7 @@ bin/samba-fix
 {{- end }}
 
 {{ if ne .env.type "macos" -}}
+.config/aerospace
 .config/sketchybar
 {{- end }}
 
