@@ -16,8 +16,8 @@ config.font_size = 12
 config.color_scheme = 'ayu'
 
 -- Font
-config.font = wezterm.font 'RobotoMono Nerd Font'
-config.freetype_load_target = 'Normal'
+config.font = wezterm.font '0xProto Nerd Font'
+config.freetype_load_target = 'Light'
 config.freetype_render_target = 'HorizontalLcd'
 config.freetype_load_flags = 'FORCE_AUTOHINT'
 config.use_resize_increments = true -- improves font rendering

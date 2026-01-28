@@ -2,7 +2,7 @@
 
 source /etc/profiles/per-user/$(whoami)/bin/icon_map.sh
 
-FONT="RobotoMono Nerd Font";
+FONT="0xProto Nerd Font:Bold:12.0";
 
 # https://github.com/ayu-theme/ayu-vim/blob/master/colors/ayu.vim
 COLOR_PRIMARY="0xfff29718"

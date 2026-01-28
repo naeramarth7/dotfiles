@@ -32,8 +32,8 @@ sketchybar --bar \
 default=(
   padding_left=0
   padding_right=0
-  icon.font="$FONT:Bold:12.0"
-  label.font="$FONT:Bold:12.0"
+  icon.font="$FONT"
+  label.font="$FONT"
   icon.color=$COLOR_PASSIVE
   label.color=$COLOR_PASSIVE
   icon.padding_left=$DEFAULT_PADDING
