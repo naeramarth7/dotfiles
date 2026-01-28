@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+options=(
+  active_color=0xfff29718
+  hdpi=off
+  inactive_color=0xff0f1419
+  style=round
+  width=8.000000
+)
+
+/etc/profiles/per-user/sven.herrle/bin/borders "${options[@]}"

@@ -1,9 +1,7 @@
 config-version = 2
 
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = [
-  'exec-and-forget /etc/profiles/per-user/sven.herrle/bin/borders',
-]
+after-startup-command = ['exec-and-forget bash "~/.config/borders/borderesrc"']
 
 # disabled: started via home manager systemd service
 start-at-login = false
