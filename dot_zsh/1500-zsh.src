@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+# late for fzf-tab
+autoload -Uz compinit && compinit
+set -o emacs
