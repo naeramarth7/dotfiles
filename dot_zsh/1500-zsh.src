@@ -2,4 +2,12 @@
 
 # late for fzf-tab
 autoload -Uz compinit && compinit
-set -o emacs
+
+# use emacs keymap in zsh
+bindkey -e
+
+# Bind Alt+LeftArrow and Alt+RightArrow
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;5C' forward-word
