@@ -4,9 +4,15 @@ source /etc/profiles/per-user/$(whoami)/bin/icon_map.sh
 
 FONT="RobotoMono Nerd Font";
 
+# https://github.com/ayu-theme/ayu-vim/blob/master/colors/ayu.vim
+COLOR_PRIMARY="0xfff29718"
+COLOR_ERROR="0xffff3333"
+COLOR_WARN="0xffffaa00"
+COLOR_OKAY="0xff22ff88"
+
 BACKGROUND_PLAIN="0xff0f1419"
 BACKGROUND_PASSIVE="0xff1d242c"
-BACKGROUND_ACTIVE="0xfff29718"
+BACKGROUND_ACTIVE=$COLOR_PRIMARY
 
 COLOR_PASSIVE="0xffffffff"
 COLOR_ACTIVE="0xff000000"
