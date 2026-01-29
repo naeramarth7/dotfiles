@@ -1,0 +1,71 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="1password"
+    open-floating true
+    default-column-width { proportion 0.3; }
+    default-window-height { proportion 0.5; }
+}
+
+window-rule {
+    match app-id="spotify"
+    open-on-output "DP-5"
+}
+
+window-rule {
+    match app-id="vesktop"
+    open-on-output "DP-5"
+    default-window-height { proportion 0.5; }
+}
+
+window-rule {
+    match app-id="whatsapp-electron"
+    open-on-output "DP-5"
+    default-window-height { proportion 0.5; }
+}
+
+window-rule {
+    match app-id="org.kde.dolphin" title="^Extracting Files"
+    match app-id="org.kde.dolphin" title="^Copying"
+    match app-id="org.kde.dolphin" title="^Moving"
+    open-floating true
+    open-focused false
+    default-floating-position x=16 y=16 relative-to="bottom-right"
+}
+
+window-rule {
+    match app-id="org.kde.dolphin" title="^File Already Exists — Dolphin$"
+    open-floating true
+}
+
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
