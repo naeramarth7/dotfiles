@@ -12,8 +12,13 @@ config.initial_cols = 120
 config.initial_rows = 28
 
 -- or, changing the font size and color scheme.
-config.font_size = {{ if eq .chezmoi.os "darwin" -}} 12 {{- else -}} 9 {{- end }}
+{{ if eq .chezmoi.os "darwin" -}}
+config.font_size = 12
 config.color_scheme = 'ayu'
+{{- else -}}
+config.font_size = 9
+config.color_scheme = 'Noctalia'
+{{- end }}
 
 -- Font
 config.font = wezterm.font '0xProto Nerd Font'
@@ -34,6 +39,8 @@ config.window_padding = {
   top = 8,
   bottom = 8,
 }
+{{ if eq .chezmoi.os "darwin" -}}
 config.window_decorations = 'RESIZE'
+{{- end }}
 
 return config
