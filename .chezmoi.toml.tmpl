@@ -12,11 +12,14 @@ command = "code"
 args = ["--wait"]
 
 [data.env]
+os = "{{ .chezmoi.os }}"
 type =
 {{- if eq .chezmoi.os "darwin" -}}
   "macos"
 {{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
   "arch"
+{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "nixos") -}}
+  "nixos"
 {{- end }}
 
 [data.usage]

@@ -20,7 +20,7 @@ bin/samba-fix
 .config/sketchybar
 {{- end }}
 
-{{ if ne .env.type "arch" -}}
+{{ if ne .env.os "linux" -}}
 .config/niri
 .config/fuzzel
 {{- end }}

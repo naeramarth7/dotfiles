@@ -274,8 +274,10 @@
 [pull]
   rebase = true
 
+{{ if eq .env.os "darwin" -}}
 [credential]
   helper = osxkeychain
+{{- end }}
 
 [color "diff-highlight"]
   oldHighlight = red bold 52
@@ -299,9 +301,11 @@
  format = ssh
 
 [gpg "ssh"]
-  {{ if eq .chezmoi.os "darwin" -}}
+  {{ if eq .env.type "macos" -}}
   program             = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-  {{ else if eq .chezmoi.os "linux" -}}
+  {{ else if eq .env.type "arch" -}}
   program             = "/opt/1Password/op-ssh-sign"
+  {{ else if eq .env.type "nixos" -}}
+  program             = "/run/current-system/sw/bin/op-ssh-sign"
   {{ end -}}
   allowedSignersFile  = "~/.config/git/allowed-signers"
