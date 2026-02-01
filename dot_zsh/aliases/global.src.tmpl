@@ -44,6 +44,12 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 {{ else if eq .chezmoi.os "linux" -}}
 {{- end }}
 
+# Kill process
+{{ if eq .chezmoi.os "linux" -}}
+alias qq="ps aux | fzf | awk '{print \$2}' | xargs kill -9"
+{{ else if eq .chezmoi.os "darwin" -}}
+{{- end }}
+
 # Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
 # (useful when executing time-consuming commands)
 alias badge="tput bel"
