@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+free-space() {
+  # nixos / home manager
+  nix-env --delete-generations old
+  nix-store --gc
+  nix-collect-garbage -d
+}
+
+free-space-deep() {
+  free-space()
+  nix-store --optimise
+}
