@@ -332,3 +332,7 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.daisydiskapp.DaisyDiskStandAlone'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'ai.krisp.krispMac'
+run = 'layout floating'
