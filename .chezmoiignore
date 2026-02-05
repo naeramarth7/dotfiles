@@ -26,5 +26,3 @@ bin/samba-fix
 .config/fuzzel
 {{- end }}
 
-# temp
-.vim
