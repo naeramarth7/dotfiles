@@ -497,10 +497,6 @@
             },
             {
                 "enabled": true,
-                "id": "wezterm"
-            },
-            {
-                "enabled": true,
                 "id": "pywalfox"
             },
             {
