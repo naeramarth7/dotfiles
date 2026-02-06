@@ -733,11 +733,15 @@ require("lazy").setup({
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
+      local colors = require("ayu.colors")
+      colors.generate()
+
       require("ayu").setup({
         mirage = false,
         terminal = true,
         overrides = {
           Comment = { italic = false },
+
           Normal = { bg = "None" },
           NormalFloat = { bg = "none" },
           ColorColumn = { bg = "None" },
@@ -747,6 +751,8 @@ require("lazy").setup({
           CursorLine = { bg = "None" },
           CursorColumn = { bg = "None" },
           VertSplit = { bg = "None" },
+
+          LineNr = { fg = colors.guide_active },
         },
       })
 
