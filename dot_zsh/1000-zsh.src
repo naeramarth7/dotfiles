@@ -15,6 +15,4 @@ done
 if [ $ZSH_DEBUG ]; then; echo -en "$(date +%s.%N) > .zshrc end\r\n"; fi
 if [ ! $ZSH_DEBUG ]; then; clear; fi
 
-source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
-
 autoload -Uz compinit && compinit
