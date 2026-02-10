@@ -560,10 +560,6 @@
             {
                 "enabled": true,
                 "id": "hyprland"
-            },
-            {
-                "enabled": true,
-                "id": "walker"
             }
         ],
         "enableUserTheming": false
