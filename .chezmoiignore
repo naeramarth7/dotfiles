@@ -26,3 +26,5 @@ bin/samba-fix
 .config/fuzzel
 {{- end }}
 
+# Generated themes
+.config/hypr/noctalia/
