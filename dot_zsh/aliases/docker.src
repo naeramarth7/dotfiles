@@ -2,7 +2,7 @@
 
 # docker
 alias de="docker-enter"
-alias dc="docker-compose"
+alias dc="podman compose"
 
 docker-enter() {
   docker exec -it $@ sh
