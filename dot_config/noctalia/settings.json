@@ -8,7 +8,7 @@
         "customLaunchPrefixEnabled": false,
         "density": "default",
         "enableClipPreview": true,
-        "enableClipboardHistory": false,
+        "enableClipboardHistory": true,
         "enableSettingsSearch": true,
         "enableWindowsSearch": true,
         "iconMode": "tabler",
@@ -226,7 +226,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Gruvbox",
+        "predefinedScheme": "Ayu",
         "schedulingMode": "off",
         "useWallpaperColors": false
     },
@@ -560,6 +560,10 @@
             {
                 "enabled": true,
                 "id": "hyprland"
+            },
+            {
+                "enabled": true,
+                "id": "walker"
             }
         ],
         "enableUserTheming": false
