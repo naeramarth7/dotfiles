@@ -1,5 +1,9 @@
 font-family = "0xProto Nerd Font"
+{{ if eq .chezmoi.os "darwin" -}}
 font-size = 10
+{{- else -}}
+font-size = 9
+{{- end }}
 
 window-padding-x = 8
 window-padding-y = 8
