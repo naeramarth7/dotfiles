@@ -420,6 +420,7 @@
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
+            "DP-4"
         ],
         "normalUrgencyDuration": 8,
         "overlayLayer": true,

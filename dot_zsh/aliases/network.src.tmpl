@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-{{ if eq .chezmoi.os "darwin" -}}
+{{ if eq .chezmoi.os "linux" -}}
 alias vpnadd="nmcli connection import type wireguard file "
 alias conup="nmcli connection up "
 alias condown="nmcli connection down "
