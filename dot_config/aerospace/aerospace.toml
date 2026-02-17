@@ -251,7 +251,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
 # Terminal
-alt-t = 'exec-and-forget open -n "/Users/sven.herrle/Applications/Home Manager Apps/Ghostty.app"'
+alt-t = 'exec-and-forget open -a Ghostty.app --args --quit-after-last-window-closed=true'
 
 # Privileges (macOS)
 ctrl-cmd-shift-equal = 'exec-and-forget /Applications/Privileges.app/Contents/MacOS/PrivilegesCLI --add'

@@ -12,3 +12,7 @@ background-opacity = 0.9
 #background-blur = 20
 
 theme = ayu-dark
+
+{{ if eq .chezmoi.os "darwin" -}}
+keybind = global:alt+t=new_window
+{{- end }}
