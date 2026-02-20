@@ -1,0 +1,92 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+REMOTE_HOST="root@10.0.30.90"
+REMOTE_BASE="/mnt/user/svenh/backup/macos"
+
+declare -A LOCAL_PATHS
+LOCAL_PATHS[moneymoney]="$HOME/Library/Containers/com.moneymoney-app.retail/Data/Library/Application Support/MoneyMoney"
+
+declare -A REMOTE_SUBDIRS
+REMOTE_SUBDIRS[moneymoney]="apps/moneymoney"
+
+usage() {
+  echo "Usage: $(basename "$0") <create|restore|list> <target> [backupname]"
+  echo ""
+  echo "Commands:"
+  echo "  create  <target>              Create a timestamped backup"
+  echo "  list    <target>              List available backups"
+  echo "  restore <target> <backupname> Restore a specific backup"
+  echo ""
+  echo "Targets: ${(k)LOCAL_PATHS}"
+  exit 1
+}
+
+[[ $# -lt 2 ]] && usage
+
+ACTION="$1"
+TARGET="$2"
+
+if [[ -z "${LOCAL_PATHS[$TARGET]+x}" ]]; then
+  echo "Error: unknown target '$TARGET'"
+  usage
+fi
+
+LOCAL_PATH="${LOCAL_PATHS[$TARGET]}"
+REMOTE_DIR="${REMOTE_BASE}/${REMOTE_SUBDIRS[$TARGET]:-$TARGET}"
+
+case "$ACTION" in
+  create)
+    TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
+    REMOTE_DEST="${REMOTE_DIR}/${TIMESTAMP}"
+
+    echo "Backing up ${TARGET} -> ${REMOTE_HOST}:${REMOTE_DEST}"
+    ssh "$REMOTE_HOST" "mkdir -p '${REMOTE_DEST}'"
+    rsync -az --info=progress2 --exclude='.DS_Store' "${LOCAL_PATH}/" "${REMOTE_HOST}:${REMOTE_DEST}/"
+
+    echo "Updating latest symlink..."
+    ssh "$REMOTE_HOST" "ln -sfn '${TIMESTAMP}' '${REMOTE_DIR}/latest'"
+
+    echo "Backup complete: ${TIMESTAMP}"
+    ;;
+
+  list)
+    echo "Backups for ${TARGET}:"
+    LATEST=$(ssh "$REMOTE_HOST" "readlink '${REMOTE_DIR}/latest' 2>/dev/null || true")
+    ENTRIES=$(ssh "$REMOTE_HOST" "ls -1 '${REMOTE_DIR}'" 2>/dev/null) || { echo "  (none)"; break; }
+    echo "$ENTRIES" | while read -r entry; do
+      [[ "$entry" == "latest" ]] && continue
+      if [[ "$entry" == "$LATEST" ]]; then
+        echo "  ${entry} (latest)"
+      else
+        echo "  ${entry}"
+      fi
+    done
+    ;;
+
+  restore)
+    if [[ $# -lt 3 ]]; then
+      echo "Error: restore requires a backup name"
+      echo "Usage: $(basename "$0") restore ${TARGET} <backupname>"
+      exit 1
+    fi
+    BACKUP_NAME="$3"
+    REMOTE_SRC="${REMOTE_DIR}/${BACKUP_NAME}"
+
+    echo "Restoring ${TARGET} from ${BACKUP_NAME}..."
+    echo "This will DELETE all contents of:"
+    echo "  ${LOCAL_PATH}"
+    read -q "REPLY?Continue? [y/N] " || { echo "\nAborted."; exit 1; }
+    echo
+
+    rm -rf "${LOCAL_PATH:?}"/*
+    rsync -az --info=progress2 "${REMOTE_HOST}:${REMOTE_SRC}/" "${LOCAL_PATH}/"
+
+    echo "Restore complete."
+    ;;
+
+  *)
+    echo "Error: unknown action '$ACTION'"
+    usage
+    ;;
+esac
