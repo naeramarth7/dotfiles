@@ -79,7 +79,8 @@ case "$ACTION" in
     read -q "REPLY?Continue? [y/N] " || { echo "\nAborted."; exit 1; }
     echo
 
-    rm -rf "${LOCAL_PATH:?}"/*
+    rm -rf "${LOCAL_PATH:?}"
+    mkdir -p "${LOCAL_PATH}"
     rsync -az --info=progress2 "${REMOTE_HOST}:${REMOTE_SRC}/" "${LOCAL_PATH}/"
 
     echo "Restore complete."
