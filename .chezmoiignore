@@ -1,29 +1,31 @@
+# secrets
 key.txt.age
 
+# macOS only configs
 {{ if ne .env.type "macos" -}}
-brew/
 Library/
-{{- end }}
-
-{{ if ne .env.type "macos" -}}
-**/*_osx.src
-{{- end }}
-
-{{ if ne .env.type "macos" -}}
-bin/alfred-*
-bin/samba-fix
-{{- end }}
-
-{{ if ne .env.type "macos" -}}
 .config/aerospace
 .config/borders
 .config/sketchybar
 {{- end }}
 
+# linux only configs
 {{ if ne .env.os "linux" -}}
 .config/niri
 .config/noctalia
 .config/fuzzel
+{{- end }}
+
+# scripts
+{{ if ne .env.type "macos" -}}
+.bin/alfred-*
+.bin/samba-fix
+.bin/macos-*
+{{- end }}
+
+# zsh
+{{ if ne .env.type "macos" -}}
+**/*_osx.src
 {{- end }}
 
 # Generated themes
