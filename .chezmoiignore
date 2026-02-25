@@ -30,3 +30,7 @@ Library/
 
 # Generated themes
 .config/hypr/noctalia/
+
+# nvim
+.config/nvim/lazy-lock.json
+
