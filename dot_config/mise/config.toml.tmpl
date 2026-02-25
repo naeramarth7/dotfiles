@@ -1,9 +1,12 @@
 [tools]
 usage = 'latest'
-{{ if eq .usage.mwea true -}}
-node = '22'
-python = '3.10.4'
-{{- end }}
+python = '3.14'
+node = '24'
 
 [settings]
+all_compile = false # explicitly disable for nixos
 idiomatic_version_file_enable_tools = []
+
+[env]
+NPM_MAIN_REGISTRY = "https://registry.npmjs.org/"
+
