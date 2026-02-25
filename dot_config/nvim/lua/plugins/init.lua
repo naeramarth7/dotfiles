@@ -24,6 +24,7 @@ require("lazy").setup({
   { import = "plugins.blink" },
   -- { import = "plugins.lualine" },
   { import = "plugins.mini" },
+  { import = "plugins.autopairs" },
 
   { import = "plugins.colors-ayu" },
 }, {
