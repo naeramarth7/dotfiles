@@ -17,8 +17,6 @@ Bind.n("<C-l>", "<C-w><C-l>", "Move focus to right split")
 Bind.n("<C-j>", "<C-w><C-j>", "Move focus to lower split")
 Bind.n("<C-k>", "<C-w><C-k>", "Move focus to upper split")
 
-Bind.n("<leader>ex", vim.cmd.Ex, "Show to [Ex]plorer")
-
 -- [[ Terminal Mode ]]
 
 -- Easy escape from terminal mode

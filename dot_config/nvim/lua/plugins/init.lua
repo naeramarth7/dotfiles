@@ -25,6 +25,7 @@ require("lazy").setup({
   -- { import = "plugins.lualine" },
   { import = "plugins.mini" },
   { import = "plugins.autopairs" },
+  { import = "plugins.neo-tree" },
 
   { import = "plugins.colors-ayu" },
 }, {
