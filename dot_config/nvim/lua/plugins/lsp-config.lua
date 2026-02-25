@@ -9,14 +9,14 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    -- INFO: We do not use Mason for LSP installation, as this does not play well with NixOS
-    --  Instead, LSPs need to be installed via the nix package manager.
+    -- INFO: programs.nix-ld.enable needs to be set to allow the binaries
+    --   installed by mason to work on NixOS.
+    { "mason-org/mason.nvim", opts = {} },
+    { "mason-org/mason-lspconfig.nvim", opts = {} },
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
 
     -- Extensible UI for Neovim notifications and LSP progress messages.
-    {
-      "j-hui/fidget.nvim",
-      opts = {}, -- TODO:
-    },
+    { "j-hui/fidget.nvim", opts = {} },
 
     -- Performant, batteries-included completion plugin for Neovim
     "saghen/blink.cmp",
@@ -83,6 +83,27 @@ return {
     -- Additional LSP capabilities via blink.cmp
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+    -- List of language servers to be enabled
+    local servers = {
+      ts_ls = {},
+    }
+
+    -- Install above listed language servers and some additional tools
+    --   g? for help in the menu
+    local ensure_installed = vim.tbl_keys(servers or {})
+    vim.list_extend(ensure_installed, {
+      "lua_ls",
+      "stylua",
+    })
+
+    require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
+    for name, server in pairs(servers) do
+      server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+      vim.lsp.config(name, server)
+      vim.lsp.enable(name)
+    end
+
     -- Special Lua config as recommended by neovim help docs
     vim.lsp.config("lua_ls", {
       on_init = function(client)
@@ -116,8 +137,5 @@ return {
     })
 
     vim.lsp.enable("lua_ls")
-
-    -- [[ Typescript ]]
-    vim.lsp.enable("ts_ls")
   end,
 }
