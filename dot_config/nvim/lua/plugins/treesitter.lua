@@ -3,6 +3,8 @@
 
 return {
   "nvim-treesitter/nvim-treesitter",
+  lazu = false,
+  build = ":TSUpdate",
   config = function()
     local filetypes = {
       "bash",
@@ -14,6 +16,7 @@ return {
       "markdown",
       "markdown_inline",
       "query",
+      "typescript",
       "vim",
       "vimdoc",
     }
@@ -21,7 +24,8 @@ return {
     vim.api.nvim_create_autocmd("FileType", {
       pattern = filetypes,
       callback = function()
-        vim.treesitter.start()
+        -- vim.treesitter.start()
+        pcall(vim.treesitter.start)
       end,
     })
   end,
