@@ -9,13 +9,6 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    -- INFO: programs.nix-ld.enable needs to be set to allow the binaries
-    --   installed by mason to work on NixOS.
-    { "mason-org/mason.nvim", opts = {} },
-    { "mason-org/mason-lspconfig.nvim", opts = {} },
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-
-    -- Extensible UI for Neovim notifications and LSP progress messages.
     { "j-hui/fidget.nvim", opts = {} },
 
     -- Performant, batteries-included completion plugin for Neovim
@@ -87,16 +80,6 @@ return {
     local servers = {
       ts_ls = {},
     }
-
-    -- Install above listed language servers and some additional tools
-    --   g? for help in the menu
-    local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      "lua_ls",
-      "stylua",
-    })
-
-    require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
     for name, server in pairs(servers) do
       server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})

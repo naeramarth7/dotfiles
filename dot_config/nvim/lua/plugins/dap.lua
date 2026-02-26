@@ -11,10 +11,6 @@ return {
     -- https://github.com/nvim-neotest/nvim-nio
     "nvim-neotest/nvim-nio",
 
-    -- Installs the debug adapters
-    "mason-org/mason.nvim",
-    "jay-babu/mason-nvim-dap.nvim",
-
     -- Syntax highlight for repl buffer
     {
       "LiadOz/nvim-dap-repl-highlights",
@@ -93,18 +89,6 @@ return {
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")
-
-    require("mason-nvim-dap").setup({
-      automatic_installation = true,
-
-      -- You can provide additional configuration to the handlers,
-      -- see mason-nvim-dap README for more information
-      handlers = {},
-
-      -- You'll need to check that you have the required things installed
-      -- online, please don't ask me how to install them :)
-      ensure_installed = { "js" },
-    })
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
