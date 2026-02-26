@@ -23,8 +23,8 @@ return {
       -- By default, press <Space-c> for documentation.
       -- Or enable the following to auto-show it.
       documentation = {
-        auto_show = false,
-        auto_show_delay_ms = 500,
+        auto_show = true,
+        auto_show_delay_ms = 0,
       },
     },
     sources = {

@@ -22,11 +22,14 @@ require("lazy").setup({
   { import = "plugins.lsp-config" },
   { import = "plugins.conform" },
   { import = "plugins.blink" },
-  -- { import = "plugins.lualine" },
   { import = "plugins.mini" },
   { import = "plugins.autopairs" },
   { import = "plugins.neo-tree" },
   { import = "plugins.dap" },
+
+  -- Language-specific configurations
+  { import = "plugins.lang.lua" },
+  { import = "plugins.lang.typescript" },
 
   { import = "plugins.colors-ayu" },
 }, {

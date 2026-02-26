@@ -13,7 +13,7 @@ return {
         Comment = { italic = false },
 
         Normal = { bg = "None" },
-        NormalFloat = { bg = "none" },
+        -- NormalFloat = { bg = "none" },
         ColorColumn = { bg = "None" },
         SignColumn = { bg = "None" },
         Folded = { bg = "None" },
@@ -25,6 +25,7 @@ return {
         StatusLine = { bg = "None" },
         StatusLineNc = { bg = "None" },
 
+        -- mini.line
         MiniStatusLineDevinfo = { bg = "None" },
         MiniStatuslineFilename = { bg = "None" },
         MiniStatuslineFileinfo = { bg = "None" },
@@ -35,11 +36,5 @@ return {
     })
 
     vim.cmd.colorscheme("ayu")
-
-    -- require("lualine").setup({
-    --   options = {
-    --     theme = "ayu",
-    --   },
-    -- })
   end,
 }

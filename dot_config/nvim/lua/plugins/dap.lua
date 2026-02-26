@@ -2,6 +2,13 @@ return {
   -- https://codeberg.org/mfussenegger/nvim-dap
   "mfussenegger/nvim-dap",
 
+  opts = {
+    -- Language-specific DAP adapters and configurations
+    -- Extended by plugins/lang/*/dap-config.lua
+    adapters = {},
+    configurations = {},
+  },
+
   dependencies = {
     -- Creates a beautiful debugger UI
     -- https://github.com/rcarriga/nvim-dap-ui
@@ -86,7 +93,7 @@ return {
       desc = "Debug: See last session result.",
     },
   },
-  config = function()
+  config = function(_, opts)
     local dap = require("dap")
     local dapui = require("dapui")
 
@@ -109,26 +116,18 @@ return {
       },
     })
 
-    dap.adapters["pwa-node"] = {
-      type = "server",
-      host = "localhost",
-      port = "${port}",
-      executable = {
-        command = "js-debug-adapter",
-        args = { "${port}" },
-      },
-      skipFiles = {
-        "<node_internals>/**",
-        "**/node_modules/**/*",
-      },
-    }
-
     dap.listeners.after.event_initialized["dapui_config"] = dapui.open
     dap.listeners.before.event_terminated["dapui_config"] = dapui.close
     dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
-    -- Configure individual debuggers (see lua/plugins/dap/)
-    dap.configurations.typescript = require("plugins.dap-configs.typescript")
-    -- dap.configurations.javascript = dap.configurations.typescript
+    -- Register language-specific DAP adapters from opts
+    for name, adapter in pairs(opts.adapters or {}) do
+      dap.adapters[name] = adapter
+    end
+
+    -- Load language-specific DAP configurations from opts
+    for lang, configs in pairs(opts.configurations or {}) do
+      dap.configurations[lang] = configs
+    end
   end,
 }

@@ -1,4 +1,18 @@
-return {
+local adapter = {
+  type = "server",
+  host = "localhost",
+  port = "${port}",
+  executable = {
+    command = "js-debug",
+    args = { "${port}" },
+  },
+  skipFiles = {
+    "<node_internals>/**",
+    "**/node_modules/**/*",
+  },
+}
+
+local configs = {
   {
     type = "pwa-node",
     request = "launch",
@@ -20,5 +34,22 @@ return {
     processId = require("dap.utils").pick_process,
     cwd = "${workspaceFolder}",
     sourceMaps = true,
+  },
+}
+
+return {
+  {
+    "mfussenegger/nvim-dap",
+    optional = true,
+    opts = {
+      adapters = {
+        ["pwa-node"] = adapter,
+        ["node"] = adapter, -- Alias for compatibility
+      },
+      configurations = {
+        typescript = configs,
+        javascript = configs,
+      },
+    },
   },
 }
