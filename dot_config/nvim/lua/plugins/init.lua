@@ -31,6 +31,7 @@ require("lazy").setup({
 
   -- Language-specific configurations
   { import = "plugins.lang.lua" },
+  { import = "plugins.lang.nix" },
   { import = "plugins.lang.typescript" },
 
   { import = "plugins.colors-ayu" },
