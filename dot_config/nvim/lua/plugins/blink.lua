@@ -24,7 +24,7 @@ return {
       -- Or enable the following to auto-show it.
       documentation = {
         auto_show = false,
-        auto_show_dealy_ms = 500,
+        auto_show_delay_ms = 500,
       },
     },
     sources = {
