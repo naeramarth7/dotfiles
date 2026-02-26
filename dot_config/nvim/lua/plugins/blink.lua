@@ -29,6 +29,9 @@ return {
     },
     sources = {
       default = { "lsp", "path", "snippets" },
+      per_filetype = {
+        codecompanion = { "codecompanion" },
+      },
     },
     snippets = { preset = "luasnip" },
     fuzzy = { implementation = "lua" },

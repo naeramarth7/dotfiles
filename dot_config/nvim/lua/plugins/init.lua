@@ -26,6 +26,8 @@ require("lazy").setup({
   { import = "plugins.autopairs" },
   { import = "plugins.neo-tree" },
   { import = "plugins.dap" },
+  { import = "plugins.copilot" },
+  { import = "plugins.codecompanion" },
 
   -- Language-specific configurations
   { import = "plugins.lang.lua" },
