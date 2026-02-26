@@ -29,12 +29,16 @@ return {
     -- Inline display of variable values
     {
       "theHamsta/nvim-dap-virtual-text",
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+      },
       config = function()
         require("nvim-dap-virtual-text").setup({
           -- commented = true,
           -- all_references = true,
           -- virt_text_pos = 'eol',
         })
+        require("nvim-treesitter").install({ "dap_repl" })
       end,
     },
 
