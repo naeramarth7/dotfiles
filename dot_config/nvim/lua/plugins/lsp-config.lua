@@ -44,7 +44,7 @@ return {
         -- Highlight references of current word under cursor if resting on it
         --   Clear after moving on.
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if client and client:supports_method("tetxDocument/documentHighlight", event.buf) then
+        if client and client:supports_method("textDocument/documentHighlight", event.buf) then
           local highlight_augroup_name = "lspconfig-lsp-highlight"
           local highlight_augroup = vim.api.nvim_create_augroup(highlight_augroup_name, { clear = false })
 
