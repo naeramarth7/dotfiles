@@ -5,7 +5,7 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   version = "*",
   dependencies = {
-    "nvim-lu/plenary.nvim",
+    "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "nvim-tree/nvim-web-devicons", -- optional
   },
