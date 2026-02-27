@@ -20,6 +20,7 @@ require("lazy").setup({
   { import = "plugins.gitsigns" },
   { import = "plugins.todo-comments" },
   { import = "plugins.lsp-config" },
+  { import = "plugins.lspsaga" },
   { import = "plugins.conform" },
   { import = "plugins.blink" },
   { import = "plugins.mini" },
