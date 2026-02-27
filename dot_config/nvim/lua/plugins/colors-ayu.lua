@@ -10,6 +10,7 @@ return {
       mirage = false,
       terminal = true,
       overrides = {
+        -- https://github.com/Shatur/neovim-ayu/blob/master/lua/ayu/init.lua
         Comment = { italic = false },
 
         Normal = { bg = "None" },
@@ -32,6 +33,8 @@ return {
         MiniStatuslineInactive = { bg = "None" },
 
         LineNr = { fg = colors.guide_active },
+
+        LspSignatureActiveParameter = { fg = colors.keyword, bold = true, italic = false, underline = true },
       },
     })
 
